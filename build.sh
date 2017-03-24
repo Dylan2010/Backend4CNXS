@@ -8,5 +8,6 @@ cp DataBase/cnxs.sql deploy/cnxs.sql
 cp CNXS/target/CNXS.war deploy/CNXS.war
 cd deploy
 docker rm -f backend
+docker rmi cndsbackend:$tag
 docker build -t cndsbackend:$tag .
 docker run -dit --name backend -p 8080:8080 cndsbackend:$tag
