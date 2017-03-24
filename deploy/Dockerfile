@@ -4,6 +4,7 @@ RUN rm -fr /usr/local/tomcat/webapps/ROOT
 RUN rm -fr /usr/local/tomcat/webapps/docs
 RUN rm -fr /usr/local/tomcat/webapps/examples
 ADD run.sh /opt/run.sh
+ADD init.sql /opt/init.sql
 ADD cnxs.sql /opt/cnxs.sql
 ADD CNXS.war /usr/local/tomcat/webapps/ROOT.war
 RUN chmod +x /opt/run.sh

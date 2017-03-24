@@ -1,0 +1,4 @@
+USE mysql;
+  FLUSH PRIVILEGES;
+  GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
+  UPDATE user SET password=PASSWORD("MY_PASSWORD") WHERE user='root';
