@@ -1,0 +1,243 @@
+@charset "utf-8";
+
+body{
+	background:url(../images/team/team_bg.jpg) top center;
+}
+
+
+#manager .general_frame{
+	width:635px;
+	height:414px;
+	float:left;
+	background:url(../images/team/general_frame.png) no-repeat;
+	background-size:contain;
+	position:relative;
+}
+#manager .general_frame img{
+	width:591px;
+	height:376px;
+	position:absolute;
+	top:28px;
+	left:10px;
+}
+
+#manager .info{
+	height:414px;
+	width:375px;
+	float:right;
+	position:relative;
+}
+#manager .info_content{
+	padding-left:60px;
+}
+#manager .info_content .name{
+	font-size:28px;
+	margin-top:80px;
+	margin-bottom:5px;
+	font-weight:bold;
+}
+#manager .info_content .duties{
+	margin-top:0;
+	font-size:24px;
+	margin-bottom:20px;
+	font-weight:bold;
+}
+#manager .info_content .describe{
+	font-size:16px;
+}
+
+#manager .vice{
+	background:url(../images/team/vice_frame.png) no-repeat;
+	background-size:cover;
+	margin-top:25px;
+	height:541px;
+	position:relative;
+}
+#vice_img1{
+	position:absolute;
+	top:10px;
+	left:434px;
+	height:222px;
+	width:567px;
+}
+#vice_img2{
+	position:absolute;
+	left:10px;
+	top:280px;
+	height:222px;
+	width:499px;
+}
+#manager .vice .info1{
+	text-align:right;
+	position:absolute;
+	width:350px;
+	top:10px;
+	left:30px;
+}
+#manager .vice .name{
+	font-size:28px;
+	margin-bottom:5px;
+}
+#manager .vice .duties{
+	font-size:24px;
+	margin-top:0;
+}
+#manager .vice .position{
+	font-size:13px;
+}
+#manager .vice .info2{
+	text-align:left;
+	position:absolute;
+	width:340px;
+	right:110px;
+	top:230px;
+}
+
+#brand_team{
+	color:#fff;
+}
+#brand_team h2{
+	font-size:32px;
+	position:relative;
+}
+#technology{
+	height:607px;
+	width:1010px;
+	background:url(../images/team/team_tech_bg.png) center left no-repeat;
+	background-size:80%;
+	position:relative;
+	margin-top:50px;
+}
+#technology h2{
+	top:50px;
+	left:830px;
+}
+#technology .province{
+	position:absolute;
+}
+#technology .text{
+	line-height:35px;
+}
+#technology .triangle{
+	width:14px;
+	height:24px;
+	position:absolute;
+}
+#technology .triangle.left{
+	background:url(../images/team/tri_left.png) no-repeat;
+}
+#technology .triangle.right{
+	background:url(../images/team/tri_right.png) no-repeat;
+}
+
+#technology .province.beijing{
+	left:140px;
+	top:0px;
+}
+#technology .province.beijing .text{
+	width:300px;
+	float:left;
+}
+#technology .province.beijing img{
+	position:relative;
+	top:180px;
+}
+#technology .province.beijing .triangle{
+	right:-25px;
+	bottom:40px;
+}
+#technology .province.shanghai{
+	left:750px;
+	top:230px;
+}
+#technology .province.shanghai .text{
+	width:300px;
+}
+#technology .province.shanghai img{
+}
+#technology .province.shanghai .triangle{
+	left:-30px;
+	top:130px;
+}
+#technology .province.sichuan{
+	top:390px;
+}
+#technology .province.sichuan .text{
+	width:300px;
+}
+#technology .province.sichuan img{
+	position:relative;
+	left:156px;
+}
+#technology .province.sichuan .triangle{
+	right:-25px;
+	top:10px;
+}
+
+
+#culture{
+	margin-bottom:300px;
+}
+#culture h2{
+	font-size:32px;
+	top:180px;
+}
+.team_culture_border{
+	border:1px solid #fff;
+	transform:skewY(-26.5deg);
+	width:990px;
+	padding-bottom:20px;
+	padding-left:20px;
+}
+
+.team_culture_border ul{
+	margin:0;
+	padding:0;
+	width:1010px;
+	margin-top:20px;
+}
+.team_culture_border li{
+	float:left;
+	width:25%;
+	height:252px;
+	display:block;
+	list-style:none;
+	position:relative;
+	font-size:0px;
+}
+.team_culture_border li.gray{
+	background:#444;
+}
+
+.team_culture_c_text{
+	position:absolute;
+	left:20px;
+	top:45%;
+	color:#fff;
+	transform:skewY(26.5deg);
+	font-size:14px;
+}
+.team_culture_c_text .name{
+	font-size:18px;
+	margin:15px 0;
+	width:100px;
+	margin-top:-5px;
+}
+.team_culture_c_text .intro{
+	font-size:13px;
+	margin:8px 0;
+}
+.team_culture_c_text .doc{
+	font-size:13px;
+	margin:8px 0;
+}
+
+.team_culture_c_img{
+	transform:skewY(26.5deg);
+	position:absolute;
+	top:-63px;
+	width:100%;
+}
+.team_culture_c_img img{
+	width:100%;
+}

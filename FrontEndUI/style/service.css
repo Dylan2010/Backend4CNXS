@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+
+.service_list h2{
+	margin:8px 0;
+	font-size:18px;
+}
+.service_list p{
+	margin:0;
+	font-size:14px;
+	line-height:20px;
+}
+.service_list .article{
+	width:390px;
+	height:133px;
+	color:#fff;
+	padding:5px;
+}
+
+.service_list img{
+	width:610px;
+}
+
+.service_list .odd .article{
+	float:left;
+}
+.service_list .odd img{
+	float:right;
+}
+.service_list .even .article{
+	float:right;
+}
+.service_list .even img{
+	float:left;
+}

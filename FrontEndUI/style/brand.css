@@ -1,0 +1,226 @@
+@charset "utf-8";
+
+
+#topic{
+	position:absolute;
+	top:270px;
+	left:330px;
+}
+.brand_nav{
+	display:inline-block;
+	position:absolute;
+	color:#ccc;
+}
+.brand_nav.on{
+	color:#fff;
+}
+.brand_nav h2{
+	font-size:20px;
+	font-weight:normal;
+	position:relative;
+	left:190px;
+	display:none;
+}
+.brand_nav img{
+	position:absolute;
+	left:0;
+	top:0;
+	width:180px;
+}
+.brand_nav .on{
+	display:none;
+}
+
+#idea{
+	left:100px;
+	top:150px;
+}
+#experience{
+	left:490px;
+}
+#team{
+	left:780px;
+	top:250px;
+}
+
+#brand_idea{
+	color:#fff;
+}
+#brand_idea .article{
+	width:50%;
+	float:left;
+}
+#brand_idea .article h1{
+	margin:30px 0;
+}
+#brand_idea .article p{
+	margin:0;
+	padding-right: 20px;
+	font-size:13px;
+	line-height:26px;
+	text-indent:2em;
+}
+#brand_idea .images{
+	width:50%;
+	float:right;
+}
+#brand_idea .images .img{
+	padding:10px;
+	background:#fff;
+	font-size:0;
+}
+#brand_idea .images .img img{
+	width:100%;
+	
+}
+
+#brand_idea .images .img.top{
+	margin-bottom:20px;
+}
+
+#brand_develop h1{
+	color:#fff;
+	position:absolute;
+	left:100px;
+	margin:0;
+}
+#brand_develop ul{
+	margin-bottom:100px;
+}
+#brand_develop li{
+	background:url(../images/brand/develop/trunk.png) center center no-repeat;
+	background-size:auto 83px;
+	height:85px;
+	position:relative;
+	color:#fff;
+}
+
+#brand_develop li .brunch{
+	position:absolute;
+	width:192px;
+}
+
+#brand_develop li:nth-child(odd) .brunch{
+	right:50%;
+}
+#brand_develop li:nth-child(even) .brunch{
+	left:50%;
+}
+
+#brand_develop li .time{
+	font-size:13px;
+	position:absolute;
+}
+#brand_develop li:nth-child(odd) .time{
+	right:50%;
+	margin-right:23px;
+	top:0;
+}
+#brand_develop li:nth-child(even) .time{
+	left:50%;
+	margin-left:23px;
+	top:0;
+}
+
+#brand_develop li .describe{
+	width:156px;
+	font-size:12px;
+	position:absolute;
+}
+#brand_develop li:nth-child(odd) .describe{
+	right:50%;
+	margin-right:23px;
+	top:0;
+}
+#brand_develop li:nth-child(even) .describe{
+	left:50%;
+	margin-left:23px;
+	top:0;
+}
+
+#brand_develop li .illustration{
+	position:absolute;
+}
+#brand_develop li:nth-child(odd) .illustration{
+	right:50%;
+	margin-right:192px;
+	top:0;
+}
+#brand_develop li:nth-child(even) .illustration{
+	left:50%;
+	margin-left:192px;
+	top:0;
+}
+
+#brand_develop li:nth-child(2) .brunch{
+	top:40px;
+}
+#brand_develop li:nth-child(2) .time{
+	top:0px;
+}
+#brand_develop li:nth-child(2) .describe{
+	top:40px;
+}
+#brand_develop li:nth-child(2) .illustration{
+	top:-30px;
+}
+#brand_develop li:nth-child(3) .brunch{
+	top:40px;
+}
+#brand_develop li:nth-child(3) .time{
+	top:0px;
+}
+#brand_develop li:nth-child(3) .describe{
+	top:40px;
+}
+#brand_develop li:nth-child(3) .illustration{
+	top:-30px;
+}
+#brand_develop li:nth-child(4) .brunch{
+	top:40px;
+}
+#brand_develop li:nth-child(4) .time{
+	top:0px;
+}
+#brand_develop li:nth-child(4) .describe{
+	top:40px;
+}
+#brand_develop li:nth-child(4) .illustration{
+	top:-27px;
+}
+#brand_develop li:nth-child(5) .brunch{
+	top:15px;
+}
+#brand_develop li:nth-child(5) .time{
+	top:-30px;
+}
+#brand_develop li:nth-child(5) .describe{
+	top:15px;
+}
+#brand_develop li:nth-child(5) .illustration{
+	top:-47px;
+}
+#brand_develop li:nth-child(6) .brunch{
+	top:40px;
+}
+#brand_develop li:nth-child(6) .time{
+	top:0px;
+}
+#brand_develop li:nth-child(6) .describe{
+	top:40px;
+}
+#brand_develop li:nth-child(6) .illustration{
+	top:-27px;
+}
+#brand_develop li:nth-child(7) .brunch{
+	top:15px;
+}
+#brand_develop li:nth-child(7) .time{
+	top:-30px;
+}
+#brand_develop li:nth-child(7) .describe{
+	top:15px;
+}
+#brand_develop li:nth-child(7) .illustration{
+	top:-47px;
+}

@@ -1,0 +1,147 @@
+@charset "utf-8";
+
+#login_page .login_region{
+	background:url(../images/user/login_bg.png) no-repeat;
+	background-size:649px 306px;
+	width:649px;
+	height:306px;
+	margin:auto;
+	position:absolute;
+	top:80px;
+	left:0;
+	right:0;
+	color:#fff;
+}
+
+#login_page .login_region .login_left{
+	width:60%;
+	height:100%;
+	float:left;
+}
+#login_page .login_region .login_left h2{
+	width:100%;
+	text-align:center;
+	font-weight:normal;
+	font-size:24px;
+}
+#login_page .login_region .login_left .username_frame{
+	background:url(../images/user/username.png) no-repeat;
+	background-size:260px 32px;
+	width:260px;
+	height:32px;
+	margin:10px auto;
+}
+#login_page .login_region .login_left .username_frame input{
+	width: 220px;
+    height: 22px;
+    padding: 0;
+    margin-top: 4px;
+    margin-left: 6px;
+    border: none;
+    background: none;
+}
+#login_page .login_region .login_left .password_frame{
+	background:url(../images/user/password.png) no-repeat;
+	background-size:260px 32px;
+	width:260px;
+	height:32px;
+	margin:20px auto;
+}
+#login_page .login_region .login_left .password_frame input{
+	width: 220px;
+    height: 22px;
+    padding: 0;
+    margin-top: 4px;
+    margin-left: 6px;
+    border: none;
+    background: none;
+}
+#login_page .login_region .login_left .login_btn{
+	color:#fff;
+	display:block;
+	width:260px;
+	height:32px;
+	background:#2495c0;
+	line-height:32px;
+	margin:20px auto;
+	text-align:center;
+}
+#login_page .login_region .login_right{
+	width:30%;
+	float:left;
+	height:100%;
+	text-align:center;
+}
+#login_page .login_region .login_right h3{
+	font-size:20px;
+	font-weight:normal;
+	margin-top:100px;
+}
+#login_page .login_region .login_right .regist_btn{
+	background:url(../images/user/reg_btn.png) no-repeat;
+	background-size:125px 36px;
+	width:125px;
+	height:36px;
+	color:#fff;
+	display:block;
+	margin:auto;
+	line-height:36px;
+}
+
+#regist_page .regist_region{
+	background:url(../images/user/reg_bg.png) no-repeat;
+	background-size:494px 389px;
+	width:494px;
+	height:389px;
+	margin:auto;
+	position:absolute;
+	top:40px;
+	left:0;
+	right:0;
+	color:#fff;
+}
+
+#regist_page .regist_region h2{
+	width:100%;
+	text-align:center;
+	font-weight:normal;
+	font-size:24px;
+	margin-top:50px;
+}
+#regist_page .regist_region .input_frame{
+	background:url(../images/user/reg_input_bg.png);
+	background-size:325px 40px;
+	width:325px;
+	height:40px;
+	margin:20px auto;
+}
+#regist_page .regist_region .input_frame input{
+	width: 310px;
+    height: 30px;
+    padding: 0;
+    margin-top: 4px;
+    margin-left: 6px;
+    border: none;
+    background: none;
+}
+#regist_page .regist_region .regist_btn{
+	width:325px;
+	height:40px;
+	display:block;
+	margin:30px 0;
+	background:#2495c0 no-repeat;
+	background-size:325px 40px;
+	color:#fff;
+	display:block;
+	margin:auto;
+	line-height:40px;
+	text-align:center;
+}
+
+#regist_page .regist_region .login_goto{
+	width:325px;
+	margin:10px auto;
+}
+#regist_page .regist_region .login_goto a{
+	color:#2495c0;
+}
