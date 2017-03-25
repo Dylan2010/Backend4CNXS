@@ -1,3 +1,4 @@
+
 package com.cnxs.bo;
 
 import javax.persistence.Entity;

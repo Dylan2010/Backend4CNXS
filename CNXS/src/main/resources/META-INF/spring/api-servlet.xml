@@ -23,6 +23,8 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 	<context:component-scan base-package="com.cnxs.dao,
 										  com.cnxs.service" />
 
+	<tx:annotation-driven transaction-manager="cnxsTransactionManager" />
+
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName" value="${jdbc.driverClassName}" />
@@ -56,5 +58,24 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 			</map>
 		</property>
 	</bean>
+
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<ref bean="jsonHttpMessageConverter" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="jsonHttpMessageConverter"
+		class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+		<property name="supportedMediaTypes">
+			<list>
+				<value>application/json;charset=UTF-8</value>
+			</list>
+		</property>
+	</bean>
+
 
 </beans>

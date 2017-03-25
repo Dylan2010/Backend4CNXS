@@ -26,9 +26,4 @@ public class SimpleRest {
     public ResponseEntity<String> getSampleFromDB() {
         return new ResponseEntity<String>(userDao.getUserById(1).getAccount(), HttpStatus.OK);
     }
-    
-    @RequestMapping(value = "/type/{type}/id/{id}",method = RequestMethod.GET)
-    public ResponseEntity<String> getFrompath(@PathVariable String type,@PathVariable int id) {
-        return new ResponseEntity<String>(type + id, HttpStatus.OK);
-    }
 }
