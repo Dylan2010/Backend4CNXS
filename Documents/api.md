@@ -14,3 +14,7 @@
 创建某种类别文章 | Articles/type/{type} | Post
 更新某篇文章 | Articles/type/{type}/id/{id} | Post
 获取最新动态 | Articles/news | Get 
+
+初始用户：
+account: initialAccount
+password: testPassword
