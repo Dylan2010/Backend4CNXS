@@ -18,10 +18,6 @@ public class UserDaoImpl implements UserDao{
     @PersistenceContext(unitName="CNXS")
     private EntityManager em;
 
-    public User getUserById(int id) {
-        return em.find(User.class, id);
-    }
-
 	@Override
 	@Transactional
 	public int createUser(User user) {

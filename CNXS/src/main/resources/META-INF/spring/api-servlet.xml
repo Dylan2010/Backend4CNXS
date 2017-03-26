@@ -64,6 +64,7 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 		<property name="messageConverters">
 			<list>
 				<ref bean="jsonHttpMessageConverter" />
+				<ref bean="byteObjConverter" />
 			</list>
 		</property>
 	</bean>
@@ -76,6 +77,17 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 			</list>
 		</property>
 	</bean>
+	
+	<bean id="byteObjConverter" class="org.springframework.http.converter.ByteArrayHttpMessageConverter">
+            <property name="supportedMediaTypes">
+                <list>
+                    <value>image/jpeg</value>
+                    <value>image/png</value>
+                    <value>image/webp</value>
+                </list>
+            </property>
+        </bean>
+	
 
 
 </beans>
