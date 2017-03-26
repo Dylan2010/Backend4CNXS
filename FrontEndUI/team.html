@@ -18,6 +18,12 @@
 			if(((parseInt(n / 4))%2 != 0 && n%2 != 0) || ((parseInt(n / 4))%2 == 0 && n%2 == 0)){
 			$(v).addClass("gray")}
 		});
+		
+		$("#technology .province").hover(function(){
+			$(this).find(".hidearea").stop().fadeIn(300);
+		},function(){
+			$(this).find(".hidearea").stop().fadeOut(300);
+		});
     });
 </script>
 <!-- InstanceEndEditable -->
@@ -128,18 +134,14 @@
                 <div class="info">
                 	<div class="info_content">
                 		<p class="name">翁天雄</p>
-                        <!--<p class="duties">浙江升华拜克生物股份有限公司副总经理</p>-->
+                        <p class="duties">董事长兼总经理</p>
                         <p class="describe">
-                        	浙江升华拜克生物股份有限公司副总经理
-                            <br/>
-                            数舟（上海）数据信息服务有限公司总经理
-                            <br/>
-                            <br/>
-                            历任：
-                            <br/>
-                            SMG新娱乐、东方卫视中心 资深制作人
-                            <br/>
-东方卫视研发中心 高级经理
+                        	浙江升华拜克生物股份有限公司
+                            <br/>副总经理
+                            <br/><br/>
+                            数舟（上海）数据信息服务有限公司
+                            <br/>总经理
+                            
 
                         </p>
                     </div>
@@ -147,24 +149,18 @@
             </div>
             <div class="vice">
             	<img id="vice_img1" src="images/team/vice_img1.jpg"/>
-                <img id="vice_img2" src="images/team/vice_img2.jpg"/>
+                <!--<img id="vice_img2" src="images/team/vice_img2.jpg"/>-->
                 <div class="info1">
                 	<p class="name">潘振河</p>
-                    <!--<p class="duties">数舟（上海）数据信息服务有限公司副总经理</p>-->
+                    <p class="duties">副总经理</p>
                     <p class="position">
-                    数舟（上海）数据信息服务有限公司副总经理<br/>
-                    <br/>
-                    历任：<br/>
-                    北京夏塔艺术基金 负责人<br/>
-香港长泓基金  投资总监<br/>
-英泽信息科技有限公司（上市公司天源迪科300047控股）副总裁兼市场拓展部总监<br/>
-华为技术有限公司 BP&IT 总裁办OPS IT运营管理团队主管
-
+                    数舟（上海）数据信息服务有限公司<br/>副总经理
+                    
                     </p>
                 </div>
-                <div class="info2">
+                <!--<div class="info2">
                 	<p class="name">章毅</p>
-                    <!--<p class="duties">首席科学家</p>-->
+                    <p class="duties">首席科学家</p>
                     <p class="position">
                     首席科学家<br/>
                     <br/>
@@ -177,23 +173,25 @@
   团队成员包括国家杰青1名（吕建成教授）、国家优青1名（张蕾教授）、四川省千人1名（<br/>彭德中教授）以及其他教授、副教授和讲师共计12人。实验室现有博士研究生35人，硕士研究生40人
 
                     </p>
-                </div>
+                </div>-->
             </div>
         </div>
         <div id="technology">
  			<h2>技术团队</h2>
             <div class="province beijing">
-            	<div class="text">
-                	WEB数据自动化采集技术<br/>
-移动APP数据采集技术<br/>
-基于云服务的海量网络处理技术<br/>
-高速异步传输技术<br/>
-多元多维数据一体化技术<br/>
-图像匹配技术等<br/>
-团队技术实力强劲，拥有222科研人员，
-70%以上的人员拥有博士学位
+            	<div class="hidearea">
+                    <img src="images/global/cooperation/zhongke.png"/>
+                    <div class="text">
+                        WEB数据自动化采集技术<br/>
+    移动APP数据采集技术<br/>
+    基于云服务的海量网络处理技术<br/>
+    高速异步传输技术<br/>
+    多元多维数据一体化技术<br/>
+    图像匹配技术等<br/>
+    团队技术实力强劲，拥有222科研人员，<br/>
+    70%以上的人员拥有博士学位
+                    </div>
                 </div>
-                <img src="images/team/zhongke.png"/>
                 <div class="triangle left">
                 </div>
             </div>
@@ -207,11 +205,13 @@
                 </div>
             </div>-->
             <div class="province sichuan">
-            	<img src="images/team/sichuan.png"/>
-            	<div class="text">
-                	共建IP研究院，进行IP相关课题的研究<br/>
-四川大学计算机学院拟将国家机器只能实验室科研成果应用到数舟网络IP估值系统建设中，投入到IP相关领域<br/>
-人工智能的基础就是大数据神经网络应用，将大数据神经网络科研成果应用于网络IP大数据体系建设上
+            	<div class="hidearea">
+                    <img src="images/global/cooperation/sichuanU.png"/>
+                    <div class="text">
+                        共建IP研究院，进行IP相关课题的研究<br/>
+    四川大学计算机学院拟将国家机器只能实验室科研成果应用到数舟网络IP估值系统建设中，投入到IP相关领域<br/>
+    人工智能的基础就是大数据神经网络应用，将大数据神经网络科研成果应用于网络IP大数据体系建设上
+                    </div>
                 </div>
                 <div class="triangle left">
                 </div>
@@ -219,7 +219,9 @@
     	</div>
     	<div id="culture">
             <h2>文化团队</h2>
-            <img src="images/team/team.JPG" style="width:100%;margin-top:180px;"/>
+            <div style="width:980px;border:1px solid #fff;margin-top:250px;font-size:0;margin-left:30px;">
+            	<img src="images/team/team.JPG" style="width:100%;border:5px solid #fff;position:relative;top:-30px;left:-30px;"/>
+            </div>
             <!--<div class="team_culture_border">
             	<ul class="clear">
                 	<li>

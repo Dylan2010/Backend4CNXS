@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>jQuery超炫图片3D背景视觉差特效插件-素材吧-网页特效</title>
+	<!--<link rel="stylesheet" type="text/css" href="css/normalize.css" />-->
+	<!--<link rel="stylesheet" type="text/css" href="css/default.css">-->
+	<link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/perspectiveRules.css" rel="stylesheet" />
+	
+</head>
+<body>
+	
+
+	<div id="demo1">
+	    <img alt="background" src="assets/images/background.jpg" />
+	    <div id="particle-target" ></div>
+	    <img id="goIndex" alt="logo" src="assets/images/logo.png" />
+		<a href="index.html" style="color:#fff;">Enter>></a>
+	</div>
+
+	<script src="assets/js/jquery-1.11.0.min.js"></script>
+	<script src="assets/js/jquery.logosDistort.min.js"></script>
+	<script src="assets/js/jquery.particleground.min.js"></script>
+	<script>
+	    var particles = true,
+	        particleDensity,
+	        options = {
+	            effectWeight: 1,
+	            outerBuffer: 1.08,
+	            elementDepth: 220
+	        };
+
+	    $(document).ready(function() {
+
+	        $("#demo1").logosDistort(options);
+
+	        if (particles) {
+	            particleDensity = window.outerWidth * 7.5;
+	            if (particleDensity < 13000) {
+	                particleDensity = 13000;
+	            } else if (particleDensity > 20000) {
+	                particleDensity = 20000;
+	            }
+	            return $('#particle-target').particleground({
+	                dotColor: '#1ec5ee',
+	                lineColor: '#0a4e90',
+	                density: particleDensity.toFixed(0),
+	                parallax: false
+	            });
+	        }
+			
+			$("#goIndex").click(function(){
+				window.location.href="./index.html";
+			});
+	    });
+	</script>
+</body>
+</html>

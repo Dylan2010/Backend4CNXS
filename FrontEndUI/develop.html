@@ -12,6 +12,15 @@
 <script type="text/javascript" src="script/plugins/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="script/global.js"></script>
 <!-- InstanceBeginEditable name="js" -->
+<script>
+$(document).ready(function(e) {
+    $("#brand_develop li").hover(function(){
+		$(this).find(".describe").stop().fadeIn(300);
+	},function(){
+		$(this).find(".describe").stop().fadeOut(300);
+	});
+});
+</script>
 <!-- InstanceEndEditable -->
 </head>
 

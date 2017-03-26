@@ -47,10 +47,12 @@ body{
 }
 
 #manager .vice{
-	background:url(../images/team/vice_frame.png) no-repeat;
+	background:url(../images/team/vice_frame_1.png) no-repeat;
+	/*background:url(../images/team/vice_frame.png) no-repeat;*/
 	background-size:cover;
 	margin-top:25px;
-	height:541px;
+	/*height:541px;*/
+	height:300px;
 	position:relative;
 }
 #vice_img1{
@@ -71,8 +73,8 @@ body{
 	text-align:right;
 	position:absolute;
 	width:350px;
-	top:10px;
-	left:30px;
+	top:30px;
+	left:10px;
 }
 #manager .vice .name{
 	font-size:28px;
@@ -114,9 +116,20 @@ body{
 }
 #technology .province{
 	position:absolute;
+	font-size:12px;
+}
+#technology .province .hidearea{
+	background:rgba(0,0,0,0.5);
+	padding:10px;
+	border-radius:5px;
+	position:absolute;
+	display:none;
 }
 #technology .text{
-	line-height:35px;
+	line-height:18px;
+}
+#technology .province .text,#technology .province img{
+	--display:none;
 }
 #technology .triangle{
 	width:14px;
@@ -131,20 +144,18 @@ body{
 }
 
 #technology .province.beijing{
-	left:140px;
-	top:0px;
+	left:570px;
+	top:215px;
 }
-#technology .province.beijing .text{
-	width:300px;
-	float:left;
+#technology .province.beijing .hidearea{
+	width:215px;
+	left:-240px;
+	top:-150px;
 }
-#technology .province.beijing img{
-	position:relative;
-	top:180px;
-}
+
 #technology .province.beijing .triangle{
-	right:-25px;
-	bottom:40px;
+	top:0;
+	left:0;
 }
 #technology .province.shanghai{
 	left:750px;
@@ -160,18 +171,18 @@ body{
 	top:130px;
 }
 #technology .province.sichuan{
-	top:390px;
+	left:310px;
+	top:400px;
 }
-#technology .province.sichuan .text{
-	width:300px;
+#technology .province.sichuan .hidearea{
+	width:180px;
+	left:-205px;
+	top:-20px;
 }
-#technology .province.sichuan img{
-	position:relative;
-	left:156px;
-}
+
 #technology .province.sichuan .triangle{
-	right:-25px;
-	top:10px;
+	left:0;
+	top:0;
 }
 
 

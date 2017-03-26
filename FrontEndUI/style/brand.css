@@ -126,6 +126,7 @@
 	width:156px;
 	font-size:12px;
 	position:absolute;
+	display:none;
 }
 #brand_develop li:nth-child(odd) .describe{
 	right:50%;
@@ -140,6 +141,7 @@
 
 #brand_develop li .illustration{
 	position:absolute;
+	width:150px;
 }
 #brand_develop li:nth-child(odd) .illustration{
 	right:50%;
