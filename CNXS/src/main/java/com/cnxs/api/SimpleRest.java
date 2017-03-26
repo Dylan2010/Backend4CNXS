@@ -21,9 +21,5 @@ public class SimpleRest {
     public ResponseEntity<String> getSample() {
         return new ResponseEntity<String>(System.getenv("MYSQL_ROOT_PASSWORD"), HttpStatus.OK);
     }
-    
-    @RequestMapping(value = "/db",method = RequestMethod.GET)
-    public ResponseEntity<String> getSampleFromDB() {
-        return new ResponseEntity<String>(userDao.getUserById(1).getAccount(), HttpStatus.OK);
-    }
+   
 }
