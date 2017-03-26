@@ -16,6 +16,9 @@
 	width:150px;
 	position:absolute;
 }
+.part a{
+	color:#fff;
+}
 
 .part h3{
 	margin:10px 0;
