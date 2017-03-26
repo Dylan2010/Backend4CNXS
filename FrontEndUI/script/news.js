@@ -78,36 +78,36 @@ var testdata={
 		experts : [
 			{
 				index : 1,
-				img : 'images/news/sample2.png',
-				title :　'专家专栏1',
-				abstracts : '数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家',
-				prevTitle : '专家专栏3',
-				nextTitle : '专家专栏2',
+				img : 'images/news/experts/tjl.jpg',
+				title :　'谭建龙',
+				abstracts : '中国科学院信息工程研究所，研究员',
+				prevTitle : '陈文斌',
+				nextTitle : '章毅',
 				detailLink : './experts.html'
 			},
 			{
 				index : 2,
-				img : 'images/news/sample2.png',
-				title :　'专家专栏2',
-				abstracts : '数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家',
+				img : 'images/news/experts/zy.jpg',
+				title :　'章毅',
+				abstracts : '四川大学计算机学院院长、四川大学机器智能实验室创始人、教授，博导',
 				prevTitle : '专家专栏1',
-				nextTitle : '专家专栏3',
+				nextTitle : '陈文斌',
 				detailLink : './experts.html'
 			},
 			{
 				index : 3,
-				img : 'images/news/sample2.png',
-				title :　'专家专栏3',
-				abstracts : '数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家',
-				prevTitle : '专家专栏2',
-				nextTitle : '专家专栏1',
+				img : 'images/news/experts/cwb.jpg',
+				title :　'陈文斌',
+				abstracts : '复旦大学数学科学学院教授',
+				prevTitle : '章毅',
+				nextTitle : '谭建龙',
 				detailLink : './experts.html'
 			}
 		],
 		informations : [
 			{
 				index : 1,
-				img : 'images/news/sample3.png',
+				img : 'images/news/sample3.jpg',
 				title :　'行业资讯1',
 				abstracts : '数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家',
 				prevTitle : '行业资讯3',
@@ -116,7 +116,7 @@ var testdata={
 			},
 			{
 				index : 2,
-				img : 'images/news/sample3.png',
+				img : 'images/news/sample3.jpg',
 				title :　'行业资讯2',
 				abstracts : '数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家',
 				prevTitle : '行业资讯1',
@@ -125,7 +125,7 @@ var testdata={
 			},
 			{
 				index : 3,
-				img : 'images/news/sample3.png',
+				img : 'images/news/sample3.jpg',
 				title :　'行业资讯3',
 				abstracts : '数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家',
 				prevTitle : '行业资讯2',
