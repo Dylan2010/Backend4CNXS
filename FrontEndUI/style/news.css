@@ -306,3 +306,44 @@
 #experts .experts_view .next_btn img{
 	width:100%;
 }
+
+#event_list{
+	color:#fff;
+}
+#event_list h1{
+	font-weight:normal;
+	margin:8px 0;
+	font-size:18px;
+	margin-left:170px;
+}
+#event_list .list{
+	height:450px;
+	margin-left:150px;
+}
+#event_list ul{
+	border-top:1px solid #ccc;
+	margin-right:20px;
+}
+#event_list li{
+	padding:10px 20px;
+	border-bottom:1px solid #ccc;
+	height:56px;
+	line-height:56px;
+}
+#event_list li .list_img{
+	width:120px;
+	height:56px;
+	overflow:hidden;
+	font-size:0;
+	float:left;
+}
+#event_list li .list_img img{
+	width:100%;
+}
+#event_list li a{
+	color:#fff;
+	display:block;
+}
+#event_list li a span{
+	margin-left:20px;
+}

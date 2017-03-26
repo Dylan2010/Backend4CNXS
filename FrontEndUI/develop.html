@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>无标题文档</title>
+<title>发展经历</title>
 <!-- InstanceEndEditable -->
 <link href="style/global.css" rel="stylesheet" type="text/css">
 <!-- InstanceBeginEditable name="css" -->
@@ -12,6 +12,7 @@
 <script type="text/javascript" src="script/plugins/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="script/global.js"></script>
 <!-- InstanceBeginEditable name="js" -->
+<script src="script/plugins/tinyscrollbar.js"></script>
 <script>
 $(document).ready(function(e) {
     $("#brand_develop li").hover(function(){
@@ -19,6 +20,8 @@ $(document).ready(function(e) {
 	},function(){
 		$(this).find(".describe").stop().fadeOut(300);
 	});
+	
+	$(".scroller").tinyscrollbar();
 });
 </script>
 <!-- InstanceEndEditable -->
@@ -73,7 +76,7 @@ $(document).ready(function(e) {
                 	<a href="news.html">最新动态</a>
                     <ul class="nav_child">
                     	<li class="nav_child_li">
-                        	<a href="events.html">企业动态</a>
+                        	<a href="event_list.html">企业动态</a>
                         </li>
                         <li class="nav_child_li">
                         	<a href="experts.html">专家专栏</a>
@@ -87,7 +90,7 @@ $(document).ready(function(e) {
                 	<a href="javascript:void(0);">合作伙伴</a>
                 </li>
                 <li class="nav_parent_li">
-                	<a href="contectus.html">联系我们</a>
+                	<a href="contactus.html">联系我们</a>
                     <ul class="nav_child">
                     	<li class="nav_child_li">
                         	<a href="business.html">商务合作</a>
@@ -96,7 +99,7 @@ $(document).ready(function(e) {
                         	<a href="join.html">招聘英才</a>
                         </li>
                         <li class="nav_child_li">
-                        	<a href="#">联系方式</a>
+                        	<a href="location.html">联系方式</a>
                         </li>
                     </ul>
                 </li>
@@ -121,6 +124,10 @@ $(document).ready(function(e) {
 <!-- InstanceBeginEditable name="maincontent" -->
 	<div id="brand_develop" class="main_width">
     	<h1>数舟大事记</h1>
+        <div class="develop_height scroller">
+        	<div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+            <div class="viewport">
+            	<div class="overview">
     	<ul>
         	<li>
             </li>
@@ -163,6 +170,8 @@ $(document).ready(function(e) {
             <li>
             </li>
         </ul>
+        </div>
+        </div>
     </div>
 <!-- InstanceEndEditable -->
 	</div>

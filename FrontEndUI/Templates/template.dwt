@@ -63,7 +63,7 @@
                 	<a href="news.html">最新动态</a>
                     <ul class="nav_child">
                     	<li class="nav_child_li">
-                        	<a href="events.html">企业动态</a>
+                        	<a href="event_list.html">企业动态</a>
                         </li>
                         <li class="nav_child_li">
                         	<a href="experts.html">专家专栏</a>
@@ -77,7 +77,7 @@
                 	<a href="javascript:void(0);">合作伙伴</a>
                 </li>
                 <li class="nav_parent_li">
-                	<a href="contectus.html">联系我们</a>
+                	<a href="contactus.html">联系我们</a>
                     <ul class="nav_child">
                     	<li class="nav_child_li">
                         	<a href="business.html">商务合作</a>
@@ -86,7 +86,7 @@
                         	<a href="join.html">招聘英才</a>
                         </li>
                         <li class="nav_child_li">
-                        	<a href="#">联系方式</a>
+                        	<a href="location.html">联系方式</a>
                         </li>
                     </ul>
                 </li>

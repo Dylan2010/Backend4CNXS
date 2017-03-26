@@ -78,14 +78,22 @@
 	margin-bottom:20px;
 }
 
+#brand_develop{
+	padding-top:50px;
+}
 #brand_develop h1{
 	color:#fff;
 	position:absolute;
 	left:100px;
 	margin:0;
+	top:0;
+}
+#brand_develop .develop_height{
+	height:450px;
+	margin-bottom:20px;
 }
 #brand_develop ul{
-	margin-bottom:100px;
+	--margin-bottom:100px;
 }
 #brand_develop li{
 	background:url(../images/brand/develop/trunk.png) center center no-repeat;

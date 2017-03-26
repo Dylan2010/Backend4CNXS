@@ -83,7 +83,7 @@ var testdata={
 				abstracts : '数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家',
 				prevTitle : '专家专栏3',
 				nextTitle : '专家专栏2',
-				detailLink : ''
+				detailLink : './experts.html'
 			},
 			{
 				index : 2,
@@ -92,7 +92,7 @@ var testdata={
 				abstracts : '数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家',
 				prevTitle : '专家专栏1',
 				nextTitle : '专家专栏3',
-				detailLink : ''
+				detailLink : './experts.html'
 			},
 			{
 				index : 3,
@@ -101,7 +101,7 @@ var testdata={
 				abstracts : '数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家',
 				prevTitle : '专家专栏2',
 				nextTitle : '专家专栏1',
-				detailLink : ''
+				detailLink : './experts.html'
 			}
 		],
 		informations : [
