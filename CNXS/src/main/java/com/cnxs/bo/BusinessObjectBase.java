@@ -8,7 +8,7 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass
 public abstract class BusinessObjectBase {
     
-    @Column(name="creationtime")
+    @Column(name="creationtime", updatable=false)
     private Date creationTime;
     
     public Date getCreationTime() {
