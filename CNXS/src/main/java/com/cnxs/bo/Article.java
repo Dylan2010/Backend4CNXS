@@ -4,9 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name = "article")
-public class Article {
+public class Article extends BusinessObjectBase{
 	
 	@Id
 	private int id;
@@ -50,4 +51,12 @@ public class Article {
 	public void setType(String type) {
 		this.type = type;
 	}
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

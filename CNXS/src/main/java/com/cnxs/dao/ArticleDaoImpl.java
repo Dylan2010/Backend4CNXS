@@ -28,6 +28,7 @@ public class ArticleDaoImpl implements ArticleDao{
 	}
 
 	@Override
+	@Transactional
 	public boolean update(Article article) {
 		try{
 			em.merge(article);
