@@ -29,6 +29,12 @@ public class ArticleRest {
         return res == null ? new ResponseEntity<Article>(res, HttpStatus.NOT_FOUND)  : new ResponseEntity<Article>(res, HttpStatus.OK);
     }
 	
+	@RequestMapping(value = "/Type/{type}/id/{id}",method = RequestMethod.POST)
+    public ResponseEntity<Boolean> updateArticle(@PathVariable String type, @PathVariable Integer id,@RequestBody Article article) {
+        boolean res = articleSrv.update(article, type,id );
+        return res  ? new ResponseEntity<Boolean>(res, HttpStatus.OK)  : new ResponseEntity<Boolean>(res, HttpStatus.BAD_REQUEST);
+    }
+	
 	@RequestMapping(value = "/Type/{type}", method = RequestMethod.POST) 
 	public ResponseEntity<Boolean> createArticle(@PathVariable String type, @RequestBody Article article) {
 		boolean success = articleSrv.create(article, type);

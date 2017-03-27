@@ -41,6 +41,13 @@ public class ArticleService {
 		return false;
 	}
 	
+	public boolean update(Article article, String type, Integer id) {
+        if(!isInValidType(type) && id != null && id == article.getId() && type.equals(article.getType().toString())) {
+            return articleDao.update(article);
+        }
+        return false;
+    }
+	
 	public List<Article> getArticleList(String type, Integer offset, Integer limit) {
 	    if(isInValidType(type)) {
 	        return new ArrayList<Article>();
