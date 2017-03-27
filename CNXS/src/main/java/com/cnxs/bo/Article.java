@@ -1,8 +1,14 @@
 package com.cnxs.bo;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.cnxs.enums.ArticleType;
 
 
 @Entity
@@ -11,14 +17,17 @@ public class Article extends BusinessObjectBase{
 	
 	@Id
 	private int id;
-
+	
+	@Column(unique=true)
 	private String title;
 	
 	private String summary;
 	
 	private String content;
 	
-	private String type;
+	@Enumerated(EnumType.STRING)
+	private ArticleType type;
+	
 
 	public String getTitle() {
 		return title;
@@ -44,11 +53,11 @@ public class Article extends BusinessObjectBase{
 		this.content = content;
 	}
 
-	public String getType() {
+	public ArticleType getType() {
 		return type;
 	}
 
-	public void setType(String type) {
+	public void setType(ArticleType type) {
 		this.type = type;
 	}
 

@@ -25,6 +25,8 @@ public class ImageRest {
     
     private static List<String> VALID_FILE_TYPES = new ArrayList<String>();
     
+    private static String FILE_URL_PREFIX = "http://101.37.39.51:8011/";
+    
     static{
         VALID_FILE_TYPES.add("JPEG");
         VALID_FILE_TYPES.add("JPG");
@@ -44,9 +46,10 @@ public class ImageRest {
                 
                 byte[] bytes = file.getBytes();
                 Date date = new Date();
-                Path path = Paths.get(UPLOAD_FILE_PATH + date.getTime() + "."+fileType);
+                String fileName = date.getTime() + "."+fileType;
+                Path path = Paths.get(UPLOAD_FILE_PATH + fileName);
                 Files.write(path, bytes);
-                return new ResponseEntity<String>("Success!", HttpStatus.OK);
+                return new ResponseEntity<String>(FILE_URL_PREFIX + fileName, HttpStatus.OK);
             } else {
                 return new ResponseEntity<String>("File type invalid!", HttpStatus.BAD_REQUEST);
             }

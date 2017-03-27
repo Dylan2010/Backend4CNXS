@@ -1,20 +1,33 @@
 package com.cnxs.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cnxs.bo.Article;
 import com.cnxs.dao.ArticleDao;
+import com.cnxs.enums.ArticleType;
 
 @Service
 public class ArticleService {
+    
+    private static final int MAX_PAGE_LIMIT = 50;
+    
+    private static final int DEFAULT_PAGE_LIMIT = 10;
+    
+    private static final int DEFAULT_PAGE_OFFSET = 0;
 	
 	@Autowired
 	private ArticleDao articleDao;
 	
 	public Article getArtiCleByIdAndType(String type, int id){
+	    if(isInValidType(type)) {
+	        return null;
+	    }
 		Article res = articleDao.get(id);
-		if(null == res || !type.equals(res.getType())) {
+		if(null == res || !type.equals(res.getType().toString())) {
 			return null;
 		} else {
 			return res;
@@ -22,10 +35,32 @@ public class ArticleService {
 	}
 	
 	public boolean create(Article article, String type) {
-		if(type.equals(article.getType())) {
+		if(!isInValidType(type) && type.equals(article.getType().toString())) {
 			return articleDao.create(article);
 		}
 		return false;
 	}
 	
+	public List<Article> getArticleList(String type, Integer offset, Integer limit) {
+	    if(isInValidType(type)) {
+	        return new ArrayList<Article>();
+	    }
+	    offset = offset == null ? DEFAULT_PAGE_OFFSET : offset;
+	    limit = limit == null ? DEFAULT_PAGE_LIMIT : limit;
+	    limit = limit > MAX_PAGE_LIMIT ? MAX_PAGE_LIMIT : limit;
+	    return articleDao.getArticleList( ArticleType.valueOf(type), offset, limit);
+	}
+	
+	public List<Article> getNewsList() {
+	    return articleDao.getNewsList();
+	}
+	
+	private boolean isInValidType(String type) {
+	    try{
+	        ArticleType.valueOf(type);
+	    } catch(IllegalArgumentException e) {
+	        return true;
+	    }
+	    return  false;
+	}
 }
