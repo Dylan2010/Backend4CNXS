@@ -10,4 +10,4 @@ cd deploy
 docker rm -f backend
 docker rmi cndsbackend:$tag
 docker build -t cndsbackend:$tag .
-docker run -dit --name backend -p 8080:8080 cndsbackend:$tag
+docker run -dit --name backend -v /root/img:/images -p 8080:8080 cndsbackend:$tag
