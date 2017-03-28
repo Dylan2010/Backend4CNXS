@@ -1,9 +1,11 @@
 package com.cnxs.dao;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
 import javax.persistence.TypedQuery;
@@ -66,6 +68,22 @@ public class ArticleDaoImpl implements ArticleDao{
     @Override
     public List<Article> getArticleList(ArticleType type, int offset, int limit) {
         return getLastestArticleWithType(type, offset, limit);
+    }
+
+    @Override
+    public Article getLatestArticle(Date date, Boolean next, ArticleType type) {
+        String queryStr = "Select A FROM Article A where A.type = :type AND A.creationTime" ;
+        queryStr += next ? " > " : " < ";
+        queryStr += " :creationTime ORDER BY A.creationTime desc";
+        TypedQuery<Article> query = em.createQuery(queryStr, Article.class);
+        query.setParameter("type", type);
+        query.setParameter("creationTime", date);
+        try{
+            return query.setMaxResults(1).getSingleResult();
+        } catch(NoResultException e) {
+            return null;
+        }
+        
     }
 
 }

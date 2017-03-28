@@ -1,6 +1,7 @@
 package com.cnxs.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,5 +70,12 @@ public class ArticleService {
 	        return true;
 	    }
 	    return  false;
+	}
+	
+	public Article getLatestArticle(String type, Boolean next, Date date) {
+	    if(isInValidType(type)) {
+            return null;
+        }
+	    return articleDao.getLatestArticle(date, next, ArticleType.valueOf(type));
 	}
 }

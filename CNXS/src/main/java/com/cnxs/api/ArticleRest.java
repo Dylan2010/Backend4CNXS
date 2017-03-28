@@ -1,5 +1,6 @@
 package com.cnxs.api;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,5 +51,11 @@ public class ArticleRest {
 	public @ResponseBody List<Article> getNewsList() {
 	    return articleSrv.getNewsList();
 	}
+	
+	@RequestMapping(value = "/Type/{type}/latest", method = RequestMethod.GET) 
+    public ResponseEntity<Article> getLatestArticle(@PathVariable String type, @RequestParam Boolean next, @RequestParam("date") Long date) {
+	    Article res = articleSrv.getLatestArticle(type, next, new Date(date));
+        return res == null ? new ResponseEntity<>(res, HttpStatus.NO_CONTENT) : new ResponseEntity<>(res, HttpStatus.OK);
+    }
 	
 }

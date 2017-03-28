@@ -14,6 +14,7 @@
 创建某种类别文章 | Articles/Type/{type} | Post | api/Articles/v1/Type/Info |
 更新某篇文章 | Articles/Type/{type}/id/{id} | Post | api/Articles/v1/Type/Info/id/10
 获取最新动态 | /api/Articles/v1/News | Get  | 
+获取上一篇/下一篇 | api/Articles/v1/Type/Info/latest?next=&date= |GET|api/Articles/v1/Type/Info/latest?next=false&date=1490671739815 | 若无数据，则返回204，有数据则数据实体+200 next为true或者false，date为时间戳
 
 目前三种文章类型：Events,Experts,Info
 

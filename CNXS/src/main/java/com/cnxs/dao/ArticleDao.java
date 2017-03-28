@@ -1,5 +1,6 @@
 package com.cnxs.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import com.cnxs.bo.Article;
@@ -16,4 +17,6 @@ public interface ArticleDao {
 	public List<Article> getNewsList();
 	
 	public List<Article> getArticleList(ArticleType type, int offset, int limit);
+	
+	public Article getLatestArticle(Date date, Boolean next, ArticleType type);
 }
