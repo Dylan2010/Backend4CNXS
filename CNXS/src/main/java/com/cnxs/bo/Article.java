@@ -28,6 +28,9 @@ public class Article extends BusinessObjectBase{
 	@Enumerated(EnumType.STRING)
 	private ArticleType type;
 	
+	@Column(name="imageinfo")
+	private String imageInfo;
+	
 
 	public String getTitle() {
 		return title;
@@ -68,4 +71,13 @@ public class Article extends BusinessObjectBase{
     public void setId(int id) {
         this.id = id;
     }
+
+	public String getImageInfo() {
+		return imageInfo;
+	}
+
+	public void setImageInfo(String imageInfo) {
+		this.imageInfo = imageInfo;
+	}
+    
 }
