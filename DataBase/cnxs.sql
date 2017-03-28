@@ -37,6 +37,7 @@ CREATE TABLE `article` (
   `content` longtext,
   `imageinfo` text,
   `creationtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `eventdate` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `title` (`title`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
@@ -48,7 +49,7 @@ CREATE TABLE `article` (
 
 LOCK TABLES `article` WRITE;
 /*!40000 ALTER TABLE `article` DISABLE KEYS */;
-INSERT INTO `article` VALUES (2,'数舟数据与中国新闻出版传媒集','Events','数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家',NULL,NULL,'2017-03-27 10:58:21'),(3,'依托大数据，在文化高原探索高峰','Events','数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家',NULL,NULL,'2017-03-27 10:59:47'),(4,'大数据，网络文学的寻龙诀','Events','数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家',NULL,NULL,'2017-03-27 11:00:05'),(5,'谭建龙','Experts','中国科学院信息工程研究所，研究员',NULL,NULL,'2017-03-27 11:00:37'),(6,'章毅','Experts','四川大学计算机学院院长、四川大学机器智能实验室创始人、教授，博导',NULL,NULL,'2017-03-27 11:00:50'),(7,'陈文斌','Experts','复旦大学数学科学学院教授',NULL,NULL,'2017-03-27 11:01:08'),(8,'行业资讯1','Info','数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家',NULL,NULL,'2017-03-27 11:01:33'),(9,'行业资讯2','Info','数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家',NULL,NULL,'2017-03-27 11:01:36'),(10,'行业资讯3','Info','数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家',NULL,NULL,'2017-03-27 11:01:43');
+INSERT INTO `article` VALUES (2,'数舟数据与中国新闻出版传媒集','Events','数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家',NULL,NULL,'2017-03-27 10:58:21',NULL),(3,'依托大数据，在文化高原探索高峰','Events','数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家',NULL,NULL,'2017-03-27 10:59:47',NULL),(4,'大数据，网络文学的寻龙诀','Events','数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家',NULL,NULL,'2017-03-27 11:00:05',NULL),(5,'谭建龙','Experts','中国科学院信息工程研究所，研究员',NULL,NULL,'2017-03-27 11:00:37',NULL),(6,'章毅','Experts','四川大学计算机学院院长、四川大学机器智能实验室创始人、教授，博导',NULL,NULL,'2017-03-27 11:00:50',NULL),(7,'陈文斌','Experts','复旦大学数学科学学院教授',NULL,NULL,'2017-03-27 11:01:08',NULL),(8,'行业资讯1','Info','数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家',NULL,NULL,'2017-03-27 11:01:33',NULL),(9,'行业资讯2','Info','数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家',NULL,NULL,'2017-03-27 11:01:36',NULL),(10,'行业资讯3','Info','数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家',NULL,NULL,'2017-03-27 11:01:43','2017-03-28 16:18:20');
 /*!40000 ALTER TABLE `article` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -89,4 +90,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-28 23:28:52
+-- Dump completed on 2017-03-29  0:20:41

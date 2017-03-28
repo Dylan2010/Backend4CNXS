@@ -1,5 +1,7 @@
 package com.cnxs.bo;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -30,6 +32,9 @@ public class Article extends BusinessObjectBase{
 	
 	@Column(name="imageinfo")
 	private String imageInfo;
+	
+	@Column(name="eventdate")
+    private Date eventDate;
 	
 
 	public String getTitle() {
@@ -79,5 +84,12 @@ public class Article extends BusinessObjectBase{
 	public void setImageInfo(String imageInfo) {
 		this.imageInfo = imageInfo;
 	}
-    
+
+	public Date getEventDate() {
+		return eventDate;
+	}
+
+	public void setEventDate(Date eventDate) {
+		this.eventDate = eventDate;
+	}
 }
