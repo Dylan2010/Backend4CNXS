@@ -1,43 +1,59 @@
 // JavaScript Document
 
 $(document).ready(function(e) {
-    var infoData=testData;
-	$.each(infoData,function(n,v){
-		/*<li class="odd">
-            	<div class="main_img">
-                	<img src="images/news/information/img1.jpg"/>
-                </div>
-                <div class="article">
-                	<h2>大数据，网络文学的寻龙诀</h2>
-                    <p>（北京讯）1月13日，北京，郎朗读书声不仅敲响了2017的新年钟声，还拉开了数舟（上海）数据信息服务有限公司承办的《大数据来了，网络文学如何炼成大IP》主题访谈会的序幕</p>
-                </div>
-            </li>*/
-		var li=$(document.createElement("li"));
-		if(n%2==0){
-			li.addClass("odd");
-		}else{
-			li.addClass("even");
-		}
-		
-		var mainImgDiv = $(document.createElement("div"));
-		mainImgDiv.addClass("main_img");
-		var img = $(document.createElement("img"));
-		img.attr("src",v.imgUrl["1"]);
-		mainImgDiv.append(img);
-		
-		var article = $(document.createElement("div"));
-		article.addClass("article");
-		var h2 = $(document.createElement("h2"));
-		h2.text(v.title);
-		var p = $(document.createElement("p"));
-		p.text(v.content);
-		article.append(h2);
-		article.append(p);
-		li.append(mainImgDiv);
-		li.append(article);
-		
-		$("#info_ul").append(li);
-	});
+    var infoData;
+	
+	function getData(doSetData){
+		/*$.ajax({
+			url : '',
+			dataType : json,
+			success : function(data){
+				infoData=data;
+			}
+		});*/
+		infoData=testData;
+		doSetData();
+	}
+	function setData(){
+		$.each(infoData,function(n,v){
+			/*<li class="odd">
+					<div class="main_img">
+						<img src="images/news/information/img1.jpg"/>
+					</div>
+					<div class="article">
+						<h2></h2>
+						<p></p>
+					</div>
+				</li>*/
+			var li=$(document.createElement("li"));
+			if(n%2==0){
+				li.addClass("odd");
+			}else{
+				li.addClass("even");
+			}
+			
+			var mainImgDiv = $(document.createElement("div"));
+			mainImgDiv.addClass("main_img");
+			var img = $(document.createElement("img"));
+			img.attr("src",v.imgUrl["1"]);
+			mainImgDiv.append(img);
+			
+			var article = $(document.createElement("div"));
+			article.addClass("article");
+			var h2 = $(document.createElement("h2"));
+			h2.text(v.title);
+			var p = $(document.createElement("p"));
+			p.text(v.content);
+			article.append(h2);
+			article.append(p);
+			li.append(mainImgDiv);
+			li.append(article);
+			
+			$("#info_ul").append(li);
+		});
+	}//setdata
+	
+	getData(setData);
 });
 
 var testData=[
