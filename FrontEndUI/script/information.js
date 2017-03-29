@@ -4,13 +4,14 @@ $(document).ready(function(e) {
     var infoData;
 	
 	function getData(doSetData){
-		/*$.ajax({
-			url : '',
-			dataType : json,
+		$.ajax({
+			url : 'http://101.37.39.51:8080/api/Articles/Type/Info/list',
+			dataType : 'json',
 			success : function(data){
+				console.log(data);
 				infoData=data;
 			}
-		});*/
+		});
 		infoData=testData;
 		doSetData();
 	}
