@@ -3,7 +3,8 @@
 var currentExpert=0;
 $(document).ready(function(e) {
 	//console.log($(".center").index());
-	
+	//ajax
+	//experts={};
 	$.each(experts,function(n,v){
 		var li=$(document.createElement("li"));
 		var img=$(document.createElement("img"));

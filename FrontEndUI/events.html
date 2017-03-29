@@ -12,6 +12,8 @@
 <script type="text/javascript" src="script/plugins/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="script/global.js"></script>
 <!-- InstanceBeginEditable name="js" -->
+<script src="script/plugins/tinyscrollbar.js"></script>
+<script type="text/javascript" src="script/events.js"></script>
 <!-- InstanceEndEditable -->
 </head>
 
@@ -112,31 +114,33 @@
 <!-- InstanceBeginEditable name="maincontent" -->
 	<div id="news_events" class="main_width">
     
-    <!--<div class="bshare-custom"><div class="bsPromo bsPromo2"></div><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到人人网" class="bshare-renren"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到网易微博" class="bshare-neteasemb"></a><a title="分享到微信" class="bshare-weixin" href="javascript:void(0);"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a><span class="BSHARE_COUNT bshare-share-count" style="float: none;">51.6K</span></div><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
-    <script type="text/javascript" charset="utf-8">
-		bShare.addEntry({
-    title: "分享的标题，默认为当前页面标题",
-	url: "http://www.cmdsdis.cn",
-    summary: "分享的文本摘要，默认为页面Meta标签中description的内容或者用户高亮的内容",
-    pic: "images/news/events/main.jpg"
-});
-	</script>-->
     
 	  <div class="main_border clear">
       		<div class="pagi_btns">
             	<a class="prev_btn" href="event_list.html"><img src="images/news/events/back_btn.png"/></a>
                 <a class="next_btn" href="#"><img src="images/news/events/next_btn.png"/></a>
             </div>
-	      <div class="main_img"> <img src="images/news/events/main.jpg"/> </div>
+	      <div class="main_img"> <img id="main_img" src=""/> </div>
 	      <div class="article">
-	        <h2>大数据，网络文学的寻龙诀</h2>
-	        <p>（北京讯）1月13日，北京，朗朗读书声不仅敲响了2017的新年钟声，还拉开了数舟（上海）数据信息服务有限公司承办的《大数据来了，网络文学如何成为大IP》主题访谈会的序幕。此次访谈会是“全民阅读‘红沙发’系列访谈”的重要组成部分，也是数舟（上海）数据信息服务有限公司首度加盟该系列的重要标志。全民阅读“红沙发”系列访谈由中国新闻出版传媒集团有限公司主办，该系列访谈创办于2012年，以主持人对话嘉宾的形式向公众全方位展现阅读的魅力与风采。</p>
+	        <h2 id="event_title"></h2>
+            <div class="article_p scroller">
+            	<div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+            <div class="viewport">
+            	<div class="overview">
+	        		<p id="event_content"></p><!--content-->
+                </div>
+            </div>
+            </div>
           </div>
+          <div class="bshare-custom"><div class="bsPromo bsPromo2"></div><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到微信" class="bshare-weixin" href="javascript:void(0);"></a><a title="分享到QQ空间" class="bshare-qzone" href="javascript:void(0);"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a></div><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
+    <script type="text/javascript" charset="utf-8">
+		
+	</script>
 	      <div class="sub_images">
 	        <ul class="clear">
-	          <li> <img src="images/news/events/sub_img1.jpg"/> </li>
-	          <li> <img src="images/news/events/sub_img2.jpg"/> </li>
-	          <li> <img src="images/news/events/sub_img3.jpg"/> </li>
+	          <li> <img id="content_img1" src=""/> </li>
+	          <li> <img id="content_img2" src=""/> </li>
+	          <li> <img id="content_img3" src=""/> </li>
             </ul>
           </div>
 	  </div>

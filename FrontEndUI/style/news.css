@@ -159,6 +159,12 @@
 #news_events .sub_images li img{
 	width:100%;
 }
+#news_events .article_p{
+	height:165px;
+}
+#news_events .article_p p{
+	margin-top:0;
+}
 
 #news_information li{
 	width:900px;
@@ -347,4 +353,10 @@
 }
 #event_list li a span{
 	margin-left:20px;
+}
+
+.bshare-custom{
+	position:absolute;
+	left:525px;
+	top:240px;
 }
