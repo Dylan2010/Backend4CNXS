@@ -6,9 +6,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import com.cnxs.enums.ArticleType;
 import com.cnxs.utils.DateToStringSerializer;
@@ -16,13 +16,14 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 
 @Entity
-@Table(name = "article")
+@Table(name = "article", uniqueConstraints={
+	    @UniqueConstraint(name="_ARTICLE_UNIQUE_TITLE_TYPE_",columnNames = {"title", "type"})
+	})
 public class Article extends BusinessObjectBase{
 	
 	@Id
 	private int id;
 	
-	@Column(unique=true)
 	private String title;
 	
 	private String summary;

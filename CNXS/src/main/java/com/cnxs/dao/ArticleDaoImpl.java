@@ -48,18 +48,9 @@ public class ArticleDaoImpl implements ArticleDao{
 	public Article get(int id) {
 		return em.find(Article.class, id);
 	}
-
-    @Override
-    public List<Article> getNewsList() {
-        List<Article> list = new ArrayList<>(3);
-        for(ArticleType type : ArticleType.values()) {
-            list.addAll(this.getLastestArticleWithType(type,0, 1));
-        }
-        
-        return list;
-    }
     
-    private List<Article> getLastestArticleWithType(ArticleType type, int offset, int limit) {
+    @Override
+    public List<Article> getLastestArticleWithType(ArticleType type, int offset, int limit) {
         TypedQuery<Article> query = em.createQuery("Select A FROM Article A where A.type= :type ORDER BY A.creationTime desc", Article.class);
         query.setParameter("type", type);
         return query.setFirstResult(offset).setMaxResults(limit).getResultList();

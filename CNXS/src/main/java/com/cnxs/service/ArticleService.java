@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.cnxs.bo.Article;
 import com.cnxs.dao.ArticleDao;
+import com.cnxs.dto.ArticleNewsListDTO;
 import com.cnxs.enums.ArticleType;
 
 @Service
@@ -59,8 +60,16 @@ public class ArticleService {
 	    return articleDao.getArticleList( ArticleType.valueOf(type), offset, limit);
 	}
 	
-	public List<Article> getNewsList() {
-	    return articleDao.getNewsList();
+	public ArticleNewsListDTO getNewsList(Integer limit) {
+		int pageLimit;
+		pageLimit = limit == null ? DEFAULT_PAGE_LIMIT : limit;
+		pageLimit = pageLimit > MAX_PAGE_LIMIT ? MAX_PAGE_LIMIT : pageLimit;
+		
+		ArticleNewsListDTO res = new ArticleNewsListDTO();
+		res.setEvents(articleDao.getLastestArticleWithType(ArticleType.Events, 0, pageLimit));
+		res.setExperts(articleDao.getLastestArticleWithType(ArticleType.Experts, 0, pageLimit));
+		res.setInfo(articleDao.getLastestArticleWithType(ArticleType.Info, 0, pageLimit));
+	    return res;
 	}
 	
 	private boolean isInValidType(String type) {

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cnxs.bo.Article;
+import com.cnxs.dto.ArticleNewsListDTO;
 import com.cnxs.service.ArticleService;
 
 @RestController
@@ -54,8 +55,8 @@ public class ArticleRest {
     }
 	
 	@RequestMapping(value = "/News", method = RequestMethod.GET)
-	public @ResponseBody List<Article> getNewsList() {
-	    return articleSrv.getNewsList();
+	public @ResponseBody ArticleNewsListDTO getNewsList(@RequestParam(required=false) Integer limit) {
+	    return articleSrv.getNewsList(limit);
 	}
 	
 	@RequestMapping(value = "/Type/{type}/latest", method = RequestMethod.GET) 

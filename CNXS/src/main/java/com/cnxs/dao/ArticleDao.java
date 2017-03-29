@@ -17,7 +17,7 @@ public interface ArticleDao {
 	
 	public Article get(int id);
 	
-	public List<Article> getNewsList();
+	public List<Article> getLastestArticleWithType(ArticleType type, int offset, int limit);
 	
 	public List<Article> getArticleList(ArticleType type, int offset, int limit);
 	
