@@ -12,6 +12,19 @@
 <script type="text/javascript" src="script/plugins/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="script/global.js"></script>
 <!-- InstanceBeginEditable name="js" -->
+<script>
+$(document).ready(function(e) {
+    $("#login_btn").click(function(){
+		/*$.ajax({
+			url : "/User/login",
+			data : "",
+			success : function(data){
+				console.log(data);
+			}
+		});*/
+	});
+});
+</script>
 <!-- InstanceEndEditable -->
 </head>
 
@@ -120,7 +133,7 @@
                 <div class="password_frame">
                 	<input type="password" placeholder="密码："/>
                 </div>
-                <a class="login_btn" href="#">完成</a>
+                <a id="login_btn" class="login_btn" href="#">完成</a>
             </div>
             <div class="login_right">
             	<h3>没有账号？</h3>
