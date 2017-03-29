@@ -24,27 +24,28 @@ public class UserRequestFilter extends OncePerRequestFilter {
         //all the get method will be allowed
         if(shouldSkipPermissionControl(request)) {
             filterChain.doFilter(request, response);
-        }
-        
-        String token = request.getHeader(HeaderConstant.X_ACCESS_TOKEN);
-        
-        JWTService jwtSrv = ApplicationContextHolder.getBean(JWTService.class);
-        
-        
-        
-        if(!StringUtils.isEmpty(token) ) {
-            int userId = jwtSrv.validateToken(token);
-            if(userId != -1) {
-                UserInfoContextHolder.setUserInfo(userId, token);
-                filterChain.doFilter(request, response);
+        } else{
+            String token = request.getHeader(HeaderConstant.X_ACCESS_TOKEN);
+            
+            JWTService jwtSrv = ApplicationContextHolder.getBean(JWTService.class);
+            
+            
+            
+            if(!StringUtils.isEmpty(token) ) {
+                int userId = jwtSrv.validateToken(token);
+                if(userId != -1) {
+                    UserInfoContextHolder.setUserInfo(userId, token);
+                    filterChain.doFilter(request, response);
+                }
             }
-        }
-      
-        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+          
+            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+        } 
+        
     }
     
     private boolean shouldSkipPermissionControl(HttpServletRequest request) {
-        return ("GET".equals(request.getMethod()) && !"true".equals(System.getenv("enable.permission.control"))) || 
+        return ("GET".equals(request.getMethod()) || !"true".equals(System.getenv("enable.permission.control"))) || 
                 (request.getPathInfo().contains("User/v1/login"));
     }
 

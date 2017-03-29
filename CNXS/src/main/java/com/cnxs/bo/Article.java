@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.cnxs.enums.ArticleType;
+import com.cnxs.utils.DateToStringSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 
 @Entity
@@ -34,6 +36,7 @@ public class Article extends BusinessObjectBase{
 	private String imageInfo;
 	
 	@Column(name="eventdate")
+	@JsonSerialize(using = DateToStringSerializer.class)
     private Date eventDate;
 	
 

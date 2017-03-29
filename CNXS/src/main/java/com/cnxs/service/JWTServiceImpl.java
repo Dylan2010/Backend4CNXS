@@ -6,6 +6,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.springframework.stereotype.Service;
 
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
@@ -14,7 +15,7 @@ public class JWTServiceImpl implements JWTService{
     
     private ConcurrentHashMap<String, Integer> tokens = new ConcurrentHashMap<String, Integer>();
     
-    private static long EXPIRATION_DURATION = 24*60*60;
+    private static long EXPIRATION_DURATION = 24*60*60*1000;
     
     private static SignatureAlgorithm SIGNATURE_ALGORITHM = SignatureAlgorithm.HS256;
     
@@ -39,12 +40,14 @@ public class JWTServiceImpl implements JWTService{
     @Override
     public int validateToken(String token) {
         if(tokens.get(token) != null){
-            Claims claims = Jwts.parser().setSigningKey(getSecretKey()).parseClaimsJws(token).getBody();
-            if(claims.getExpiration().getTime() < System.currentTimeMillis()) {
+            try{
+                Claims claims = Jwts.parser().setSigningKey(getSecretKey()).parseClaimsJws(token).getBody();
+                return claims.get("userId", Integer.class);
+            } catch(ExpiredJwtException e) {
                 tokens.remove(token);
                 return -1;
             }
-            return claims.get("userId", Integer.class);
+           
         }
         return -1;
     }
