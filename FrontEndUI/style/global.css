@@ -69,14 +69,24 @@ ul,li{
 	top:100%;
 	cursor:pointer;
 }
+#login img{
+	width:100px;
+}
 #login .loginbtns{
-	height:56px;
-	width:0px;
+	--height:56px;
+	--width:0px;
 	position:absolute;
-	top:20px;
-	left:63px;
-	font-size:0;
-	overflow:hidden;
+	top:14px;
+	left:70px;
+	--font-size:0;
+	--overflow:hidden;
+}
+#login .loginbtns a{
+	color:#fff;
+	display:block;
+	color:#2495c0;
+	line-height:20px;
+	font-size:14px;
 }
 /*#login a{
 	position:absolute;
@@ -119,7 +129,7 @@ ul,li{
 	min-width:50px;
 	text-align:center
 }
-
+#navigator .nav_parent_li a.on,
 #navigator .nav_parent_li a:hover{
 	color:#0099d3;
 }

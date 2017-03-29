@@ -12,6 +12,13 @@
 <script type="text/javascript" src="script/plugins/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="script/global.js"></script>
 <!-- InstanceBeginEditable name="js" -->
+<script>
+$(document).ready(function(e) {
+    $(".nav_contact").addClass("on");
+	$(".nav_business").addClass("on");
+});
+	
+</script>
 <!-- InstanceEndEditable -->
 </head>
 
@@ -29,65 +36,67 @@
                 <img src="images/global/logo.png"/>
             </div>
             <div id="login">
-            	<img src="images/global/login_sprite.png"/>
+            	<img src="images/global/login_sprite_all.png"/>
                 <div class="loginbtns">
                     <a id="loginbtn" href="login.html">
-                        <img src="images/global/login_btn.png"/>
+                        <!--<img src="images/global/login_btn.png"/>-->
+                        登录
                     </a>
                     <a id="registbtn" href="regist.html">
-                        <img src="images/global/regist_btn.png"/>
+                    	注册
+                        <!--<img src="images/global/regist_btn.png"/>-->
                     </a>
                 </div>
             </div>
           <ul class="nav_parent">
             	<li class="nav_parent_li">
-                	<a href="home.html">首&nbsp;页</a>
+                	<a class="nav_home" href="home.html">首&nbsp;页</a>
                 </li>
                 <li class="nav_parent_li">
-                	<a href="service.html">产品服务</a>
+                	<a class="nav_service" href="service.html">产品服务</a>
                 </li>
                 <li class="nav_parent_li">
-                	<a href="brand.html">品牌介绍</a>
+                	<a class="nav_brand" href="brand.html">品牌介绍</a>
                     <ul class="nav_child">
                     	<li class="nav_child_li">
-                        	<a href="brand_idea.html">品牌理念</a>
+                        	<a class="nav_ideal" href="brand_idea.html">品牌理念</a>
                         </li>
                         <li class="nav_child_li">
-                        	<a href="develop.html">发展经历</a>
+                        	<a class="nav_develop" href="develop.html">发展经历</a>
                         </li>
                         <li class="nav_child_li">
-                        	<a href="team.html">团队核心</a>
+                        	<a class="nav_team" href="team.html">团队核心</a>
                         </li>
                     </ul>
                 </li>
                 <li class="nav_parent_li">
-                	<a href="news.html">最新动态</a>
+                	<a class="nav_news" href="news.html">最新动态</a>
                     <ul class="nav_child">
                     	<li class="nav_child_li">
-                        	<a href="event_list.html">企业动态</a>
+                        	<a class="nav_event_list" href="event_list.html">企业动态</a>
                         </li>
                         <li class="nav_child_li">
-                        	<a href="experts.html">专家专栏</a>
+                        	<a class="nav_experts" href="experts.html">专家专栏</a>
                         </li>
                         <li class="nav_child_li">
-                        	<a href="information.html">行业资讯</a>
+                        	<a class="nav_infomation" href="information.html">行业资讯</a>
                         </li>
                     </ul>
                 </li>
                 <li class="nav_parent_li">
-                	<a href="javascript:void(0);">合作伙伴</a>
+                	<a class="nav_" href="javascript:void(0);">合作伙伴</a>
                 </li>
                 <li class="nav_parent_li">
-                	<a href="contactus.html">联系我们</a>
+                	<a class="nav_contact" href="contactus.html">联系我们</a>
                     <ul class="nav_child">
                     	<li class="nav_child_li">
-                        	<a href="business.html">商务合作</a>
+                        	<a class="nav_business" href="business.html">商务合作</a>
                         </li>
                         <li class="nav_child_li">
-                        	<a href="join.html">招聘英才</a>
+                        	<a class="nav_join" href="join.html">招聘英才</a>
                         </li>
                         <li class="nav_child_li">
-                        	<a href="location.html">联系方式</a>
+                        	<a class="nav_location" href="location.html">联系方式</a>
                         </li>
                     </ul>
                 </li>

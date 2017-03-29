@@ -5,12 +5,28 @@
 	height:513px;
 }
 
+.base_line{
+	height:1px;
+	border:none;
+	background:#9fdbfb;
+	width:0px;
+	position:absolute;
+	top:198px;
+}
+.timeline_mask{
+	height:193px;
+	overflow:hidden;
+	position:absolute;
+	top:50px;
+	width:0px;
+}
 .timeline_bg{
 	position:absolute;
 	--left:50%;
 	--margin-left:-962px;
-	width:100%;
-	top:50px;
+	width:1010px;
+	--height:193px;
+	--top:50px;
 }
 .dot{
 	position:absolute;
@@ -34,6 +50,7 @@
 	color:#fff;
 	width:160px;
 	position:absolute;
+	display:none;
 }
 .part a{
 	color:#fff;

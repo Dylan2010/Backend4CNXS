@@ -29,6 +29,14 @@ $(document).ready(function() {
 		});
 	}
 	
+	function timelineAnimation(){
+		$(".base_line").animate({width:'1010px'},1000,'swing',function(){
+			$(".timeline_mask").animate({width:'1010px'},1000,'linear',function(){
+				$(".part").fadeIn(200);
+			});
+		});
+	}
+	timelineAnimation();
 	var timer = setInterval(lineAnimation,2000);
 	//dotAnimation($("#dot1"));
 });
