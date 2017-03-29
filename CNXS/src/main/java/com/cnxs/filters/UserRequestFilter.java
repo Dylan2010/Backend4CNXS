@@ -46,7 +46,7 @@ public class UserRequestFilter extends OncePerRequestFilter {
     
     private boolean shouldSkipPermissionControl(HttpServletRequest request) {
         return ("GET".equals(request.getMethod()) || !"true".equals(System.getenv("enable.permission.control"))) || 
-                (request.getPathInfo().contains("User/v1/login"));
+                (request.getPathInfo().contains("User/v1") && !request.getPathInfo().contains("logoff") );
     }
 
 }
