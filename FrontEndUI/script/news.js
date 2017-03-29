@@ -82,7 +82,7 @@ var testdata={
 				"detailLink" : './events.html'
 			}
 		],
-		experts : [
+		experts : [//大写
 			{
 				"num" : 1,
 				"title" : "谭建龙",

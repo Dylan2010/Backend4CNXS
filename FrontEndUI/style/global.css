@@ -3,7 +3,7 @@
 body{
 	padding:0;
 	margin:0;
-	background:url(../images/global/main_bg.jpg) top center no-repeat;
+	background:url(../images/global/main_bg.jpg) top center;
 	font-family:'Microsoft YAHEI';
 }
 a{
@@ -155,6 +155,7 @@ ul,li{
 	color:#fff;
 	padding-left:20px;
 	font-size:12px;
+	line-height:41px;
 }
 #coopration{
 	float:right;

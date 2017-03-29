@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 
-.service_list h2{
+/*.service_list h2{
 	margin:8px 0;
 	font-size:18px;
 }
@@ -32,4 +32,49 @@
 }
 .service_list .even img{
 	float:left;
+}*/
+
+.article{
+	color:#fff;
+}
+
+.article h2{
+	font-size:24px;
+	margin:20px 0;
+	padding:20px;
+}
+.article p{
+	padding:0 80px;
+	font-size:14px;
+	line-height:22px;
+	text-indent:2em;
+}
+.article .content_left{
+	width:50%;
+	float:left;
+}
+.article .content_left>*{
+	float:right;
+}
+.article .content_right{
+	width:50%;
+	float:right;
+}
+.article ul{
+	margin:25px 35px;
+	width:251px;
+}
+.article li{
+	font-size:14px;
+	line-height:36px;
+}
+.article li:before{
+	content:"·";
+	color:#fff;
+	margin-right:10px;
+}
+.article img{
+	border:2px solid #fff;
+	height:160px;
+	margin:25px 35px;;
 }

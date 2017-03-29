@@ -7,13 +7,32 @@
 
 .timeline_bg{
 	position:absolute;
-	left:50%;
-	margin-left:-962px;
+	--left:50%;
+	--margin-left:-962px;
+	width:100%;
+	top:50px;
+}
+.dot{
+	position:absolute;
+	width:30px;
+	display:none;
+}
+#dot1{
+	top:183px;
+	left:239px;
+}
+#dot2{
+	top:183px;
+	left:573px;
+}
+#dot3{
+	top:183px;
+	left:665px;
 }
 
 .part{
 	color:#fff;
-	width:150px;
+	width:160px;
 	position:absolute;
 }
 .part a{
@@ -32,15 +51,15 @@
 }
 
 #part1{
-	left:10px;
-	top:320px;
+	left:250px;
+	top:220px;
 }
 
 #part2{
-	left:630px;
-	top:320px;
+	left:590px;
+	top:220px;
 }
 #part3{
-	left:870px;
-	top:30px;
+	left:690px;
+	top:50px;
 }

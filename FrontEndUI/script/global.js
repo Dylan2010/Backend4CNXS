@@ -18,5 +18,7 @@ $(document).ready(function() {
 		$(this).find(".loginbtns").stop().animate({width:"0px"},200);
 	});
 	
+	$("#maincontent").css("min-height",$(window).height()-$("#navigator").outerHeight()-$("#footer").outerHeight()-89);
+	
 });
 
