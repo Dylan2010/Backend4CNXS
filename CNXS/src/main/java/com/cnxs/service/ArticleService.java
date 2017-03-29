@@ -78,4 +78,8 @@ public class ArticleService {
         }
 	    return articleDao.getLatestArticle(date, next, ArticleType.valueOf(type));
 	}
+	
+	public Boolean deleteArticleByTypeAndId(String type, int id) {
+	    return articleDao.deleteArticleByTypeAndId(ArticleType.valueOf(type), id);
+	}
 }

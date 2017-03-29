@@ -86,4 +86,14 @@ public class ArticleDaoImpl implements ArticleDao{
         
     }
 
+    @Override
+    public boolean deleteArticleByTypeAndId(ArticleType type, int id) {
+        Article article = this.get(id);
+        if(article.getType() != type || article.isDeleted()) {
+            return false;
+        }
+        article.setDeleted(true);;
+        return true;
+    }
+
 }

@@ -30,6 +30,12 @@ public class ArticleRest {
         return res == null ? new ResponseEntity<Article>(res, HttpStatus.NOT_FOUND)  : new ResponseEntity<Article>(res, HttpStatus.OK);
     }
 	
+	@RequestMapping(value = "/Type/{type}/id/{id}",method = RequestMethod.DELETE)
+    public ResponseEntity<Boolean> deleteArticle(@PathVariable String type,@PathVariable int id) {
+	    boolean res = articleSrv.deleteArticleByTypeAndId(type, id);
+	    return res  ? new ResponseEntity<Boolean>(res, HttpStatus.OK)  : new ResponseEntity<Boolean>(res, HttpStatus.NO_CONTENT);
+    }
+	
 	@RequestMapping(value = "/Type/{type}/id/{id}",method = RequestMethod.POST)
     public ResponseEntity<Boolean> updateArticle(@PathVariable String type, @PathVariable Integer id,@RequestBody Article article) {
         boolean res = articleSrv.update(article, type,id );

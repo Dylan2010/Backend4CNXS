@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 5.7.17, for osx10.12 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: cnxs
 -- ------------------------------------------------------
@@ -38,9 +38,10 @@ CREATE TABLE `article` (
   `imageinfo` text,
   `creationtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `eventdate` timestamp NULL DEFAULT NULL,
+  `deleted` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `title` (`title`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -49,7 +50,7 @@ CREATE TABLE `article` (
 
 LOCK TABLES `article` WRITE;
 /*!40000 ALTER TABLE `article` DISABLE KEYS */;
-INSERT INTO `article` VALUES (2,'数舟数据与中国新闻出版传媒集','Events','数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家',NULL,NULL,'2017-03-27 10:58:21',NULL),(3,'依托大数据，在文化高原探索高峰','Events','数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家',NULL,NULL,'2017-03-27 10:59:47',NULL),(4,'大数据，网络文学的寻龙诀','Events','数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家',NULL,NULL,'2017-03-27 11:00:05',NULL),(5,'谭建龙','Experts','中国科学院信息工程研究所，研究员',NULL,NULL,'2017-03-27 11:00:37',NULL),(6,'章毅','Experts','四川大学计算机学院院长、四川大学机器智能实验室创始人、教授，博导',NULL,NULL,'2017-03-27 11:00:50',NULL),(7,'陈文斌','Experts','复旦大学数学科学学院教授',NULL,NULL,'2017-03-27 11:01:08',NULL),(8,'行业资讯1','Info','数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家',NULL,NULL,'2017-03-27 11:01:33',NULL),(9,'行业资讯2','Info','数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家',NULL,NULL,'2017-03-27 11:01:36',NULL),(10,'行业资讯3','Info','数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家',NULL,NULL,'2017-03-27 11:01:43','2017-03-28 16:18:20');
+INSERT INTO `article` VALUES (2,'数舟数据与中国新闻出版传媒集','Events','数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家',NULL,NULL,'2017-03-27 10:58:21',NULL,0),(3,'依托大数据，在文化高原探索高峰','Events','数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家',NULL,NULL,'2017-03-27 10:59:47',NULL,0),(4,'大数据，网络文学的寻龙诀','Events','数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家',NULL,NULL,'2017-03-27 11:00:05',NULL,0),(5,'谭建龙','Experts','中国科学院信息工程研究所，研究员',NULL,NULL,'2017-03-27 11:00:37',NULL,0),(6,'章毅','Experts','四川大学计算机学院院长、四川大学机器智能实验室创始人、教授，博导',NULL,NULL,'2017-03-27 11:00:50',NULL,0),(7,'陈文斌','Experts','复旦大学数学科学学院教授',NULL,NULL,'2017-03-27 11:01:08',NULL,0),(8,'行业资讯1','Info','数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家',NULL,NULL,'2017-03-27 11:01:33',NULL,0),(9,'行业资讯2','Info','数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家',NULL,NULL,'2017-03-27 11:01:36',NULL,0),(10,'行业资讯3','Info','数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家',NULL,NULL,'2017-03-27 11:01:43','2017-03-28 16:18:20',0),(11,'行业资讯3<;select a from b222 ;>','Info','数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家',NULL,NULL,'2017-03-29 02:31:28','2017-03-29 00:00:00',1);
 /*!40000 ALTER TABLE `article` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -66,6 +67,7 @@ CREATE TABLE `user` (
   `password` varchar(255) NOT NULL,
   `email` varchar(40) DEFAULT NULL,
   `creationtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `account` (`account`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
@@ -77,7 +79,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (2,'initialAccount','$2a$10$oRHxGSa.ZPJk7iU7NZVM8u/QP6tvo5ehZCnShJqadMiBC8F5IyWLG',NULL,'2017-03-27 02:49:53');
+INSERT INTO `user` VALUES (2,'initialAccount','$2a$10$oRHxGSa.ZPJk7iU7NZVM8u/QP6tvo5ehZCnShJqadMiBC8F5IyWLG',NULL,'2017-03-27 02:49:53',0);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -90,4 +92,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-29  0:20:41
+-- Dump completed on 2017-03-29 11:25:50

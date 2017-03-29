@@ -12,6 +12,9 @@ public interface ArticleDao {
 	
 	public boolean update(Article article);
 	
+	//current deletion is soft delete
+	public boolean deleteArticleByTypeAndId(ArticleType type, int id);
+	
 	public Article get(int id);
 	
 	public List<Article> getNewsList();
