@@ -104,7 +104,10 @@
 	position:relative;
 	color:#fff;
 }
-
+#brand_develop li p{
+	margin-top:13px;
+	margin-bottom:13px;
+}
 #brand_develop li .brunch{
 	position:absolute;
 	width:192px;
