@@ -4,7 +4,9 @@ body{
 	background:url(../images/team/team_bg.jpg) top center;
 }
 
-
+#manager h2{
+	font-size:24px;
+}
 #manager .general_frame{
 	width:635px;
 	height:414px;
@@ -111,7 +113,6 @@ body{
 	height:607px;
 	width:1010px;
 	background:url(../images/team/team_tech_bg.png) center left no-repeat;
-	background-size:80%;
 	position:relative;
 	margin-top:50px;
 }
