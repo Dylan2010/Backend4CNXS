@@ -118,6 +118,7 @@ body{
 #technology h2{
 	top:50px;
 	left:830px;
+	display:inline-block;
 }
 #technology .province{
 	position:absolute;
