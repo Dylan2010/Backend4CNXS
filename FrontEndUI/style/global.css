@@ -66,6 +66,7 @@ ul,li{
 	top:0;
 	bottom:0;
 	margin:auto;
+	*top:20px;
 }
 #login{
 	position:absolute;
@@ -141,6 +142,7 @@ ul,li{
 	display:none;
 	position:relative;
 	top:-20px;
+	zoom:1;
 }
 
 #navigator .nav_child_li{
@@ -149,6 +151,7 @@ ul,li{
 	text-align:center;
 	background:#000;
 	width:68px;
+	position:relative;
 }
 
 #maincontent{
