@@ -171,6 +171,7 @@ ul,li{
 #footer{
 	padding:20px 0;
 	background:#000000;
+	position:relative;
 }
 
 #logo_footer{
