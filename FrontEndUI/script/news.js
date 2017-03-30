@@ -31,7 +31,7 @@ $(document).ready(function(e) {
 		$("#next_title").text(newsData[modualName][nextNum].title);
 		$("#more_link").attr("href",currentObj.detailLink);
 	}
-	switchModual('events',1);
+	
 	
 	$("#prev_link").click(function(){
 		prev();
@@ -45,6 +45,7 @@ $(document).ready(function(e) {
 	function next(){
 		switchModual(currentModual,currentindex==newsData[currentModual].length?1:currentindex+1);
 	}
+	switchModual('events',1);
 });
 
 var currentindex = 1;

@@ -2,15 +2,19 @@
 
 $(document).ready(function(e) {
     var infoData;
-	
 	function getData(doSetData){
+		jQuery.support.cors = true;
 		$.ajax({
 			url : 'http://101.37.39.51:8080/api/Articles/v1/Type/Info/list',
+			type:"get",
 			dataType : 'json',
 			success : function(data){
 				//console.log(data);
-				//infoData=data;
 				doSetData(data);
+			},
+			error: function(e){
+				var a=JSON.stringify(e);
+				//alert(a);
 			}
 		});
 		//infoData=testData;
@@ -19,6 +23,7 @@ $(document).ready(function(e) {
 	}
 	function setData(data){
 		infoData=data;
+		//alert(infoData);
 		console.log(infoData);
 		$.each(infoData,function(n,v){
 			/*<li class="odd">
@@ -30,7 +35,13 @@ $(document).ready(function(e) {
 						<p></p>
 					</div>
 				</li>*/
-			v.imageInfo = JSON.parse(v.imageInfo);
+				//alert(v);
+				//alert(v.imageInfo[1]);
+			//v.imageInfo = eval(v.imageInfo);
+			v.imageInfo.replace(/[\\]/g,'');
+			//v.imageInfo=eval(v.imageInfo);
+			//alert(v.imageInfo);
+			//var Json =v.imageInfo;
 			var li=$(document.createElement("li"));
 			if(n%2==0){
 				li.addClass("odd");

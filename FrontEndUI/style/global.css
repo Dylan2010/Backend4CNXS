@@ -10,6 +10,9 @@ a{
 	text-decoration:none;
 	border:none;
 }
+img{
+	border:none;
+}
 
 ul,li{
 	padding:0;
@@ -145,6 +148,7 @@ ul,li{
 	font-size:14px;
 	text-align:center;
 	background:#000;
+	width:68px;
 }
 
 #maincontent{

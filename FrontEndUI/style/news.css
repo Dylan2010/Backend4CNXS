@@ -263,6 +263,7 @@
 }
 #experts li img{
 	width:100%;
+	height:auto;
 }
 #experts li.center{
 	width:300px;
