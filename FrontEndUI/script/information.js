@@ -24,7 +24,7 @@ $(document).ready(function(e) {
 	function setData(data){
 		infoData=data;
 		//alert(infoData);
-		console.log(infoData);
+		//console.log(infoData);
 		$.each(infoData,function(n,v){
 			/*<li class="odd">
 					<div class="main_img">
@@ -38,10 +38,11 @@ $(document).ready(function(e) {
 				//alert(v);
 				//alert(v.imageInfo[1]);
 			//v.imageInfo = eval(v.imageInfo);
-			v.imageInfo.replace(/[\\]/g,'');
+			//v.imageInfo.replace(/[\\]/g,'');
 			//v.imageInfo=eval(v.imageInfo);
 			//alert(v.imageInfo);
 			//var Json =v.imageInfo;
+			v.imageInfo=JSON.parse(v.imageInfo);
 			var li=$(document.createElement("li"));
 			if(n%2==0){
 				li.addClass("odd");

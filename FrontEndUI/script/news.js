@@ -21,7 +21,7 @@ $(document).ready(function(e) {
 		currentModual=modualName;
 		var currentObj=newsData[modualName][toIndex-1];
 		var dataLength=newsData[modualName].length;
-		console.log(dataLength);
+		//console.log(dataLength);
 		var nextNum=(currentObj.num>=dataLength?0:currentObj.num);
 		var prevNum=(currentObj.num==1?dataLength-1:currentObj.num-2);
 		$("#main_img").attr("src",currentObj.imgUrl);

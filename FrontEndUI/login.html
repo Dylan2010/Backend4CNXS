@@ -12,8 +12,10 @@
 <script type="text/javascript" src="script/plugins/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="script/global.js"></script>
 <!-- InstanceBeginEditable name="js" -->
+<script type="text/javascript" src="script/plugins/jquery.placeholder.min.js"></script>
 <script>
 $(document).ready(function(e) {
+	$("input").placeholder();
     $("#login_btn").click(function(){
 		/*$.ajax({
 			url : "/User/login",
@@ -130,7 +132,7 @@ $(document).ready(function(e) {
         	<div class="login_left">
             	<h2>登录</h2>
                 <div class="username_frame">
-                	<input name="username" placeholder="用户名："/>
+                	<input name="username" placeholder="用户名/手机号/邮箱："/>
                 </div>
                 <div class="password_frame">
                 	<input type="password" placeholder="密码："/>
