@@ -42,5 +42,5 @@ var testData={
 		"images/news/events/sub_img2.jpg",
 		"images/news/events/sub_img3.jpg"
 		],
-	"type" : "event",
+	"type" : "event"
 }

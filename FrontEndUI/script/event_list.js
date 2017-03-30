@@ -93,5 +93,5 @@ var testData=[
 		"type" : "event",
 		"eventDate" : "2016-12-02",
 		"detailLink" : './events.html'
-	},
+	}
 ];

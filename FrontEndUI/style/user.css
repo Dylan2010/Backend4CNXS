@@ -7,6 +7,7 @@
 	height:306px;
 	margin:auto;
 	position:absolute;
+	*position:relative;
 	top:80px;
 	left:0;
 	right:0;
@@ -23,6 +24,7 @@
 	text-align:center;
 	font-weight:normal;
 	font-size:24px;
+	margin-top:30px;
 }
 #login_page .login_region .login_left .username_frame{
 	background:url(../images/user/username.png) no-repeat;
@@ -95,6 +97,7 @@
 	height:389px;
 	margin:auto;
 	position:absolute;
+	*position:relative;
 	top:40px;
 	left:0;
 	right:0;
