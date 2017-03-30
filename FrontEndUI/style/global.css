@@ -130,12 +130,18 @@ ul,li{
 	color:#fff;
 	text-decoration:none;
 	display:block;
-	min-width:50px;
+	min-width:68px;
 	text-align:center
 }
 #navigator .nav_parent_li a.on,
 #navigator .nav_parent_li a:hover{
 	color:#0099d3;
+}
+#navigator .nav_parent_li img{
+	*margin-top:30px;
+}
+#navigator .nav_parent_li .share{
+	*margin-top:30px;
 }
 
 #navigator .nav_child{
@@ -152,6 +158,9 @@ ul,li{
 	background:#000;
 	width:68px;
 	position:relative;
+}
+#navigator .nav_child_li img{
+	*margin-top:0;
 }
 
 #maincontent{
