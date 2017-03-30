@@ -17,8 +17,21 @@ $(document).ready(function() {
 	},function(){
 		$(this).find(".loginbtns").stop().animate({width:"0px"},200);
 	});*/
+	function calcPageHeight(){
+		var minHeight = $(window).height()-$("#navigator").outerHeight()-$("#footer").outerHeight()-89;
+		console.log(minHeight);
+		if($("#maincontent").outerHeight()>minHeight){
+			minHeight = $("#maincontent").outerHeight();
+		}
+		$("#maincontent").css("min-height",minHeight);
+	}
+	calcPageHeight();
 	
-	$("#maincontent").css("min-height",$(window).height()-$("#navigator").outerHeight()-$("#footer").outerHeight()-89);
+	$(window).resize(function(){
+		//alert(1);
+		calcPageHeight();
+	});
+	//$("#maincontent").css("min-height",$(window).height()-$("#navigator").outerHeight()-$("#footer").outerHeight()-89);
 	
 });
 
