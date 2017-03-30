@@ -120,6 +120,7 @@ body{
 	top:50px;
 	left:830px;
 	display:inline-block;
+	*display:inline;
 }
 #technology .province{
 	position:absolute;
