@@ -28,10 +28,14 @@ $(document).ready(function(e) {
 			date.text(v.eventDate);
 			var title = $(document.createElement("span"));
 			title.text(v.title);
+			var arrow = $(document.createElement("span"));
+			arrow.addClass("arr");
+			arrow.text(">>");
 			list_img.append(img);
 			a.append(list_img);
 			a.append(date);
 			a.append(title);
+			a.append(arrow);
 			li.append(a);
 			$("#event_list_ul").append(li);
 		});

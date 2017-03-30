@@ -14,6 +14,26 @@ $(document).ready(function(e) {
 		//switchModual()
 	});
 	
+	function getData(doSetData){
+		jQuery.support.cors = true;//跨域
+		$.ajax({
+			url : 'http://101.37.39.51:8080/api/Articles/v1/News',
+			type:"get",
+			dataType : 'json',
+			success : function(data){
+				console.log(data);
+				//doSetData(data);
+			},
+			error: function(e){
+				var a=JSON.stringify(e);
+				//alert(a);
+			}
+		});
+		//infoData=testData;
+		//console.log(infoData);
+		
+	}
+	getData(1);
 	var newsData=testdata;
 	//console.log(testdata[currentModual]);
 	function switchModual(modualName,toIndex){//模块名称，索引
