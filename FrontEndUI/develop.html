@@ -15,6 +15,107 @@
 <script src="script/plugins/tinyscrollbar.js"></script>
 <script>
 $(document).ready(function(e) {
+	alert(parseInt($.browser.version));
+	if($.browser.msie && parseInt($.browser.version) < 10){
+		$("#brand_develop li:nth-child(odd) .brunch").css("right","50%");
+		$("#brand_develop li:nth-child(even) .brunch").css("left","50%");
+		$("#brand_develop li:nth-child(odd) .time").css({"right":"50%","margin-right":"23px","top":"0"});
+		$("#brand_develop li:nth-child(even) .time").css({"left":"50%","margin-left":"23px","top":"0"});
+		/*#brand_develop li:nth-child(odd) .describe{
+			right:50%;
+			margin-right:23px;
+			top:0;
+		}
+		#brand_develop li:nth-child(even) .describe{
+			left:50%;
+			margin-left:23px;
+			top:0;
+		}
+		#brand_develop li:nth-child(odd) .illustration{
+			right:50%;
+			margin-right:192px;
+			top:0;
+		}
+		#brand_develop li:nth-child(even) .illustration{
+			left:50%;
+			margin-left:192px;
+			top:0;
+		}
+		
+		#brand_develop li:nth-child(2) .brunch{
+			top:40px;
+		}
+		#brand_develop li:nth-child(2) .time{
+			top:0px;
+		}
+		#brand_develop li:nth-child(2) .describe{
+			top:40px;
+		}
+		#brand_develop li:nth-child(2) .illustration{
+			top:-30px;
+		}
+		#brand_develop li:nth-child(3) .brunch{
+			top:40px;
+		}
+		#brand_develop li:nth-child(3) .time{
+			top:0px;
+		}
+		#brand_develop li:nth-child(3) .describe{
+			top:40px;
+		}
+		#brand_develop li:nth-child(3) .illustration{
+			top:-30px;
+		}
+		#brand_develop li:nth-child(4) .brunch{
+			top:40px;
+		}
+		#brand_develop li:nth-child(4) .time{
+			top:0px;
+		}
+		#brand_develop li:nth-child(4) .describe{
+			top:40px;
+		}
+		#brand_develop li:nth-child(4) .illustration{
+			top:-27px;
+		}
+		#brand_develop li:nth-child(5) .brunch{
+			top:15px;
+		}
+		#brand_develop li:nth-child(5) .time{
+			top:-30px;
+		}
+		#brand_develop li:nth-child(5) .describe{
+			top:15px;
+		}
+		#brand_develop li:nth-child(5) .illustration{
+			top:-47px;
+		}
+		#brand_develop li:nth-child(6) .brunch{
+			top:40px;
+		}
+		#brand_develop li:nth-child(6) .time{
+			top:0px;
+		}
+		#brand_develop li:nth-child(6) .describe{
+			top:40px;
+		}
+		#brand_develop li:nth-child(6) .illustration{
+			top:-27px;
+		}
+		#brand_develop li:nth-child(7) .brunch{
+			top:15px;
+		}
+		#brand_develop li:nth-child(7) .time{
+			top:-30px;
+		}
+		#brand_develop li:nth-child(7) .describe{
+			top:15px;
+		}
+		#brand_develop li:nth-child(7) .illustration{
+			top:-47px;
+		}*/
+	}
+	
     $("#brand_develop li").hover(function(){
 		$(this).find(".describe").stop().fadeIn(300);
 	},function(){
