@@ -51,7 +51,7 @@ ul,li{
 #search a img{
 }
 #navigator{
-	height:80px;
+	height:55px;
 	background:#000;
 	position:fixed;
 	color:#fff;
@@ -124,7 +124,7 @@ ul,li{
 }
 #navigator .nav_parent_li{
 	float:left;
-	line-height:80px;
+	line-height:55px;
 	margin-left:20px;
 	font-size:17px;
 }
@@ -172,7 +172,7 @@ ul,li{
 }
 
 #footer{
-	padding:20px 0;
+	padding:8px 0;
 	background:#000000;
 	position:fixed;
 	bottom:0;
