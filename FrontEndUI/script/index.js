@@ -2,9 +2,9 @@
 
 $(document).ready(function() {
     $(".part").hover(function(){
-		$(this).find("p").stop().slideDown();
+		$(this).find("p").stop(true,true).slideDown();
 	},function(){
-		$(this).find("p").stop().slideUp();
+		$(this).find("p").stop(true,true).slideUp();
 	});
 	
 	function lineAnimation(){

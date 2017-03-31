@@ -62,18 +62,18 @@
 }
 .part p{
 	margin:0;
-	font-size:14px;
+	font-size:12px;
 	line-height:25px;
 	display:none;
 }
 
 #part1{
-	left:240px;
+	left:218px;
 	top:220px;
 }
 
 #part2{
-	left:570px;
+	left:550px;
 	top:220px;
 }
 #part3{
