@@ -12,7 +12,7 @@
 	width:100%;
 }
 #left_btns a.prev{
-	margin-top:190px;
+	margin-top:240px;
 }
 #left_btns a.next{
 	margin-top:20px;
@@ -30,7 +30,7 @@
 	width:140px;
 }
 #events_more{
-	margin-top:80px;
+	margin-top:40px;
 }
 #events_more img{
 	float:right;
@@ -97,6 +97,10 @@
 #right_content .detail .article p{
 	width:220px;
 	font-size:12px;
+}
+#right_content .detail .more_link_div{
+	text-align:right;
+	margin-top:24px;
 }
 
 #news_events{
