@@ -53,8 +53,10 @@ ul,li{
 #navigator{
 	height:80px;
 	background:#000;
-	position:relative;
+	position:fixed;
 	color:#fff;
+	top:0;
+	width:100%;
 }
 #logo{
 	position:relative;
@@ -165,13 +167,16 @@ ul,li{
 
 #maincontent{
 	min-height:500px;
-	margin-top:89px;
+	margin-top:169px;
+	margin-bottom:81px;
 }
 
 #footer{
 	padding:20px 0;
 	background:#000000;
-	position:relative;
+	position:fixed;
+	bottom:0;
+	width:100%;
 }
 
 #logo_footer{
