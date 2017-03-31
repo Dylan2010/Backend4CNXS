@@ -1,5 +1,14 @@
 @charset "utf-8";
 
+@font-face {font-family:'HiraginoSansGB-W3';src:url(../fonts/HiraginoSansGB-W3.eot);}
+@font-face {
+	font-family:'HiraginoSansGB-W3';
+	src:url(../fonts/HiraginoSansGB-W3.woff) format('woff'); }
+@font-face {font-family:'STHeiti';src:url(../fonts/STHeiti.eot);}
+@font-face {
+	font-family:'STHeiti';
+	src:url(../fonts/STHeiti.woff) format('woff'); }
+
 body{
 	padding:0;
 	margin:0;
