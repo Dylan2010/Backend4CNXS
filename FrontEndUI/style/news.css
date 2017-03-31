@@ -85,13 +85,14 @@
 #right_content .detail .article{
 	position:absolute;
 	left:500px;
-	top:50px;
+	top:115px;
 	color:#fff;
 }
 
 #right_content .detail .article h2{
-	width:200px;
+	width:210px;
 	font-size:14px;
+	margin-bottom:24px;
 }
 #right_content .detail .article p{
 	width:220px;
