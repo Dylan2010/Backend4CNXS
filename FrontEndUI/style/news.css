@@ -101,6 +101,7 @@
 #right_content .detail .more_link_div{
 	text-align:right;
 	margin-top:44px;
+	*padding-top:17px;
 }
 
 #news_events{
