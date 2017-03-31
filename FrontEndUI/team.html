@@ -20,9 +20,9 @@
 		});
 		
 		$("#technology .province").hover(function(){
-			$(this).find(".hidearea").stop().fadeIn(300);
+			$(this).find(".hidearea").stop(true,true).fadeIn(300);
 		},function(){
-			$(this).find(".hidearea").stop().fadeOut(300);
+			$(this).find(".hidearea").stop(true,true).fadeOut(300);
 		});
 
 		$(".nav_brand").addClass("on");
@@ -192,7 +192,10 @@
  			<h2>技术团队</h2>
             <div class="province beijing">
             	<div class="hidearea">
-                    <img src="images/global/cooperation/zhongke.png"/>
+                    <!--<img src="images/global/cooperation/zhongke.png"/>-->
+                    <p>
+                    <b>中国科学院信息技术研究所
+                    </b></p>
                     <div class="text">
                         WEB数据自动化采集技术<br/>
     移动APP数据采集技术<br/>
@@ -218,7 +221,10 @@
             </div>-->
             <div class="province sichuan">
             	<div class="hidearea">
-                    <img src="images/global/cooperation/sichuanU.png"/>
+                    <!--<img src="images/global/cooperation/sichuanU.png"/>-->
+                    <p>
+                    <b>四川大学计算机学院
+                    </b></p>
                     <div class="text">
                         共建IP研究院，进行IP相关课题的研究<br/>
     四川大学计算机学院拟将国家机器只能实验室科研成果应用到数舟网络IP估值系统建设中，投入到IP相关领域<br/>
@@ -231,7 +237,7 @@
     	</div>
     	<div id="culture">
             <h2>文化团队</h2>
-            <div style="width:980px;border:1px solid #fff;margin-top:250px;font-size:0;margin-left:30px;">
+            <div style="width:980px;border:1px solid #fff;margin-top:50px;font-size:0;margin-left:30px;">
             	<img src="images/team/team.jpg" style="width:100%;border:5px solid #fff;position:relative;top:-30px;left:-30px;"/>
             </div>
             <!--<div class="team_culture_border">
@@ -362,7 +368,7 @@
     </div>
 <!-- InstanceEndEditable -->
 	</div>
-    <div style="height:81px;">
+    <div style="height:49px;">
     </div>
 	<div id="footer">
     	<div class="main_width clear">
