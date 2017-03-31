@@ -109,10 +109,14 @@
             </ul>
         </div>
     </div>
+    <div style="height:80px;">
+    </div>
     <div id="maincontent">
 <!-- TemplateBeginEditable name="maincontent" -->maincontent
 <!-- TemplateEndEditable -->
 	</div>
+    <div style="height:81px;">
+    </div>
 	<div id="footer">
     	<div class="main_width clear">
         	<div id="logo_footer">
