@@ -3,25 +3,24 @@
 <head>
 <meta charset="utf-8">
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>企业动态</title>
+<title>合作伙伴</title>
 <!-- InstanceEndEditable -->
 <link href="style/global.css" rel="stylesheet" type="text/css">
 <!-- InstanceBeginEditable name="css" -->
-<link href="style/news.css" rel="stylesheet" type="text/css">
+<link href="style/team.css" rel="stylesheet" type="text/css">
 <!-- InstanceEndEditable -->
 <script type="text/javascript" src="script/plugins/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="script/global.js"></script>
 <!-- InstanceBeginEditable name="js" -->
-<script src="script/plugins/tinyscrollbar.js"></script>
-<script type="text/javascript" src="script/event_list.js"></script>
 <script>
 $(document).ready(function(e) {
-    $(".scroller").tinyscrollbar();
+    $("#technology .province").hover(function(){
+		$(this).find(".hidearea").stop(true,true).fadeIn(300);
+	},function(){
+		$(this).find(".hidearea").stop(true,true).fadeOut(300);
+	});
 
-	$(".nav_event_list").addClass("on");
-	$(".nav_news").addClass("on");
-	
-
+	$(".nav_partner").addClass("on");
 });
 </script>
 <!-- InstanceEndEditable -->
@@ -126,89 +125,55 @@ $(document).ready(function(e) {
     </div>
     <div id="maincontent">
 <!-- InstanceBeginEditable name="maincontent" -->
-	<div id="event_list" class="main_width">
-    	<h1>企业动态</h1>
-        <div class="list scroller">
-        	<div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
-            <div class="viewport">
-            	<div class="overview">
-                	<ul id="event_list_ul">
-                    	<!--<li>
-                        	<a href="events.html">
-                            	<div class="list_img">
-                                	<img src="images/news/events/list/img1.jpg"/>
-                                </div>
-                                <span>2016-12-02</span>
-                                <span>
-                                    依托IP大数据，在文化高原探索高峰
-                                </span>
-                                <span class="arr">
-                                	>>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="events.html">
-                            	<div class="list_img">
-                                	<img src="images/news/events/list/img2.jpg"/>
-                                </div>
-                                <span>2016-12-15</span>
-                                <span>
-                                    中国新闻出版传媒集团有限公司总经理李忠发表讲话
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="events.html">
-                            	<div class="list_img">
-                                	<img src="images/news/events/list/img3.jpg"/>
-                                </div>
-                                <span>2016-12-17</span>
-                                <span>
-                                    著名编剧兰晓龙会议现场发言
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="events.html">
-                            	<div class="list_img">
-                                	<img src="images/news/events/list/img4.jpg"/>
-                                </div>
-                                <span>2016-12-17</span>
-                                <span>
-                                    国家新闻出版广电总局数字出版司程晓龙发言
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="events.html">
-                            	<div class="list_img">
-                                	<img src="images/news/events/list/img5.jpg"/>
-                                </div>
-                                <span>2016-12-17</span>
-                                <span>
-                                    数舟（上海）数据信息服务有限公司董事长翁天雄在会议现场
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                        	<a href="events.html">
-                            	<div class="list_img">
-                                	<img src="images/news/events/list/img1.jpg"/>
-                                </div>
-                                <span>2016-12-02</span>
-                                <span>
-                                    依托IP大数据，在文化高原探索高峰
-                                </span>
-                            </a>
-                        </li>-->
-                    </ul>
+	<div id="brand_team" class="main_width clear">
+    	<div id="technology">
+ 			<h2>技术团队</h2>
+            <div class="province beijing">
+            	<div class="hidearea">
+                    <!--<img src="images/global/cooperation/zhongke.png"/>-->
+                    <p>
+                    <b>中国科学院信息技术研究所
+                    </b></p>
+                    <div class="text">
+                        WEB数据自动化采集技术<br/>
+    移动APP数据采集技术<br/>
+    基于云服务的海量网络处理技术<br/>
+    高速异步传输技术<br/>
+    多元多维数据一体化技术<br/>
+    图像匹配技术等<br/>
+    团队技术实力强劲，拥有222科研人员，<br/>
+    70%以上的人员拥有博士学位
+                    </div>
+                </div>
+                <div class="triangle left">
                 </div>
             </div>
-        </div>
-        
+            <!--<div class="province shanghai">
+            	<img src="images/team/fudan.png"/>
+            	<div class="text">
+                	基于网络IP具有虚拟商品的特点有类金融的属性，与复旦大学数学科学院陈文斌教授带领的团队进行模型方面的研究和合作<br/>
+对金融产品的估值和定价进行交流和指导
+                </div>
+                <div class="triangle right">
+                </div>
+            </div>-->
+            <div class="province sichuan">
+            	<div class="hidearea">
+                    <!--<img src="images/global/cooperation/sichuanU.png"/>-->
+                    <p>
+                    <b>四川大学计算机学院
+                    </b></p>
+                    <div class="text">
+                        共建IP研究院，进行IP相关课题的研究<br/>
+    四川大学计算机学院拟将国家机器只能实验室科研成果应用到数舟网络IP估值系统建设中，投入到IP相关领域<br/>
+    人工智能的基础就是大数据神经网络应用，将大数据神经网络科研成果应用于网络IP大数据体系建设上
+                    </div>
+                </div>
+                <div class="triangle left">
+                </div>
+            </div>
+    	</div>
     </div>
-
 <!-- InstanceEndEditable -->
 	</div>
     <div style="height:49px;">
