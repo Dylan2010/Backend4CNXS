@@ -5,6 +5,7 @@ $(document).ready(function(e) {
 	function getData(doSetData){
 		jQuery.support.cors = true;//跨域
 		$.ajax({
+			async: false,
 			url : 'http://101.37.39.51:8080/api/Articles/v1/Type/Info/list',
 			type:"get",
 			dataType : 'json',
