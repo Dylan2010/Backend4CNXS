@@ -5,6 +5,7 @@ $(document).ready(function(e) {
     function getData(doSetData){
 		jQuery.support.cors = true;//跨域
 		$.ajax({
+			async: false,
 			url : 'http://101.37.39.51:8080/api/Articles/v1/Type/Events/list',
 			type:"get",
 			dataType : 'json',
@@ -24,7 +25,7 @@ $(document).ready(function(e) {
 		eventData = data;
 		$.each(eventData,function(n,v){
 			v.detailLink = './events.html';
-			console.log(v.imageInfo);
+			//console.log(v.imageInfo);
 			v.imageInfo=JSON.parse(v.imageInfo);
 			
 			var li = $(document.createElement("li"));
