@@ -2,28 +2,38 @@
 
 $(document).ready(function(e) {
     var eventData=testData;
-    function loadData(callAddScroller){
+    function getData(doSetData){
+		jQuery.support.cors = true;//跨域
+		$.ajax({
+			url : 'http://101.37.39.51:8080/api/Articles/v1/Type/Events/list',
+			type:"get",
+			dataType : 'json',
+			success : function(data){
+				//console.log(data);
+				doSetData(data,addScroller);
+			},
+			error: function(e){
+				var a=JSON.stringify(e);
+				//alert(a);
+			}
+		});
+		
+	}
+	
+	function setData(data,setScroller){
+		eventData = data;
 		$.each(eventData,function(n,v){
-			/*
-			<li>
-				<a href="events.html">
-					<div class="list_img">
-						<img src="images/news/events/list/img1.jpg"/>
-					</div>
-					<span>2016-12-02</span>
-					<span>
-						依托IP大数据，在文化高原探索高峰
-					</span>
-				</a>
-			</li>
-			*/
+			v.detailLink = './events.html';
+			console.log(v.imageInfo);
+			v.imageInfo=JSON.parse(v.imageInfo);
+			
 			var li = $(document.createElement("li"));
 			var a = $(document.createElement("a"));
 			a.attr("href",v.detailLink);
 			var list_img = $(document.createElement("div"));
 			list_img.addClass("list_img");
 			var img = $(document.createElement("img"));
-			img.attr("src",v.imgUrl);
+			img.attr("src",v.imageInfo["1"]);
 			var date = $(document.createElement("span"));
 			date.text(v.eventDate);
 			var title = $(document.createElement("span"));
@@ -39,21 +49,20 @@ $(document).ready(function(e) {
 			li.append(a);
 			$("#event_list_ul").append(li);
 		});
-		
-		callAddScroller();
+		setScroller();
 	}
 	
 	function addScroller(){
 		$(".scroller").tinyscrollbar();
 	}
-	loadData(addScroller);
+	getData(setData);
 });
 
 var testData=[
 	{
 		"id" : 1,
 		"title" : "依托IP大数据，在文化高原探索高峰",
-		"imgUrl" : "./images/news/events/list/img1.jpg",
+		"imageInfo" : "{\"1\":\"./images/news/events/list/img1.jpg\"}",
 		"type" : "event",
 		"eventDate" : "2016-12-02",
 		"detailLink" : './events.html'
@@ -61,7 +70,7 @@ var testData=[
 	{
 		"id" : 2,
 		"title" : "中国新闻出版传媒集团有限公司总经理李忠发表讲话",
-		"imgUrl" : "./images/news/events/list/img2.jpg",
+		"imageInfo" : "{\"1\":\"./images/news/events/list/img2.jpg\"}",
 		"type" : "event",
 		"eventDate" : "2016-12-15",
 		"detailLink" : './events.html'
@@ -69,7 +78,7 @@ var testData=[
 	{
 		"id" : 3,
 		"title" : "著名编剧兰晓龙会议现场发言",
-		"imgUrl" : "./images/news/events/list/img3.jpg",
+		"imageInfo" : "{\"1\":\"./images/news/events/list/img3.jpg\"}",
 		"type" : "event",
 		"eventDate" : "2016-12-17",
 		"detailLink" : './events.html'
@@ -77,7 +86,7 @@ var testData=[
 	{
 		"id" : 4,
 		"title" : "国家新闻出版广电总局数字出版司程晓龙发言",
-		"imgUrl" : "./images/news/events/list/img4.jpg",
+		"imageInfo" : "{\"1\":\"./images/news/events/list/img4.jpg\"}",
 		"type" : "event",
 		"eventDate" : "2016-12-17",
 		"detailLink" : './events.html'
@@ -85,7 +94,7 @@ var testData=[
 	{
 		"id" : 5,
 		"title" : "数舟（上海）数据信息服务有限公司董事长翁天雄在会议现场",
-		"imgUrl" : "./images/news/events/list/img5.jpg",
+		"imageInfo" : "{\"1\":\"./images/news/events/list/img5.jpg\"}",
 		"type" : "event",
 		"eventDate" : "2016-12-17",
 		"detailLink" : './events.html'
@@ -93,7 +102,7 @@ var testData=[
 	{
 		"id" : 6,
 		"title" : "依托IP大数据，在文化高原探索高峰",
-		"imgUrl" : "./images/news/events/list/img1.jpg",
+		"imageInfo" : "{\"1\":\"./images/news/events/list/img1.jpg\"}",
 		"type" : "event",
 		"eventDate" : "2016-12-02",
 		"detailLink" : './events.html'
