@@ -24,7 +24,7 @@ $(document).ready(function(e) {
 	function setData(data,setScroller){
 		eventData = data;
 		$.each(eventData,function(n,v){
-			v.detailLink = './events.html';
+			v.detailLink = './events.html'+'?id='+v.id;//+'&date='+v.creationTime;
 			//console.log(v.imageInfo);
 			v.imageInfo=JSON.parse(v.imageInfo);
 			
