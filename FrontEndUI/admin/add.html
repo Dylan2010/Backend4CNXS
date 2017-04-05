@@ -8,6 +8,7 @@
 <script type="text/javascript" src="../script/plugins/jquery-1.8.3.min.js"></script>
 <!-- InstanceBeginEditable name="head" -->
 <script src="../script/plugins/jquery.form.js"></script>
+<!--<script src="../script/plugins/json2.js"></script>-->
 <script>
 $(document).ready(function(e) {
     $("#mainImgBtn").click(function(){
@@ -32,7 +33,9 @@ $(document).ready(function(e) {
                 type : 'POST',
                 dataType : 'json',
                 success : function(data) {
-                    console.log(JSON.stringify(data));
+                    //alert(JSON.stringify(data));
+					$("#mainImgPath").val(data);
+					$("#mainImg_preview").attr("src",data);
                 },
                 error: function(data) {
                     alert(JSON.stringify(data) + "--上传失败,请刷新后重试");
@@ -41,6 +44,88 @@ $(document).ready(function(e) {
         $("#mainImg_form").ajaxSubmit(option);
              
 		
+	});
+	
+	$("#subImg1Btn").click(function(){
+		jQuery.support.cors = true;
+		var option = {
+                url : 'http://101.37.39.51:8080/api/Image/v1/upload',
+                type : 'POST',
+                dataType : 'json',
+                success : function(data) {
+					$("#subImg1Path").val(data);
+					$("#subImg1_preview").attr("src",data);
+                },
+                error: function(data) {
+                    alert(JSON.stringify(data) + "--上传失败,请刷新后重试");
+                }
+             };
+        $("#subImg1_form").ajaxSubmit(option);
+	});
+	
+	$("#subImg2Btn").click(function(){
+		jQuery.support.cors = true;
+		var option = {
+                url : 'http://101.37.39.51:8080/api/Image/v1/upload',
+                type : 'POST',
+                dataType : 'json',
+                success : function(data) {
+					$("#subImg2Path").val(data);
+					$("#subImg2_preview").attr("src",data);
+                },
+                error: function(data) {
+                    alert(JSON.stringify(data) + "--上传失败,请刷新后重试");
+                }
+             };
+        $("#subImg2_form").ajaxSubmit(option);
+	});
+	
+	$("#subImg3Btn").click(function(){
+		jQuery.support.cors = true;
+		var option = {
+                url : 'http://101.37.39.51:8080/api/Image/v1/upload',
+                type : 'POST',
+                dataType : 'json',
+                success : function(data) {
+					$("#subImg3Path").val(data);
+					$("#subImg3_preview").attr("src",data);
+                },
+                error: function(data) {
+                    alert(JSON.stringify(data) + "--上传失败,请刷新后重试");
+                }
+             };
+        $("#subImg3_form").ajaxSubmit(option);
+	});
+	
+	$("#save").click(function(){
+		var imageInfo = {
+				"1" : $("#mainImgPath").val(),
+				"2" : $("#subImg1Path").val(),
+				"3" : $("#subImg2Path").val(),
+				"4" : $("#subImg3Path").val()
+			};
+		var formData = {
+				"title" : $("#title").val(),
+				"eventDate" : new Date($("#eventDate").val()),
+				"summary" : $("#summary").val(),
+				"content" : $("#content").val(),
+				"type" : "Events",
+				"imageInfo" : JSON.stringify(imageInfo)
+			};
+		
+		$.ajax({
+			contentType : "application/json",
+			url : "http://101.37.39.51:8080/api/Articles/v1/Type/Events",
+			type : "POST",
+			data : formData,
+			dataType : "json",
+			success : function(data){
+				alert(data);
+			},
+			error : function(e){
+				alert("保存失败！");
+			}
+		});
 	});
 });
 </script>
@@ -57,12 +142,29 @@ $(document).ready(function(e) {
 主题照片：<input id="mainImg" type="file" name="file"/><input type="button" id="mainImgBtn" value="上传"/>
 </form>
 <input type="hidden" id="mainImgPath"/>
-内容照片1：<input id="subImg1" type="file"/><input type="button" id="subImg1Btn" value="上传"/>
+<img id="mainImg_preview" src=""/>
+
+<form id="subImg1_form" method="post" action="http://101.37.39.51:8080/api/Image/v1/upload" enctype="multipart/form-data">
+内容照片1：<input id="subImg1" type="file" name="file"/><input type="button" id="subImg1Btn" value="上传"/>
+</form>
 <input type="hidden" id="subImg1Path"/>
-内容照片2：<input id="subImg2" type="file"/><input type="button" id="subImg2Btn" value="上传"/>
+<img id="subImg1_preview" src=""/>
+
+<form id="subImg2_form" method="post" action="http://101.37.39.51:8080/api/Image/v1/upload" enctype="multipart/form-data">
+内容照片2：<input id="subImg2" type="file" name="file"/><input type="button" id="subImg2Btn" value="上传"/>
+</form>
 <input type="hidden" id="subImg2Path"/>
-内容照片3：<input id="subImg3" type="file"/><input type="button" id="subImg3Btn" value="上传"/>
+<img id="subImg2_preview" src=""/>
+
+<form id="subImg3_form" method="post" action="http://101.37.39.51:8080/api/Image/v1/upload" enctype="multipart/form-data">
+内容照片3：<input id="subImg3" type="file" name="file"/><input type="button" id="subImg3Btn" value="上传"/>
+</form>
 <input type="hidden" id="subImg3Path"/>
+<img id="subImg3_preview" src=""/>
+
+<div>
+	<input type="button" id="save" value="保存"/>
+</div>
 <!-- InstanceEndEditable -->
 </body>
 <!-- InstanceEnd --></html>
