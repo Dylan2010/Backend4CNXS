@@ -124,17 +124,27 @@ $(document).ready(function(e) {
 <!-- InstanceBeginEditable name="maincontent" -->
 	<div id="news" class="main_width">
     	<div id="left_btns">
-        	<a id="prev_link" class="prev clear" href="javascript:void(0);">
-            	<img src="images/news/prev.png"/>
-                <p id="prev_title">大数据，网络文学的寻龙诀</p><!-- 取数据-->
-            </a>
-            <a id="next_link" class="next clear" href="javascript:void(0);">
-            	<img src="images/news/next.png"/>
-                <p id="next_title">依托大数据，在文化高原探索高峰</p><!-- 取数据-->
-            </a>
-            <a id="events_more" href="event_list.html">
-            	<img src="images/news/events_more.png"/>
-            </a>
+        	<div class="prev clear">
+                <a id="prev_link" href="javascript:void(0);">
+                    <img src="images/news/prev.png"/>
+                </a>
+                <a id="prev_title_link" href="javascript:void(0);">
+                	<p id="prev_title">大数据，网络文学的寻龙诀</p>
+                </a>
+            </div>
+            <div class="next clear">
+                <a id="next_link" href="javascript:void(0);">
+                    <img src="images/news/next.png"/>
+                </a>
+                <a id="next_title_link" href="javascript:void(0);">
+                	<p id="next_title">依托大数据，在文化高原探索高峰</p>
+                </a>
+            </div>
+            <div id="events_more">
+                <a href="event_list.html">
+                    <img src="images/news/events_more.png"/>
+                </a>
+            </div>
         </div>
         <div id="right_content">
         	<div class="topic"><img src="images/news/topic.png"/></div>

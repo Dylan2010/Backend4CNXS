@@ -21,7 +21,7 @@ $(document).ready(function(e) {
 			type:"get",
 			dataType : 'json',
 			success : function(data){
-				console.log(data);
+				doSetData(data);
 				//doSetData(data);
 			},
 			error: function(e){
@@ -33,7 +33,27 @@ $(document).ready(function(e) {
 		//console.log(infoData);
 		
 	}
-	getData(1);
+	function setData(data){
+		newsData = data;
+		$.each(newsData.events,function(n,v){
+			v.num = n+1;
+			v.detailLink = './events.html?id='+v.id;
+			v.imageInfo = JSON.parse(v.imageInfo);
+		});
+		$.each(newsData.experts,function(n,v){
+			v.num = n+1;
+			v.detailLink = './experts.html';
+			v.imageInfo = JSON.parse(v.imageInfo);
+		});
+		$.each(newsData.informations,function(n,v){
+			v.num = n+1;
+			v.detailLink = './information.html';
+			v.imageInfo = JSON.parse(v.imageInfo);
+		});
+		console.log(newsData);
+		switchModual('events',1);
+	}
+	getData(setData);
 	var newsData=testdata;
 	//console.log(testdata[currentModual]);
 	function switchModual(modualName,toIndex){//模块名称，索引
@@ -44,12 +64,15 @@ $(document).ready(function(e) {
 		//console.log(dataLength);
 		var nextNum=(currentObj.num>=dataLength?0:currentObj.num);
 		var prevNum=(currentObj.num==1?dataLength-1:currentObj.num-2);
-		$("#main_img").attr("src",currentObj.imgUrl);
+		
+		$("#main_img").attr("src",currentObj.imageInfo["1"]);
 		$("#article_title").text(currentObj.title);
 		$("#article_text").text(currentObj.summary);
 		$("#prev_title").text(newsData[modualName][prevNum].title);
 		$("#next_title").text(newsData[modualName][nextNum].title);
 		$("#more_link").attr("href",currentObj.detailLink);
+		$("#prev_title_link").attr("href",newsData[modualName][prevNum].detailLink);
+		$("#next_title_link").attr("href",newsData[modualName][nextNum].detailLink);
 	}
 	
 	
@@ -65,7 +88,7 @@ $(document).ready(function(e) {
 	function next(){
 		switchModual(currentModual,currentindex==newsData[currentModual].length?1:currentindex+1);
 	}
-	switchModual('events',1);
+	
 });
 
 var currentindex = 1;
@@ -77,7 +100,7 @@ var testdata={
 				"title" : "数舟数据与中国新闻出版传媒集",
 				"summary" : "数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家",
 				"content" : "",
-				"imgUrl" : "./images/news/sample1.png",
+				"imageInfo" : "{\"1\":\"./images/news/sample1.png\"}",
 				"type" : "event",
 				"eventDate" : "",
 				"detailLink" : './events.html'
@@ -87,7 +110,7 @@ var testdata={
 				"title" : "依托大数据，在文化高原探索高峰",
 				"summary" : "数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家",
 				"content" : "",
-				"imgUrl" : "./images/news/sample1.png",
+				"imageInfo" : "{\"1\":\"./images/news/sample1.png\"}",
 				"type" : "event",
 				"eventDate" : "",
 				"detailLink" : './events.html'
@@ -97,7 +120,7 @@ var testdata={
 				"title" : "大数据，网络文学的寻龙诀",
 				"summary" : "数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家",
 				"content" : "",
-				"imgUrl" : "./images/news/sample1.png",
+				"imageInfo" : "{\"1\":\"./images/news/sample1.png\"}",
 				"type" : "event",
 				"eventDate" : "",
 				"detailLink" : './events.html'
@@ -109,7 +132,7 @@ var testdata={
 				"title" : "谭建龙",
 				"summary" : "中国科学院信息工程研究所，研究员",
 				"content" : "",
-				"imgUrl" : "./images/news/experts/tjl.jpg",
+				"imageInfo" : "{\"1\":\"./images/news/experts/tjl.jpg\"}",
 				"type" : "expert",
 				"eventDate" : "",
 				"detailLink" : './experts.html'
@@ -119,7 +142,7 @@ var testdata={
 				"title" : "章毅",
 				"summary" : "四川大学计算机学院院长、四川大学机器智能实验室创始人、教授，博导",
 				"content" : "",
-				"imgUrl" : "./images/news/experts/zy.jpg",
+				"imageInfo" : "{\"1\":\"./images/news/experts/zy.jpg\"}",
 				"type" : "expert",
 				"eventDate" : "",
 				"detailLink" : './experts.html'
@@ -129,7 +152,7 @@ var testdata={
 				"title" : "陈文斌",
 				"summary" : "复旦大学数学科学学院教授",
 				"content" : "",
-				"imgUrl" : "./images/news/experts/cwb.jpg",
+				"imageInfo" : "{\"1\":\"./images/news/experts/cwb.jpg\"}",
 				"type" : "expert",
 				"eventDate" : "",
 				"detailLink" : './experts.html'
@@ -141,7 +164,7 @@ var testdata={
 				"title" : "大数据，网络文学的寻龙诀",
 				"summary" : "数舟（上海）数据信息服务有限公司承办的《大数据来了，网络文学如何炼成大IP》主题访谈会",
 				"content" : "",
-				"imgUrl" : "./images/news/sample3.jpg",
+				"imageInfo" : "{\"1\":\"./images/news/sample3.jpg\"}",
 				"type" : "information",
 				"eventDate" : "",
 				"detailLink" : './information.html'
@@ -151,7 +174,7 @@ var testdata={
 				"title" : "依托IP大数据，在文化高原探索高峰",
 				"summary" : "“2016首届中国网络IP大数据发展研讨会”在京拉开帷幕",
 				"content" : "",
-				"imgUrl" : "./images/news/sample3.jpg",
+				"imageInfo" : "{\"1\":\"./images/news/sample3.jpg\"}",
 				"type" : "information",
 				"eventDate" : "",
 				"detailLink" : './information.html'
@@ -161,7 +184,7 @@ var testdata={
 				"title" : "行业资讯3",
 				"summary" : "数舟数据建立专家智库，陈村邵燕君等行业专家应邀成为首批智库专家",
 				"content" : "",
-				"imgUrl" : "./images/news/sample3.jpg",
+				"imageInfo" : "{\"1\":\"./images/news/sample3.jpg\"}",
 				"type" : "information",
 				"eventDate" : "",
 				"detailLink" : './information.html'

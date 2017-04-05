@@ -11,10 +11,10 @@
 	font-size:12px;
 	width:100%;
 }
-#left_btns a.prev{
+#left_btns .prev{
 	margin-top:240px;
 }
-#left_btns a.next{
+#left_btns .next{
 	margin-top:20px;
 }
 #left_btns img{

@@ -7,7 +7,7 @@
 <!-- InstanceEndEditable -->
 <script type="text/javascript" src="../script/plugins/jquery-1.8.3.min.js"></script>
 <!-- InstanceBeginEditable name="head" -->
-<script src="../script/plugins/ajaxfileupload.js"></script>
+<script src="../script/plugins/jquery.form.js"></script>
 <script>
 $(document).ready(function(e) {
     $("#mainImgBtn").click(function(){
@@ -27,19 +27,19 @@ $(document).ready(function(e) {
 			}
 		});*/
 		
-		$.ajaxFileUpload({
-			url : 'http://101.37.39.51:8080/api/Image/v1/upload',
-			type : 'post',
-			secureuri : false,
-			fileElementId : 'mainImg',
-			dataType : 'jsonp',
-			success : function(data,status){
-				console.log(data);
-			},
-			error: function (data, status, e){
-				alert(e);
-			}
-		});
+		var option = {
+                url : 'http://101.37.39.51:8080/api/Image/v1/upload',
+                type : 'POST',
+                dataType : 'json',
+                headers : {"ClientCallMode" : "ajax"}, //添加请求头部
+                success : function(data) {
+                    console.log(JSON.stringify(data));
+                },
+                error: function(data) {
+                    alert(JSON.stringify(data) + "--上传失败,请刷新后重试");
+                }
+             };
+        $("#mainImg_form").ajaxSubmit(option);
              
 		
 	});
@@ -54,7 +54,9 @@ $(document).ready(function(e) {
 日期：<input id="eventDate" />
 摘要：<textarea id="summary" ></textarea>
 文章内容：<textarea id="content"></textarea>
+<form id="mainImg_form" method="post" action="http://101.37.39.51:8080/api/Image/v1/upload" enctype="multipart/form-data">
 主题照片：<input id="mainImg" type="file"/><input type="button" id="mainImgBtn" value="上传"/>
+</form>
 <input type="hidden" id="mainImgPath"/>
 内容照片1：<input id="subImg1" type="file"/><input type="button" id="subImg1Btn" value="上传"/>
 <input type="hidden" id="subImg1Path"/>
