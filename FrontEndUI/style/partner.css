@@ -1,0 +1,96 @@
+@charset "utf-8";
+
+#partner{
+	color:#fff;
+}
+#partner h2{
+	font-size:14px;
+	position:relative;
+}
+#technology{
+	height:618px;
+	width:1010px;
+	background:url(../images/team/team_tech_bg.png) center center no-repeat;
+	position:relative;
+	margin-top:100px;
+}
+#technology h2{
+	font-size:14px;
+	/*top:50px;
+	left:830px;
+	display:inline-block;
+	*display:inline;*/
+}
+#technology .province{
+	position:absolute;
+	font-size:12px;
+}
+#technology .province .hidearea{
+	background:rgba(0,0,0,0.5);
+	*background:url(../images/team/tech_bg.png);
+	padding:10px;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-o-border-radius:5px;
+	position:absolute;
+	display:none;
+}
+#technology .text{
+	line-height:18px;
+}
+#technology .province .text,#technology .province img{
+	--display:none;
+}
+#technology .triangle{
+	width:44px;
+	height:63px;
+	position:absolute;
+}
+#technology .triangle.left{
+	background:url(../images/team/tri_left.png) no-repeat;
+}
+#technology .triangle.right{
+	background:url(../images/team/tri_right.png) no-repeat;
+}
+
+#technology .province.beijing{
+	left:690px;
+	top:190px;
+}
+#technology .province.beijing .hidearea{
+	width:215px;
+	left:-240px;
+	top:-150px;
+}
+
+#technology .province.beijing .triangle{
+	top:0;
+	left:0;
+}
+#technology .province.shanghai{
+	left:750px;
+	top:230px;
+}
+#technology .province.shanghai .text{
+	width:300px;
+}
+#technology .province.shanghai img{
+}
+#technology .province.shanghai .triangle{
+	left:-30px;
+	top:130px;
+}
+#technology .province.sichuan{
+	left:440px;
+	top:310px;
+}
+#technology .province.sichuan .hidearea{
+	width:180px;
+	left:-205px;
+	top:-20px;
+}
+
+#technology .province.sichuan .triangle{
+	left:0;
+	top:0;
+}

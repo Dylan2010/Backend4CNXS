@@ -118,7 +118,7 @@ body{
 #technology{
 	height:618px;
 	width:1010px;
-	background:url(../images/team/team_tech_bg.png) center center no-repeat;
+	background:url(../images/team/team_tech_bg_s.png) center center no-repeat;
 	position:relative;
 	margin-top:100px;
 }
@@ -162,8 +162,8 @@ body{
 }
 
 #technology .province.beijing{
-	left:690px;
-	top:190px;
+	left:640px;
+	top:200px;
 }
 #technology .province.beijing .hidearea{
 	width:215px;
@@ -189,8 +189,8 @@ body{
 	top:130px;
 }
 #technology .province.sichuan{
-	left:440px;
-	top:310px;
+	left:450px;
+	top:290px;
 }
 #technology .province.sichuan .hidearea{
 	width:180px;
