@@ -1,0 +1,67 @@
+<!doctype html>
+<html><!-- InstanceBegin template="/Templates/manageTemplate.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta charset="utf-8">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>数舟管理</title>
+<!-- InstanceEndEditable -->
+<script type="text/javascript" src="../script/plugins/jquery-1.8.3.min.js"></script>
+<!-- InstanceBeginEditable name="head" -->
+<script src="../script/plugins/ajaxfileupload.js"></script>
+<script>
+$(document).ready(function(e) {
+    $("#mainImgBtn").click(function(){
+		jQuery.support.cors = true;
+		/*$.ajax({
+			url : 'http://101.37.39.51:8080/api/Image/v1/upload',
+			type : "post",
+			data:{"file":$("#mainImg").val()},
+			dataType : 'json',
+			success : function(data){
+				console.log(data);
+				//doSetData(data,initAnimation);
+			},
+			error: function(e){
+				var a=JSON.stringify(e);
+				console.log(a);
+			}
+		});*/
+		
+		$.ajaxFileUpload({
+			url : 'http://101.37.39.51:8080/api/Image/v1/upload',
+			type : 'post',
+			secureuri : false,
+			fileElementId : 'mainImg',
+			dataType : 'jsonp',
+			success : function(data,status){
+				console.log(data);
+			},
+			error: function (data, status, e){
+				alert(e);
+			}
+		});
+             
+		
+	});
+});
+</script>
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<!-- InstanceBeginEditable name="mainContent" -->
+标题：<input id="title" />
+日期：<input id="eventDate" />
+摘要：<textarea id="summary" ></textarea>
+文章内容：<textarea id="content"></textarea>
+主题照片：<input id="mainImg" type="file"/><input type="button" id="mainImgBtn" value="上传"/>
+<input type="hidden" id="mainImgPath"/>
+内容照片1：<input id="subImg1" type="file"/><input type="button" id="subImg1Btn" value="上传"/>
+<input type="hidden" id="subImg1Path"/>
+内容照片2：<input id="subImg2" type="file"/><input type="button" id="subImg2Btn" value="上传"/>
+<input type="hidden" id="subImg2Path"/>
+内容照片3：<input id="subImg3" type="file"/><input type="button" id="subImg3Btn" value="上传"/>
+<input type="hidden" id="subImg3Path"/>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>
