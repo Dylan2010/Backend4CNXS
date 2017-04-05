@@ -31,7 +31,6 @@ $(document).ready(function(e) {
                 url : 'http://101.37.39.51:8080/api/Image/v1/upload',
                 type : 'POST',
                 dataType : 'json',
-                headers : {"ClientCallMode" : "ajax"}, //添加请求头部
                 success : function(data) {
                     console.log(JSON.stringify(data));
                 },
@@ -55,7 +54,7 @@ $(document).ready(function(e) {
 摘要：<textarea id="summary" ></textarea>
 文章内容：<textarea id="content"></textarea>
 <form id="mainImg_form" method="post" action="http://101.37.39.51:8080/api/Image/v1/upload" enctype="multipart/form-data">
-主题照片：<input id="mainImg" type="file"/><input type="button" id="mainImgBtn" value="上传"/>
+主题照片：<input id="mainImg" type="file" name="file"/><input type="button" id="mainImgBtn" value="上传"/>
 </form>
 <input type="hidden" id="mainImgPath"/>
 内容照片1：<input id="subImg1" type="file"/><input type="button" id="subImg1Btn" value="上传"/>
