@@ -16,9 +16,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 
 @Entity
-@Table(name = "article", uniqueConstraints={
-	    @UniqueConstraint(name="_ARTICLE_UNIQUE_TITLE_TYPE_",columnNames = {"title", "type"})
-	})
+@Table(name = "article")
 public class Article extends BusinessObjectBase{
 	
 	@Id

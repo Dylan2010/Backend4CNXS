@@ -40,8 +40,7 @@ CREATE TABLE `article` (
   `creationtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `eventdate` timestamp NULL DEFAULT NULL,
   `deleted` int(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `_ARTICLE_UNIQUE_TITLE_TYPE_` (`title`,`type`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
