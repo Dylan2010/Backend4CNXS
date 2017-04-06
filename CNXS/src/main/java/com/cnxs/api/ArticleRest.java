@@ -34,7 +34,7 @@ public class ArticleRest {
 	@RequestMapping(value = "/Type/{type}/id/{id}",method = RequestMethod.DELETE)
     public ResponseEntity<Boolean> deleteArticle(@PathVariable String type,@PathVariable int id) {
 	    boolean res = articleSrv.deleteArticleByTypeAndId(type, id);
-	    return res  ? new ResponseEntity<Boolean>(res, HttpStatus.OK)  : new ResponseEntity<Boolean>(res, HttpStatus.NO_CONTENT);
+	    return res  ? new ResponseEntity<Boolean>(res, HttpStatus.OK)  : new ResponseEntity<Boolean>(res, HttpStatus.BAD_REQUEST);
     }
 	
 	@RequestMapping(value = "/Type/{type}/id/{id}",method = RequestMethod.POST)
