@@ -14,10 +14,13 @@ $(document).ready(function(e) {
 	var eventData;
 	var eventId;
 	function getData(doSetData){
+		//alert(1);
 		eventId = GetQueryString("id");
+		//alert(eventId);
 		if(eventId == null){
 			return false;
 		}else{
+			jQuery.support.cors = true;
 			$.ajax({
 				async: false,
 				url : 'http://101.37.39.51:8080/api/Articles/v1/Type/Events/id/'+eventId,
@@ -25,10 +28,12 @@ $(document).ready(function(e) {
 				dataType : 'json',
 				success : function(data){
 					//console.log(data);
+					//alert(data);
 					doSetData(data);
 				},
 				error: function(e){
 					var a=JSON.stringify(e);
+					//alert(a);
 					////alert(a);
 				}
 			});
@@ -59,6 +64,23 @@ $(document).ready(function(e) {
 		var r = window.location.search.substr(1).match(reg);
 		if(r!=null)return  unescape(r[2]); return null;
 	}
+	
+	$("#mainImgBtn").click(function(){
+		jQuery.support.cors = true;
+		var option = {
+                url : 'http://101.37.39.51:8080/api/Image/v1/upload',
+                type : 'POST',
+                dataType : 'json',
+                success : function(data) {
+					$("#mainImgPath").val(data);
+					$("#mainImg_preview").attr("src",data);
+                },
+                error: function(data) {
+                    alert(JSON.stringify(data) + "--上传失败,请刷新后重试");
+                }
+             };
+        $("#mainImg_form").ajaxSubmit(option);
+	});
 	
 	$("#subImg1Btn").click(function(){
 		jQuery.support.cors = true;
@@ -144,12 +166,27 @@ $(document).ready(function(e) {
 			}
 		});
 	});
+	
+	$("#cancle").click(function(){
+		window.location.href="./infos_list.html";
+	});
 });
 </script>
 <!-- InstanceEndEditable -->
 </head>
 
 <body>
+<ul>
+	<li>
+    	<a href="events_list.html">企业动态</a>
+    </li>
+    <li>
+    	<a href="experts_list.html">专家专栏</a>
+    </li>
+    <li>
+    	<a href="infos_list.html">行业资讯</a>
+    </li>
+</ul>
 <!-- InstanceBeginEditable name="mainContent" -->
 标题：<input id="title" />
 日期：<input id="eventDate" />
@@ -181,6 +218,7 @@ $(document).ready(function(e) {
 
 <div>
 	<input type="button" id="save" value="保存"/>
+    <input type="button" id="cancle" value="取消"/>
 </div>
 <!-- InstanceEndEditable -->
 </body>

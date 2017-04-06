@@ -5,6 +5,7 @@
 <title>数舟管理-登录</title>
 <script type="text/javascript" src="../script/plugins/jquery-1.8.3.min.js"></script>
 <script src="../script/plugins/json2.js"></script>
+<script type="text/javascript" src="../script/plugins/jquery.cookie.js"></script>
 <script>
 $(document).ready(function(e) {
     $("#login").click(function(){
@@ -25,8 +26,12 @@ $(document).ready(function(e) {
 			},
 			complete: function(xhr,data){
 				// 获取相关Http Response header
-        		console.log(xhr);
-				console.log(xhr.getAllResponseHeaders());
+        		//console.log(xhr);
+				console.log(xhr.getResponseHeader("X-Access-Token"));
+				var token = xhr.getResponseHeader("X-Access-Token");
+				//console.log(xhr.getAllResponseHeaders());
+				$.cookie('Token',token,{expires:1,path:'/cnsdis'});
+				window.location.href="./events_list.html";
 			}
 		});
 	});

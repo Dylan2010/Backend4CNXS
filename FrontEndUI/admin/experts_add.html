@@ -1,0 +1,116 @@
+<!doctype html>
+<html><!-- InstanceBegin template="/Templates/manageTemplate.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta charset="utf-8">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>数舟管理</title>
+<!-- InstanceEndEditable -->
+<script type="text/javascript" src="../script/plugins/jquery-1.8.3.min.js"></script>
+<!-- InstanceBeginEditable name="head" -->
+<script src="../script/plugins/jquery.form.js"></script>
+<script src="../script/plugins/json2.js"></script>
+<script>
+$(document).ready(function(e) {
+    $("#mainImgBtn").click(function(){
+		jQuery.support.cors = true;
+		/*$.ajax({
+			url : 'http://101.37.39.51:8080/api/Image/v1/upload',
+			type : "post",
+			data:{"file":$("#mainImg").val()},
+			dataType : 'json',
+			success : function(data){
+				console.log(data);
+				//doSetData(data,initAnimation);
+			},
+			error: function(e){
+				var a=JSON.stringify(e);
+				console.log(a);
+			}
+		});*/
+		
+		var option = {
+                url : 'http://101.37.39.51:8080/api/Image/v1/upload',
+                type : 'POST',
+                dataType : 'json',
+                success : function(data) {
+                    //alert(JSON.stringify(data));
+					$("#mainImgPath").val(data);
+					$("#mainImg_preview").attr("src",data);
+                },
+                error: function(data) {
+                    alert(JSON.stringify(data) + "--上传失败,请刷新后重试");
+                }
+             };
+        $("#mainImg_form").ajaxSubmit(option);
+             
+		
+	});
+	
+	$("#save").click(function(){
+		var imageInfo = {
+				"1" : $("#mainImgPath").val()
+			};
+		var formData = {
+				"title" : $("#title").val(),
+				"eventDate" : $("#eventDate").val(),
+				"summary" : $("#summary").val(),
+				"content" : $("#content").val(),
+				"type" : "Experts",
+				"imageInfo" : JSON.stringify(imageInfo)
+			};
+		//console.log(JSON.stringify(formData));
+		$.ajax({
+			contentType : "application/json;charset=utf-8",
+			url : "http://101.37.39.51:8080/api/Articles/v1/Type/Experts",
+			type : "POST",
+			data : JSON.stringify(formData),
+			dataType : "json",
+			success : function(data){
+				alert("保存成功!");
+				window.location.href="./experts_list.html";
+			},
+			error : function(e){
+				//console.log(e);
+				alert("保存失败！");
+			}
+		});
+	});
+	
+	$("#cancle").click(function(){
+		window.location.href="./infos_list.html";
+	});
+});
+</script>
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<ul>
+	<li>
+    	<a href="events_list.html">企业动态</a>
+    </li>
+    <li>
+    	<a href="experts_list.html">专家专栏</a>
+    </li>
+    <li>
+    	<a href="infos_list.html">行业资讯</a>
+    </li>
+</ul>
+<!-- InstanceBeginEditable name="mainContent" -->
+标题：<input id="title" />
+摘要：<textarea id="summary" ></textarea>
+文章内容：<textarea id="content"></textarea>
+<form id="mainImg_form" method="post" action="http://101.37.39.51:8080/api/Image/v1/upload" enctype="multipart/form-data">
+主题照片：<input id="mainImg" type="file" name="file"/><input type="button" id="mainImgBtn" value="上传"/>
+</form>
+<input type="hidden" id="mainImgPath"/>
+<img id="mainImg_preview" src=""/>
+
+
+<div>
+	<input type="button" id="save" value="保存"/>
+    <input type="button" id="cancle" value="取消"/>
+</div>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

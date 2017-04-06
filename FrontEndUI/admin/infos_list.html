@@ -7,23 +7,18 @@
 <!-- InstanceEndEditable -->
 <script type="text/javascript" src="../script/plugins/jquery-1.8.3.min.js"></script>
 <!-- InstanceBeginEditable name="head" -->
-<script type="text/javascript" src="../script/plugins/jquery.cookie.js"></script>
 <script>
 $(document).ready(function(e) {
-	/*console.log($.cookie('Token'))
-	if($.cookie('Token',{path:'/cnsdis'})==null){
-		window.location.href="./login.html";
-	}*/
-	var eventData;
+	var infoData;
     function getData(doSetData){
 		jQuery.support.cors = true;//跨域
 		$.ajax({
 			async: false,
-			url : 'http://101.37.39.51:8080/api/Articles/v1/Type/Events/list?limit=50',
-			type:"get",
+			url : 'http://101.37.39.51:8080/api/Articles/v1/Type/Info/list?limit=50',
+			type: 'get',
 			dataType : 'json',
 			success : function(data){
-				//console.log(data);
+				console.log(data);
 				doSetData(data);
 			},
 			error: function(e){
@@ -34,8 +29,8 @@ $(document).ready(function(e) {
 		
 	}
 	function setData(data){
-		eventData = data;
-		$.each(eventData,function(n,v){
+		infoData = data;
+		$.each(infoData,function(n,v){
 			var li = $(document.createElement("li"));
 			var title = $(document.createElement("h3"));
 			title.text(v.title);
@@ -49,7 +44,7 @@ $(document).ready(function(e) {
 			editBtn.attr("type","button");
 			editBtn.val("编辑");
 			editBtn.click(function(){
-				window.location.href="./events_modify.html?id="+v.id;
+				window.location.href="./infos_modify.html?id="+v.id;
 			});
 			var deleteBtn = $(document.createElement("input"));
 			deleteBtn.attr("type","button");
@@ -60,6 +55,7 @@ $(document).ready(function(e) {
 				  }else{
 					  return false;
 				  }
+				
 			});
 			
 			btns.append(editBtn);
@@ -77,7 +73,7 @@ $(document).ready(function(e) {
 		jQuery.support.cors = true;
 		$.ajax({
 			contentType : "application/json; charset=utf-8",
-			url : "http://101.37.39.51:8080/api/Articles/v1/Type/Events/id/"+id,
+			url : "http://101.37.39.51:8080/api/Articles/v1/Type/Info/id/"+id,
 			type : "DELETE",
 			success : function(){
 				alert("删除成功！");
@@ -91,7 +87,7 @@ $(document).ready(function(e) {
 	}
 	
 	$("#addBtn").click(function(){
-		window.open('./events_add.html');
+		window.open('./infos_add.html');
 	});
 	
 });
@@ -113,7 +109,7 @@ $(document).ready(function(e) {
 </ul>
 <!-- InstanceBeginEditable name="mainContent" -->
 <div>
-	<h1>企业动态</h1>
+	<h1>行业资讯</h1>
 	<input type="button" id="addBtn" value="新增"/>
 	<ul id="list">
     </ul>

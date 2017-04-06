@@ -129,12 +129,27 @@ $(document).ready(function(e) {
 			}
 		});
 	});
+	
+	$("#cancle").click(function(){
+		window.location.href="./infos_list.html";
+	});
 });
 </script>
 <!-- InstanceEndEditable -->
 </head>
 
 <body>
+<ul>
+	<li>
+    	<a href="events_list.html">企业动态</a>
+    </li>
+    <li>
+    	<a href="experts_list.html">专家专栏</a>
+    </li>
+    <li>
+    	<a href="infos_list.html">行业资讯</a>
+    </li>
+</ul>
 <!-- InstanceBeginEditable name="mainContent" -->
 标题：<input id="title" />
 日期：<input id="eventDate" />
@@ -166,6 +181,7 @@ $(document).ready(function(e) {
 
 <div>
 	<input type="button" id="save" value="保存"/>
+    <input type="button" id="cancle" value="取消"/>
 </div>
 <!-- InstanceEndEditable -->
 </body>
