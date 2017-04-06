@@ -18,7 +18,8 @@
 -- Create database
 DROP DATABASE IF EXISTS `cnxs`;
 
-CREATE DATABASE `cnxs`;
+CREATE DATABASE `cnxs`  DEFAULT CHARACTER SET utf8
+  DEFAULT COLLATE utf8_general_ci;
 
 USE `cnxs`;
 
