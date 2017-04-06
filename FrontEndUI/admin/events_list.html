@@ -14,7 +14,7 @@ $(document).ready(function(e) {
 		jQuery.support.cors = true;//跨域
 		$.ajax({
 			async: false,
-			url : 'http://101.37.39.51:8080/api/Articles/v1/Type/Events/list',
+			url : 'http://101.37.39.51:8080/api/Articles/v1/Type/Events/list?limit=50',
 			type:"get",
 			dataType : 'json',
 			success : function(data){
@@ -44,6 +44,7 @@ $(document).ready(function(e) {
 			editBtn.attr("type","button");
 			editBtn.val("编辑");
 			editBtn.click(function(){
+				window.location.href="./events_modify.html?id="+v.id;
 			});
 			var deleteBtn = $(document.createElement("input"));
 			deleteBtn.attr("type","button");
@@ -80,6 +81,10 @@ $(document).ready(function(e) {
 		});
 	}
 	
+	$("#addBtn").click(function(){
+		window.open('./events_add.html');
+	});
+	
 });
 </script>
 <!-- InstanceEndEditable -->
@@ -88,6 +93,7 @@ $(document).ready(function(e) {
 <body>
 <!-- InstanceBeginEditable name="mainContent" -->
 <div>
+	<input type="button" id="addBtn" value="新增"/>
 	<ul id="list">
     </ul>
 </div>

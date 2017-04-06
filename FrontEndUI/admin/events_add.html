@@ -120,10 +120,11 @@ $(document).ready(function(e) {
 			data : JSON.stringify(formData),
 			dataType : "json",
 			success : function(data){
-				alert(data);
+				alert("保存成功!");
+				window.location.href="./events_list.html";
 			},
 			error : function(e){
-				console.log(e);
+				//console.log(e);
 				alert("保存失败！");
 			}
 		});

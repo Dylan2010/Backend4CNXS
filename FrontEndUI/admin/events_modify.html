@@ -8,43 +8,57 @@
 <script type="text/javascript" src="../script/plugins/jquery-1.8.3.min.js"></script>
 <!-- InstanceBeginEditable name="head" -->
 <script src="../script/plugins/jquery.form.js"></script>
-<!--<script src="../script/plugins/json2.js"></script>-->
+<script src="../script/plugins/json2.js"></script>
 <script>
 $(document).ready(function(e) {
-    $("#mainImgBtn").click(function(){
-		jQuery.support.cors = true;
-		/*$.ajax({
-			url : 'http://101.37.39.51:8080/api/Image/v1/upload',
-			type : "post",
-			data:{"file":$("#mainImg").val()},
-			dataType : 'json',
-			success : function(data){
-				console.log(data);
-				//doSetData(data,initAnimation);
-			},
-			error: function(e){
-				var a=JSON.stringify(e);
-				console.log(a);
-			}
-		});*/
+	var eventData;
+	var eventId;
+	function getData(doSetData){
+		eventId = GetQueryString("id");
+		if(eventId == null){
+			return false;
+		}else{
+			$.ajax({
+				async: false,
+				url : 'http://101.37.39.51:8080/api/Articles/v1/Type/Events/id/'+eventId,
+				type:"get",
+				dataType : 'json',
+				success : function(data){
+					//console.log(data);
+					doSetData(data);
+				},
+				error: function(e){
+					var a=JSON.stringify(e);
+					////alert(a);
+				}
+			});
+		}
+	}
+	
+	function setData(data){
+		eventData = data;
+		$("#title").val(eventData.title);
+		$("#eventDate").val(eventData.eventDate);
+		$("#summary").val(eventData.summary);
+		$("#content").val(eventData.content);
+		eventData.imageInfo = JSON.parse(eventData.imageInfo);
+		$("#mainImgPath").val(eventData.imageInfo["1"]);
+		$("#mainImg_preview").attr("src",eventData.imageInfo["1"]);
+		$("#subImg1Path").val(eventData.imageInfo["2"]);
+		$("#subImg1_preview").attr("src",eventData.imageInfo["2"]);
+		$("#subImg2Path").val(eventData.imageInfo["3"]);
+		$("#subImg2_preview").attr("src",eventData.imageInfo["3"]);
+		$("#subImg3Path").val(eventData.imageInfo["4"]);
+		$("#subImg3_preview").attr("src",eventData.imageInfo["4"]);
 		
-		var option = {
-                url : 'http://101.37.39.51:8080/api/Image/v1/upload',
-                type : 'POST',
-                dataType : 'json',
-                success : function(data) {
-                    //alert(JSON.stringify(data));
-					$("#mainImgPath").val(data);
-					$("#mainImg_preview").attr("src",data);
-                },
-                error: function(data) {
-                    alert(JSON.stringify(data) + "--上传失败,请刷新后重试");
-                }
-             };
-        $("#mainImg_form").ajaxSubmit(option);
-             
-		
-	});
+	}
+	getData(setData);
+
+    function GetQueryString(name){
+		var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+		var r = window.location.search.substr(1).match(reg);
+		if(r!=null)return  unescape(r[2]); return null;
+	}
 	
 	$("#subImg1Btn").click(function(){
 		jQuery.support.cors = true;
@@ -112,17 +126,19 @@ $(document).ready(function(e) {
 				"type" : "Events",
 				"imageInfo" : JSON.stringify(imageInfo)
 			};
-		
+		//console.log(JSON.stringify(formData));
 		$.ajax({
-			contentType : "application/json",
-			url : "http://101.37.39.51:8080/api/Articles/v1/Type/Events",
+			contentType : "application/json;charset=utf-8",
+			url : "http://101.37.39.51:8080/api/Articles/v1/Type/Events/id/"+eventId,
 			type : "POST",
-			data : formData,
+			data : JSON.stringify(formData),
 			dataType : "json",
 			success : function(data){
-				alert(data);
+				alert("保存成功!");
+				window.location.href="./events_list.html";
 			},
 			error : function(e){
+				//console.log(e);
 				alert("保存失败！");
 			}
 		});
