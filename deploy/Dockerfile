@@ -4,6 +4,8 @@ ENV CNXS_FILE_UPLOAD_PATH /images/
 RUN rm -fr /usr/local/tomcat/webapps/ROOT
 RUN rm -fr /usr/local/tomcat/webapps/docs
 RUN rm -fr /usr/local/tomcat/webapps/examples
+RUN rm -f /etc/mysql/my.cnf
+ADD my.cnf /etc/mysql/my.cnf
 ADD run.sh /opt/run.sh
 ADD init.sql /opt/init.sql
 ADD cnxs.sql /opt/cnxs.sql
