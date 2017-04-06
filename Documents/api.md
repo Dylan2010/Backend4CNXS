@@ -2,9 +2,9 @@
 
 名称 | 路径 | 方法 | 实例 | 返回数据 | 备注
 -- | -- | -- | -- | -- | --|
-登陆 | /User/v1/login | Post |
-登出 | /User/v1/logoff/{userid} | Get | 暂未实现
-创建 | /User/v1 | Post |
+登陆 | api/User/v1/login | Post |
+登出 | api/User/v1/logoff/ | Post | 需要带上X-Access-Token 
+创建 | api/User/v1 | Post |
 
 # 文章相关
 
