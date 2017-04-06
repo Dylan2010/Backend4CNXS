@@ -1,0 +1,96 @@
+<!doctype html>
+<html><!-- InstanceBegin template="/Templates/manageTemplate.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta charset="utf-8">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>数舟管理</title>
+<!-- InstanceEndEditable -->
+<script type="text/javascript" src="../script/plugins/jquery-1.8.3.min.js"></script>
+<!-- InstanceBeginEditable name="head" -->
+<script>
+$(document).ready(function(e) {
+	var eventData;
+    function getData(doSetData){
+		jQuery.support.cors = true;//跨域
+		$.ajax({
+			async: false,
+			url : 'http://101.37.39.51:8080/api/Articles/v1/Type/Events/list',
+			type:"get",
+			dataType : 'json',
+			success : function(data){
+				//console.log(data);
+				doSetData(data);
+			},
+			error: function(e){
+				var a=JSON.stringify(e);
+				////alert(a);
+			}
+		});
+		
+	}
+	function setData(data){
+		eventData = data;
+		$.each(eventData,function(n,v){
+			var li = $(document.createElement("li"));
+			var title = $(document.createElement("h3"));
+			title.text(v.title);
+			var summary = $(document.createElement("p"));
+			summary.text(v.summary);
+			var content = $(document.createElement("p"));
+			content = v.comntent;
+			
+			var btns = $(document.createElement("div"));
+			var editBtn = $(document.createElement("input"));
+			editBtn.attr("type","button");
+			editBtn.val("编辑");
+			editBtn.click(function(){
+			});
+			var deleteBtn = $(document.createElement("input"));
+			deleteBtn.attr("type","button");
+			deleteBtn.val("删除");
+			deleteBtn.click(function(){
+				deleteData(v.id);
+			});
+			
+			btns.append(editBtn);
+			btns.append(deleteBtn);
+			li.append(title);
+			li.append(summary);
+			li.append(content);
+			li.append(btns);
+			$("#list").append(li);
+			
+		});
+	}
+	getData(setData);
+	function deleteData(id){
+		jQuery.support.cors = true;
+		$.ajax({
+			contentType : "application/json; charset=utf-8",
+			url : "http://101.37.39.51:8080/api/Articles/v1/Type/Events/id/"+id,
+			type : "DELETE",
+			success : function(){
+				alert("删除成功！");
+				$("#list").empty();
+				getData(setData);
+			},
+			error : function(e){
+				console.log(e);
+			}
+		});
+	}
+	
+});
+</script>
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<!-- InstanceBeginEditable name="mainContent" -->
+<div>
+	<ul id="list">
+    </ul>
+</div>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>

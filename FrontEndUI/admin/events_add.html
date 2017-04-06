@@ -1,0 +1,171 @@
+<!doctype html>
+<html><!-- InstanceBegin template="/Templates/manageTemplate.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta charset="utf-8">
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>数舟管理</title>
+<!-- InstanceEndEditable -->
+<script type="text/javascript" src="../script/plugins/jquery-1.8.3.min.js"></script>
+<!-- InstanceBeginEditable name="head" -->
+<script src="../script/plugins/jquery.form.js"></script>
+<script src="../script/plugins/json2.js"></script>
+<script>
+$(document).ready(function(e) {
+    $("#mainImgBtn").click(function(){
+		jQuery.support.cors = true;
+		/*$.ajax({
+			url : 'http://101.37.39.51:8080/api/Image/v1/upload',
+			type : "post",
+			data:{"file":$("#mainImg").val()},
+			dataType : 'json',
+			success : function(data){
+				console.log(data);
+				//doSetData(data,initAnimation);
+			},
+			error: function(e){
+				var a=JSON.stringify(e);
+				console.log(a);
+			}
+		});*/
+		
+		var option = {
+                url : 'http://101.37.39.51:8080/api/Image/v1/upload',
+                type : 'POST',
+                dataType : 'json',
+                success : function(data) {
+                    //alert(JSON.stringify(data));
+					$("#mainImgPath").val(data);
+					$("#mainImg_preview").attr("src",data);
+                },
+                error: function(data) {
+                    alert(JSON.stringify(data) + "--上传失败,请刷新后重试");
+                }
+             };
+        $("#mainImg_form").ajaxSubmit(option);
+             
+		
+	});
+	
+	$("#subImg1Btn").click(function(){
+		jQuery.support.cors = true;
+		var option = {
+                url : 'http://101.37.39.51:8080/api/Image/v1/upload',
+                type : 'POST',
+                dataType : 'json',
+                success : function(data) {
+					$("#subImg1Path").val(data);
+					$("#subImg1_preview").attr("src",data);
+                },
+                error: function(data) {
+                    alert(JSON.stringify(data) + "--上传失败,请刷新后重试");
+                }
+             };
+        $("#subImg1_form").ajaxSubmit(option);
+	});
+	
+	$("#subImg2Btn").click(function(){
+		jQuery.support.cors = true;
+		var option = {
+                url : 'http://101.37.39.51:8080/api/Image/v1/upload',
+                type : 'POST',
+                dataType : 'json',
+                success : function(data) {
+					$("#subImg2Path").val(data);
+					$("#subImg2_preview").attr("src",data);
+                },
+                error: function(data) {
+                    alert(JSON.stringify(data) + "--上传失败,请刷新后重试");
+                }
+             };
+        $("#subImg2_form").ajaxSubmit(option);
+	});
+	
+	$("#subImg3Btn").click(function(){
+		jQuery.support.cors = true;
+		var option = {
+                url : 'http://101.37.39.51:8080/api/Image/v1/upload',
+                type : 'POST',
+                dataType : 'json',
+                success : function(data) {
+					$("#subImg3Path").val(data);
+					$("#subImg3_preview").attr("src",data);
+                },
+                error: function(data) {
+                    alert(JSON.stringify(data) + "--上传失败,请刷新后重试");
+                }
+             };
+        $("#subImg3_form").ajaxSubmit(option);
+	});
+	
+	$("#save").click(function(){
+		var imageInfo = {
+				"1" : "http://101.37.39.51:8011/1491405067697.jpg",//$("#mainImgPath").val(),
+				"2" : "http://101.37.39.51:8011/1491405082189.jpg",//$("#subImg1Path").val(),
+				"3" : "http://101.37.39.51:8011/1491405086219.jpg",//$("#subImg2Path").val(),
+				"4" : "http://101.37.39.51:8011/1491405090197.jpg"//$("#subImg3Path").val()
+			};
+		var formData = {
+				"title" : $("#title").val(),
+				"eventDate" : $("#eventDate").val(),
+				"summary" : $("#summary").val(),
+				"content" : $("#content").val(),
+				"type" : "Events",
+				"imageInfo" : JSON.stringify(imageInfo)
+			};
+		//console.log(JSON.stringify(formData));
+		$.ajax({
+			contentType : "application/json;charset=utf-8",
+			url : "http://101.37.39.51:8080/api/Articles/v1/Type/Events",
+			type : "POST",
+			data : JSON.stringify(formData),
+			dataType : "json",
+			success : function(data){
+				alert(data);
+			},
+			error : function(e){
+				console.log(e);
+				alert("保存失败！");
+			}
+		});
+	});
+});
+</script>
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+<!-- InstanceBeginEditable name="mainContent" -->
+标题：<input id="title" />
+日期：<input id="eventDate" />
+摘要：<textarea id="summary" ></textarea>
+文章内容：<textarea id="content"></textarea>
+<form id="mainImg_form" method="post" action="http://101.37.39.51:8080/api/Image/v1/upload" enctype="multipart/form-data">
+主题照片：<input id="mainImg" type="file" name="file"/><input type="button" id="mainImgBtn" value="上传"/>
+</form>
+<input type="hidden" id="mainImgPath"/>
+<img id="mainImg_preview" src=""/>
+
+<form id="subImg1_form" method="post" action="http://101.37.39.51:8080/api/Image/v1/upload" enctype="multipart/form-data">
+内容照片1：<input id="subImg1" type="file" name="file"/><input type="button" id="subImg1Btn" value="上传"/>
+</form>
+<input type="hidden" id="subImg1Path"/>
+<img id="subImg1_preview" src=""/>
+
+<form id="subImg2_form" method="post" action="http://101.37.39.51:8080/api/Image/v1/upload" enctype="multipart/form-data">
+内容照片2：<input id="subImg2" type="file" name="file"/><input type="button" id="subImg2Btn" value="上传"/>
+</form>
+<input type="hidden" id="subImg2Path"/>
+<img id="subImg2_preview" src=""/>
+
+<form id="subImg3_form" method="post" action="http://101.37.39.51:8080/api/Image/v1/upload" enctype="multipart/form-data">
+内容照片3：<input id="subImg3" type="file" name="file"/><input type="button" id="subImg3Btn" value="上传"/>
+</form>
+<input type="hidden" id="subImg3Path"/>
+<img id="subImg3_preview" src=""/>
+
+<div>
+	<input type="button" id="save" value="保存"/>
+</div>
+<!-- InstanceEndEditable -->
+</body>
+<!-- InstanceEnd --></html>
