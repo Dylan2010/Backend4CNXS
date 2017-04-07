@@ -28,7 +28,9 @@ $(document).ready(function(e) {
 			url : 'http://101.37.39.51:8080/api/User/v1/logoff',
 			type : "POST",
 			dataType : "json",
-			data : JSON.stringify({}),
+			data : JSON.stringify({
+				"X-Access-Token": $.cookie('Token')
+				}),
 			success :　function(data){
 				$.removeCookie('Token',{path:'/'});
 				$.removeCookie('Name',{path:'/'});
