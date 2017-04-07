@@ -41,8 +41,8 @@ $(document).ready(function(e) {
 			dataType : "json",
 			data : JSON.stringify({}),
 			success :　function(data){
-				$.cookie('Token',null,{path:'/'});
-				$.cookie('Name',null,{path:'/'});
+				$.cookie('Token',null);
+				$.cookie('Name',null);
 				$("#loginbtn").show();
 				$("#registbtn").show();
 				$("#hi").hide();
