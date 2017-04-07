@@ -41,8 +41,8 @@ $(document).ready(function(e) {
 			dataType : "json",
 			data : JSON.stringify({}),
 			success :　function(data){
-				removeCookie('Token',{path:'/'});
-				removeCookie('Name',{path:'/'});
+				$.removeCookie('Token',{path:'/'});
+				$.removeCookie('Name',{path:'/'});
 				$("#loginbtn").show();
 				$("#registbtn").show();
 				$("#hi").hide();
