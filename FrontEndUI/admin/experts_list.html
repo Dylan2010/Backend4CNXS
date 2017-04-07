@@ -10,7 +10,9 @@
 <script type="text/javascript" src="../script/plugins/jquery.cookie.js"></script>
 <script>
 $(document).ready(function(e) {
-	console.log($.cookie('Token'))
+	if($.cookie('Token')==null){
+		window.location.href="./login.html";
+	}
 	var expertData;
     function getData(doSetData){
 		jQuery.support.cors = true;//跨域

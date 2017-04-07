@@ -12,6 +12,9 @@
 <script type="text/javascript" src="../script/plugins/jquery.cookie.js"></script>
 <script>
 $(document).ready(function(e) {
+	if($.cookie('Token')==null){
+		window.location.href="./login.html";
+	}
 	var expertData;
 	var expertId;
 	function getData(doSetData){
