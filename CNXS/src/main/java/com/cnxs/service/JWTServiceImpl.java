@@ -5,6 +5,8 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.stereotype.Service;
 
+import com.cnxs.common.UserInfoContextHolder;
+
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
@@ -18,18 +20,12 @@ public class JWTServiceImpl implements JWTService{
     private static long EXPIRATION_DURATION = 24*60*60*1000;
     
     private static SignatureAlgorithm SIGNATURE_ALGORITHM = SignatureAlgorithm.HS256;
-    
-    public static void main(String args[]) {
-        JWTServiceImpl jwtS = new JWTServiceImpl();
-        String token = jwtS.registerToken(123);
-        System.out.println(jwtS.validateToken(token));
-    }
 
     @Override
-    public String registerToken(int userId) {
+    public String registerToken(int userId, boolean isKeyUser) {
         Long expirationTime = System.currentTimeMillis() + EXPIRATION_DURATION;
         String token =  Jwts.builder().setSubject("cnxs_token").claim("userId",
-                userId)
+                userId).claim("isKeyUser", isKeyUser)
                  .setExpiration(new Date(expirationTime))
                 .signWith(SIGNATURE_ALGORITHM,       
                       getSecretKey()).compact();
@@ -38,18 +34,17 @@ public class JWTServiceImpl implements JWTService{
     }
 
     @Override
-    public int validateToken(String token) {
+    public Claims validateToken(String token) {
         if(tokens.get(token) != null){
             try{
-                Claims claims = Jwts.parser().setSigningKey(getSecretKey()).parseClaimsJws(token).getBody();
-                return claims.get("userId", Integer.class);
+                return Jwts.parser().setSigningKey(getSecretKey()).parseClaimsJws(token).getBody();
             } catch(ExpiredJwtException e) {
                 tokens.remove(token);
-                return -1;
+                return null;
             }
            
         }
-        return -1;
+        return null;
     }
 
     @Override

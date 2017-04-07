@@ -9,4 +9,5 @@ public interface UserDao {
     
     public User findUserByAccount(User user);
     
+    public boolean updateUser(User user);
 }

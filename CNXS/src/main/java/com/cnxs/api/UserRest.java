@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,6 +29,12 @@ public class UserRest {
 		int res = userSrv.createUser(user);
 		return res < 0 ?  new ResponseEntity<Boolean>(false, HttpStatus.BAD_REQUEST) : new ResponseEntity<Boolean>(true, HttpStatus.OK);
 	}
+	
+	@RequestMapping(value="/id/{id}",method = RequestMethod.POST)
+    public ResponseEntity<Boolean> updateUser(@PathVariable int id, @RequestBody User user) {
+        int res = userSrv.createUser(user);
+        return res < 0 ?  new ResponseEntity<Boolean>(false, HttpStatus.BAD_REQUEST) : new ResponseEntity<Boolean>(true, HttpStatus.OK);
+    }
 	
 	@RequestMapping(value = "/login",method = RequestMethod.POST)
 	public ResponseEntity<Boolean> login(HttpServletRequest request, HttpServletResponse response, @RequestBody User user) {

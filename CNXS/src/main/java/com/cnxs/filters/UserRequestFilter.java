@@ -16,6 +16,8 @@ import com.cnxs.common.UserInfoContextHolder;
 import com.cnxs.constant.HeaderConstant;
 import com.cnxs.service.JWTService;
 
+import io.jsonwebtoken.Claims;
+
 public class UserRequestFilter extends OncePerRequestFilter {
 
     @Override
@@ -23,18 +25,27 @@ public class UserRequestFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
         //all the get method will be allowed
         if(shouldSkipPermissionControl(request)) {
-            filterChain.doFilter(request, response);
+            try{
+                filterChain.doFilter(request, response);
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
         } else{
             String token = request.getHeader(HeaderConstant.X_ACCESS_TOKEN);
             
             JWTService jwtSrv = ApplicationContextHolder.getBean(JWTService.class);
             
-            
-            
             if(!StringUtils.isEmpty(token) ) {
-                int userId = jwtSrv.validateToken(token);
-                if(userId != -1) {
-                    UserInfoContextHolder.setUserInfo(userId, token);
+                
+                Claims claims = jwtSrv.validateToken(token);
+                
+                Boolean isKeyUser = claims != null ? claims.get("isKeyUser", Boolean.class) : false;
+                
+                Integer userId = claims != null ? claims.get("userId", Integer.class) : -1;
+                
+                UserInfoContextHolder.setUserInfo(userId, isKeyUser, token);
+                
+                if(isKeyUser) {
                     filterChain.doFilter(request, response);
                 }
             }
@@ -46,7 +57,7 @@ public class UserRequestFilter extends OncePerRequestFilter {
     
     private boolean shouldSkipPermissionControl(HttpServletRequest request) {
         return ("GET".equals(request.getMethod()) || !"true".equals(System.getenv("enable.permission.control"))) || 
-                (request.getPathInfo().contains("User/v1") && !request.getPathInfo().contains("logoff") );
+                (request.getPathInfo().contains("User/v1") && !request.getPathInfo().contains("logoff") && !request.getPathInfo().contains("id") );
     }
 
 }

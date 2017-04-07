@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 5.7.17, for osx10.12 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: cnxs
 -- ------------------------------------------------------
@@ -65,6 +65,7 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `account` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `keyuser` int(1) NOT NULL DEFAULT '0',
   `email` varchar(40) DEFAULT NULL,
   `creationtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted` int(1) NOT NULL DEFAULT '0',
@@ -79,7 +80,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (2,'initialAccount','$2a$10$oRHxGSa.ZPJk7iU7NZVM8u/QP6tvo5ehZCnShJqadMiBC8F5IyWLG',NULL,'2017-03-27 02:49:53',0);
+INSERT INTO `user` VALUES (2,'initialAccount','$2a$10$oRHxGSa.ZPJk7iU7NZVM8u/QP6tvo5ehZCnShJqadMiBC8F5IyWLG',1,NULL,'2017-03-27 02:49:53',0);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -92,4 +93,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-29 23:15:38
+-- Dump completed on 2017-04-07  9:32:19

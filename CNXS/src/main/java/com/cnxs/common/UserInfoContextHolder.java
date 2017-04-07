@@ -9,10 +9,11 @@ public class UserInfoContextHolder {
         }
     };
     
-    public static void setUserInfo(int id, String token) {
+    public static void setUserInfo(int id, boolean isKeyUser,String token) {
         UserInfo info = userInfoLocal.get();
         info.userId = id;
         info.jwt = token;
+        info.keyUser = isKeyUser;
     }
     
     
@@ -26,6 +27,8 @@ public class UserInfoContextHolder {
         private Integer userId = null;
         
         private String jwt = null;
+        
+        private Boolean keyUser = null;
 
         public Integer getUserId() {
             return userId;
@@ -43,5 +46,13 @@ public class UserInfoContextHolder {
             this.jwt = jwt;
         }
 
+        public Boolean isKeyUser() {
+            return keyUser;
+        }
+
+        public void setKeyUser(Boolean keyUser) {
+            this.keyUser = keyUser;
+        }
+        
     }
 }

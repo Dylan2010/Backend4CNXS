@@ -24,11 +24,19 @@ public class UserService {
 		return userDao.createUser(user);
 	}
 	
+	public boolean updateUser(User user, Integer id) {
+	    if(user == null || user.getId() != id || id < 0) {
+	        return false;
+	    } else {
+	        return userDao.updateUser(user);
+	    }
+	}
+	
 	public User logIn(User user) {
 		User targetUser = userDao.findUserByAccount(user);
 		if(bCryptEncoder.matches(user.getPassword(), targetUser.getPassword())) {
-		    String accessToken = jwtSrv.registerToken(user.getId());
-		    UserInfoContextHolder.setUserInfo(user.getId(),accessToken);
+		    String accessToken = jwtSrv.registerToken(targetUser.getId(), targetUser.isKeyUser());
+		    UserInfoContextHolder.setUserInfo(user.getId(),user.isKeyUser(),accessToken);
 			return targetUser;
 		}
 		return null;

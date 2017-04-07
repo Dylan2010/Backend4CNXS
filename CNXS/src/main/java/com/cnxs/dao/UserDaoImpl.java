@@ -13,13 +13,13 @@ import org.springframework.transaction.annotation.Transactional;
 import com.cnxs.bo.User;
 
 @Repository
+@Transactional
 public class UserDaoImpl implements UserDao{
     
     @PersistenceContext(unitName="CNXS")
     private EntityManager em;
 
 	@Override
-	@Transactional
 	public int createUser(User user) {
 		try{
 			em.persist(user);
@@ -38,5 +38,15 @@ public class UserDaoImpl implements UserDao{
 		criteriaQuery.where(builder.equal(root.get("account"), user.getAccount()));
 		return em.createQuery(criteriaQuery).getSingleResult();
 	}
+
+    @Override
+    public boolean updateUser(User user) {
+        try{
+            em.merge(user);
+            return true;
+        } catch(PersistenceException e) {
+            return false;
+        }
+    }
 
 }

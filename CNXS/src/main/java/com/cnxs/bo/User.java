@@ -24,6 +24,9 @@ public class User extends BusinessObjectBase{
     private String email;
     
     private String password;
+    
+    @Column(name="keyuser", updatable=false)
+    private boolean keyUser;
 
     public int getId() {
         return id;
@@ -55,5 +58,13 @@ public class User extends BusinessObjectBase{
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public boolean isKeyUser() {
+        return keyUser;
+    }
+
+    public void setKeyUser(boolean keyUser) {
+        this.keyUser = keyUser;
     }
 }
