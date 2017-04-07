@@ -32,8 +32,8 @@ public class UserRest {
 	
 	@RequestMapping(value="/id/{id}",method = RequestMethod.POST)
     public ResponseEntity<Boolean> updateUser(@PathVariable int id, @RequestBody User user) {
-        int res = userSrv.createUser(user);
-        return res < 0 ?  new ResponseEntity<Boolean>(false, HttpStatus.BAD_REQUEST) : new ResponseEntity<Boolean>(true, HttpStatus.OK);
+        boolean res = userSrv.updateUser(user,id);
+        return res == false ?  new ResponseEntity<Boolean>(false, HttpStatus.BAD_REQUEST) : new ResponseEntity<Boolean>(true, HttpStatus.OK);
     }
 	
 	@RequestMapping(value = "/login",method = RequestMethod.POST)
