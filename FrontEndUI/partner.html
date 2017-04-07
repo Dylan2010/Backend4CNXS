@@ -33,7 +33,7 @@ $(document).ready(function(e) {
 		$("#logoutBtn").show();
 	}
 	
-	$("logoutBtn").click(function(){
+	$("#logoutBtn").click(function(){
 		$.ajax({
 			contentType : "application/json;charset=utf-8",
 			url : 'http://101.37.39.51:8080/api/User/v1/logoff',
