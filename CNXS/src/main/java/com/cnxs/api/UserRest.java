@@ -37,10 +37,10 @@ public class UserRest {
     }
 	
 	@RequestMapping(value = "/login",method = RequestMethod.POST)
-	public ResponseEntity<Boolean> login(HttpServletRequest request, HttpServletResponse response, @RequestBody User user) {
+	public ResponseEntity<String> login(HttpServletRequest request, HttpServletResponse response, @RequestBody User user) {
 		User targetUser = userSrv.logIn(user);
 		response.setHeader(HeaderConstant.X_ACCESS_TOKEN, UserInfoContextHolder.getUserinfolocal().get().getJwt());
-		return targetUser == null ?  new ResponseEntity<Boolean>(false, HttpStatus.BAD_REQUEST) : new ResponseEntity<Boolean>(true, HttpStatus.OK);
+		return targetUser == null ?  new ResponseEntity<String>("登陆信息有误，请重新登陆", HttpStatus.BAD_REQUEST) : new ResponseEntity<String>("您好， " + targetUser.getAccount(), HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/logoff" , method = RequestMethod.POST)

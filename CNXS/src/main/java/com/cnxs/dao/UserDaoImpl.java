@@ -1,6 +1,7 @@
 package com.cnxs.dao;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -36,7 +37,12 @@ public class UserDaoImpl implements UserDao{
 		Root<User> root = criteriaQuery.from(User.class);
 		criteriaQuery.select(root);
 		criteriaQuery.where(builder.equal(root.get("account"), user.getAccount()));
-		return em.createQuery(criteriaQuery).getSingleResult();
+		try{
+		    return em.createQuery(criteriaQuery).getSingleResult();
+		} catch(NoResultException e) {
+		    return null;
+		}
+		
 	}
 
     @Override
