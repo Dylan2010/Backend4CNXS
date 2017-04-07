@@ -46,18 +46,36 @@ $(document).ready(function(e) {
 });
 </script>
 <!-- InstanceBeginEditable name="js" -->
+<script type="text/javascript" src="script/plugins/json2.js"></script>
 <script type="text/javascript" src="script/plugins/jquery.placeholder.min.js"></script>
+
 <script>
 $(document).ready(function(e) {
 	$("input").placeholder();
-    $("#login_btn").click(function(){
-		/*$.ajax({
-			url : "/User/login",
-			data : "",//json
-			success : function(data){
-				console.log(data);
-			}
-		});*/
+    $("#regist_btn").click(function(){
+		
+		if($("#password").val()==$("#passwordCheck").val()){
+			$.ajax({
+				contentType : "application/json;charset=utf-8",
+				url : "http://101.37.39.51:8080/api/User/v1",
+				type : "POST",
+				data : JSON.stringify({"account":$("#account").val(),"password":$("#password").val()}),//json
+				dataType : 'json',
+				success : function(data){
+					if(data){
+						alert("注册成功，请登录！");
+						window.location.href="./login.html";
+					};
+				},
+				error: function(e){
+					var a=JSON.stringify(e);
+					console.log(a);
+					alert("注册失败！");
+				}
+			});
+		}else{
+			alert("两次输入的密码不一致，请重新输入！");
+		}
 	});
 });
 </script>
@@ -172,15 +190,15 @@ $(document).ready(function(e) {
     	<div class="regist_region">
         	<h2>注册</h2>
             <div class="input_frame">
-            	<input name="username" placeholder="用户名/邮箱/手机号："/>
+            	<input id="account" name="username" placeholder="用户名/邮箱/手机号："/>
             </div>
             <div class="input_frame">
-            	<input name="password" type="password" placeholder="密码："/>
+            	<input id="password" name="password" type="password" placeholder="密码："/>
             </div>
              <div class="input_frame">
-            	<input name="passwordCheck" type="password" placeholder="再次输入密码："/>
+            	<input id="passwordCheck" name="passwordCheck" type="password" placeholder="再次输入密码："/>
             </div>
-            <a class="regist_btn" href="#">完成</a>
+            <a id="regist_btn" class="regist_btn" href="javascript:void(0);">完成</a>
             <p class='login_goto'>已有账号？<a href="login.html">登录</a></p>
         </div>
     </div>

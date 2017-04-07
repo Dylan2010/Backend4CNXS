@@ -5,16 +5,38 @@
 <!-- InstanceBeginEditable name="doctitle" -->
 <title>数舟管理</title>
 <!-- InstanceEndEditable -->
+<link href="../style/global.css" rel="stylesheet" type="text/css">
+<link href="../style/manage.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="../script/plugins/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="../script/plugins/jquery.cookie.js"></script>
 <script>
 $(document).ready(function(e) {
     if($.cookie('Token')==null){
-		window.location.href="./login.html";
+		//window.location.href="./login.html";
 	}
 });
 </script>
 <!-- InstanceBeginEditable name="head" -->
+<style>
+.main_img_div{
+	width:450px;
+	height:270px;
+	border:2px solid #fff;
+	overflow:hidden;
+}
+.main_img_div img{
+	width:450px;
+}
+.sub_img_div{
+	width:322px;
+	height:156px;
+	border:2px solid #fff;
+	overflow:hidden;
+}
+.sub_img_div img{
+	width:322px;
+}
+</style>
 <script src="../script/plugins/jquery.form.js"></script>
 <script src="../script/plugins/json2.js"></script>
 <script>
@@ -176,7 +198,7 @@ $(document).ready(function(e) {
 	});
 	
 	$("#cancle").click(function(){
-		window.location.href="./infos_list.html";
+		window.location.href="./events_list.html";
 	});
 });
 </script>
@@ -184,50 +206,112 @@ $(document).ready(function(e) {
 </head>
 
 <body>
-<ul>
-	<li>
-    	<a href="events_list.html">企业动态</a>
-    </li>
-    <li>
-    	<a href="experts_list.html">专家专栏</a>
-    </li>
-    <li>
-    	<a href="infos_list.html">行业资讯</a>
-    </li>
-</ul>
+	<div id="navigator">
+    	<div class="main_width full_height">
+            <div id="logo">
+                <img src="../images/global/logo.png"/>
+            </div>
+            <div id="login">
+            	<img src="../images/global/login_sprite_all.png"/>
+                <div class="loginbtns">
+                	<a id="hi" href="javascript:void(0);">
+                    </a>
+                    <a id="logoutBtn" href="javascript:void(0);">
+                    	登出
+                    </a>
+                </div>
+            </div>
+          <ul class="nav_parent">
+            	<li class="nav_parent_li">
+                    <a href="events_list.html">企业动态</a>
+                </li>
+                <li class="nav_parent_li">
+                	<a href="experts_list.html">专家专栏</a>
+                </li>
+                <li class="nav_parent_li">
+                	<a href="infos_list.html">行业资讯</a>
+                </li>
+                <li class="nav_parent_li">
+                	<a href="news.html">修改密码</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div style="height:80px;">
+    </div>
+	<div id="maincontent">
 <!-- InstanceBeginEditable name="mainContent" -->
-标题：<input id="title" />
-日期：<input id="eventDate" />
-摘要：<textarea id="summary" ></textarea>
-文章内容：<textarea id="content"></textarea>
-<form id="mainImg_form" method="post" action="http://101.37.39.51:8080/api/Image/v1/upload" enctype="multipart/form-data">
-主题照片：<input id="mainImg" type="file" name="file"/><input type="button" id="mainImgBtn" value="上传"/>
-</form>
-<input type="hidden" id="mainImgPath"/>
-<img id="mainImg_preview" src=""/>
-
-<form id="subImg1_form" method="post" action="http://101.37.39.51:8080/api/Image/v1/upload" enctype="multipart/form-data">
-内容照片1：<input id="subImg1" type="file" name="file"/><input type="button" id="subImg1Btn" value="上传"/>
-</form>
-<input type="hidden" id="subImg1Path"/>
-<img id="subImg1_preview" src=""/>
-
-<form id="subImg2_form" method="post" action="http://101.37.39.51:8080/api/Image/v1/upload" enctype="multipart/form-data">
-内容照片2：<input id="subImg2" type="file" name="file"/><input type="button" id="subImg2Btn" value="上传"/>
-</form>
-<input type="hidden" id="subImg2Path"/>
-<img id="subImg2_preview" src=""/>
-
-<form id="subImg3_form" method="post" action="http://101.37.39.51:8080/api/Image/v1/upload" enctype="multipart/form-data">
-内容照片3：<input id="subImg3" type="file" name="file"/><input type="button" id="subImg3Btn" value="上传"/>
-</form>
-<input type="hidden" id="subImg3Path"/>
-<img id="subImg3_preview" src=""/>
-
-<div>
-	<input type="button" id="save" value="保存"/>
-    <input type="button" id="cancle" value="取消"/>
+<div class="main_width">
+    标题：<input id="title" class="title_input"/><br/><br/>
+    日期：<input id="eventDate" class="eventDate_input"/><br/><br/>
+    摘要：<textarea id="summary" class="summary_textarea"></textarea><br/><br/>
+    文章内容：<textarea id="content" class="content_textarea"></textarea><br/><br/>
+    <form id="mainImg_form" method="post" action="http://101.37.39.51:8080/api/Image/v1/upload" enctype="multipart/form-data">
+    主题照片：<input id="mainImg" type="file" name="file"/><input type="button" id="mainImgBtn" value="上传"/><br/>
+    <span class="suggest">建议尺寸：450*270</span>
+    </form>
+    <input type="hidden" id="mainImgPath"/>
+    <div class="main_img_div">
+    	<img id="mainImg_preview" src=""/>
+    </div>
+    
+    <form id="subImg1_form" method="post" action="http://101.37.39.51:8080/api/Image/v1/upload" enctype="multipart/form-data">
+    内容照片1：<input id="subImg1" type="file" name="file"/><input type="button" id="subImg1Btn" value="上传"/><br/>
+    <span class="suggest">建议尺寸：322*156</span>
+    </form>
+    <input type="hidden" id="subImg1Path"/>
+    <div class="sub_img_div">
+    	<img id="subImg1_preview" src=""/>
+    </div>
+    
+    <form id="subImg2_form" method="post" action="http://101.37.39.51:8080/api/Image/v1/upload" enctype="multipart/form-data">
+    内容照片2：<input id="subImg2" type="file" name="file"/><input type="button" id="subImg2Btn" value="上传"/><br/>
+    <span class="suggest">建议尺寸：322*156</span>
+    </form>
+    <input type="hidden" id="subImg2Path"/>
+    <div class="sub_img_div">
+    	<img id="subImg2_preview" src=""/>
+    </div>
+    
+    <form id="subImg3_form" method="post" action="http://101.37.39.51:8080/api/Image/v1/upload" enctype="multipart/form-data">
+    内容照片3：<input id="subImg3" type="file" name="file"/><input type="button" id="subImg3Btn" value="上传"/><br/>
+    <span class="suggest">建议尺寸：322*156</span>
+    </form>
+    <input type="hidden" id="subImg3Path"/>
+    <div class="sub_img_div">
+    	<img id="subImg3_preview" src=""/>
+    </div>
+    
+    <div>
+        <input type="button" id="save" value="保存"/>
+        <input type="button" id="cancle" value="取消"/>
+    </div>
 </div>
 <!-- InstanceEndEditable -->
+	</div>
+    <div style="height:49px;">
+    </div>
+	<div id="footer">
+    	<div class="main_width clear">
+        	<div id="logo_footer">
+            	<img src="../images/global/logo.png"/>
+            </div>
+            <div id="copyright">
+            	COPYRIGHT 2016, 数舟, ALL RIGHT RESERVED
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                沪ICP备 17010600号-1
+            </div>
+            <!--<div id="coopration">
+            	<ul>
+                	<li>
+                    	<img src="images/global/cooperation/zhongke.png"/>
+                    </li>
+                    <li>
+                    	<img src="images/global/cooperation/sichuanU.png"/>
+                    </li>
+                </ul>
+            </div>-->
+        </div>
+    </div>
 </body>
 <!-- InstanceEnd --></html>

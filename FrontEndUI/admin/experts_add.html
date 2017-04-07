@@ -5,12 +5,14 @@
 <!-- InstanceBeginEditable name="doctitle" -->
 <title>数舟管理</title>
 <!-- InstanceEndEditable -->
+<link href="../style/global.css" rel="stylesheet" type="text/css">
+<link href="../style/manage.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="../script/plugins/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="../script/plugins/jquery.cookie.js"></script>
 <script>
 $(document).ready(function(e) {
     if($.cookie('Token')==null){
-		window.location.href="./login.html";
+		//window.location.href="./login.html";
 	}
 });
 </script>
@@ -93,17 +95,40 @@ $(document).ready(function(e) {
 </head>
 
 <body>
-<ul>
-	<li>
-    	<a href="events_list.html">企业动态</a>
-    </li>
-    <li>
-    	<a href="experts_list.html">专家专栏</a>
-    </li>
-    <li>
-    	<a href="infos_list.html">行业资讯</a>
-    </li>
-</ul>
+	<div id="navigator">
+    	<div class="main_width full_height">
+            <div id="logo">
+                <img src="../images/global/logo.png"/>
+            </div>
+            <div id="login">
+            	<img src="../images/global/login_sprite_all.png"/>
+                <div class="loginbtns">
+                	<a id="hi" href="javascript:void(0);">
+                    </a>
+                    <a id="logoutBtn" href="javascript:void(0);">
+                    	登出
+                    </a>
+                </div>
+            </div>
+          <ul class="nav_parent">
+            	<li class="nav_parent_li">
+                    <a href="events_list.html">企业动态</a>
+                </li>
+                <li class="nav_parent_li">
+                	<a href="experts_list.html">专家专栏</a>
+                </li>
+                <li class="nav_parent_li">
+                	<a href="infos_list.html">行业资讯</a>
+                </li>
+                <li class="nav_parent_li">
+                	<a href="news.html">修改密码</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div style="height:80px;">
+    </div>
+	<div id="maincontent">
 <!-- InstanceBeginEditable name="mainContent" -->
 标题：<input id="title" />
 摘要：<textarea id="summary" ></textarea>
@@ -120,5 +145,30 @@ $(document).ready(function(e) {
     <input type="button" id="cancle" value="取消"/>
 </div>
 <!-- InstanceEndEditable -->
+	</div>
+    <div style="height:49px;">
+    </div>
+	<div id="footer">
+    	<div class="main_width clear">
+        	<div id="logo_footer">
+            	<img src="../images/global/logo.png"/>
+            </div>
+            <div id="copyright">
+            	COPYRIGHT 2016, 数舟, ALL RIGHT RESERVED
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                沪ICP备 17010600号-1
+            </div>
+            <!--<div id="coopration">
+            	<ul>
+                	<li>
+                    	<img src="images/global/cooperation/zhongke.png"/>
+                    </li>
+                    <li>
+                    	<img src="images/global/cooperation/sichuanU.png"/>
+                    </li>
+                </ul>
+            </div>-->
+        </div>
+    </div>
 </body>
 <!-- InstanceEnd --></html>
