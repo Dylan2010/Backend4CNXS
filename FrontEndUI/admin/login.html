@@ -30,7 +30,7 @@ $(document).ready(function(e) {
 				console.log(xhr.getResponseHeader("X-Access-Token"));
 				var token = xhr.getResponseHeader("X-Access-Token");
 				//console.log(xhr.getAllResponseHeaders());
-				$.cookie('Token',token,{expires:1,path:'/cnsdis'});
+				$.cookie('Token',token,{expires:1,path:'/'});
 				window.location.href="./events_list.html";
 			}
 		});
