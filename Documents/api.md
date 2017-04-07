@@ -5,6 +5,7 @@
 登陆 | api/User/v1/login | Post |
 登出 | api/User/v1/logoff/ | Post | 需要带上X-Access-Token 
 创建 | api/User/v1 | Post |
+更新 | api/User/v1/id/{id} | Post | | post实体为用户的json对象（包含id）
 
 # 文章相关
 
