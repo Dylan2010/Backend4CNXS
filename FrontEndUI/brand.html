@@ -11,6 +11,37 @@
 <!-- InstanceEndEditable -->
 <script type="text/javascript" src="script/plugins/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="script/global.js"></script>
+<script type="text/javascript" src="script/plugins/jquery.cookie.js"></script>
+<script>
+$(document).ready(function(e) {
+    if($.cookie('Token')!=null){
+		$("#loginbtn").hide();
+		$("#registbtn").hide();
+		$("#hi").show();
+		$("#hi").text("您好，"+$.cookie('Name'));
+		$("#logoutBtn").show();
+	}
+	
+	$("logoutBtn").click(function(){
+		$.ajax({
+			contentType : "application/json;charset=utf-8",
+			url : 'http://101.37.39.51:8080/api/User/v1/logoff',
+			type : "POST",
+			dataType : "json",
+			data : JSON.stringify({}),
+			success :　function(data){
+				$.cookie('Token',null);
+				$.cookie('Name',null);
+				$("#loginbtn").show();
+				$("#registbtn").show();
+				$("#hi").hide();
+				$("#hi").text("");
+				$("#logoutBtn").hide();
+			}
+		});
+	});
+});
+</script>
 <!-- InstanceBeginEditable name="js" -->
 <script type="text/javascript" src="script/brand.js"></script>
 <script>
@@ -38,6 +69,11 @@ $(document).ready(function(e) {
             <div id="login">
             	<img src="images/global/login_sprite_all.png"/>
                 <div class="loginbtns">
+                	<a id="hi" href="javascript:void(0);" style="display:none;">
+                    </a>
+                    <a id="logoutBtn" href="javascript:void(0);" style="display:none;">
+                    	登出
+                    </a>
                     <a id="loginbtn" href="login.html">
                         <!--<img src="images/global/login_btn.png"/>-->
                         登录

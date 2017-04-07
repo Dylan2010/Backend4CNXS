@@ -6,11 +6,30 @@
 <title>数舟管理</title>
 <!-- TemplateEndEditable -->
 <script type="text/javascript" src="../script/plugins/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../script/plugins/jquery.cookie.js"></script>
+<script>
+$(document).ready(function(e) {
+    if($.cookie('Token')==null){
+		window.location.href="./login.html";
+	}
+});
+</script>
 <!-- TemplateBeginEditable name="head" -->
 <!-- TemplateEndEditable -->
 </head>
 
 <body>
+<ul>
+	<li>
+    	<a href="../admin/events_list.html">企业动态</a>
+    </li>
+    <li>
+    	<a href="../admin/experts_list.html">专家专栏</a>
+    </li>
+    <li>
+    	<a href="../admin/infos_list.html">行业资讯</a>
+    </li>
+</ul>
 <!-- TemplateBeginEditable name="mainContent" -->
 
 <!-- TemplateEndEditable -->

@@ -6,14 +6,17 @@
 <title>数舟管理</title>
 <!-- InstanceEndEditable -->
 <script type="text/javascript" src="../script/plugins/jquery-1.8.3.min.js"></script>
-<!-- InstanceBeginEditable name="head" -->
 <script type="text/javascript" src="../script/plugins/jquery.cookie.js"></script>
 <script>
 $(document).ready(function(e) {
-	//console.log($.cookie('Token'))
-	if($.cookie('Token')==null){
+    if($.cookie('Token')==null){
 		window.location.href="./login.html";
 	}
+});
+</script>
+<!-- InstanceBeginEditable name="head" -->
+<script>
+$(document).ready(function(e) {
 	var eventData;
     function getData(doSetData){
 		jQuery.support.cors = true;//跨域
