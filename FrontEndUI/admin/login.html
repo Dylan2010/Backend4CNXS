@@ -3,12 +3,22 @@
 <head>
 <meta charset="utf-8">
 <title>数舟管理-登录</title>
+<link href="../style/global.css" rel="stylesheet" type="text/css">
+<link href="../style/user.css" rel="stylesheet" type="text/css">
+<style>
+.login_left{
+	width:100% !important;
+}
+#login_page .login_region{
+	top:180px;
+}
+</style>
 <script type="text/javascript" src="../script/plugins/jquery-1.8.3.min.js"></script>
 <script src="../script/plugins/json2.js"></script>
 <script type="text/javascript" src="../script/plugins/jquery.cookie.js"></script>
 <script>
 $(document).ready(function(e) {
-    $("#login").click(function(){
+    $("#login_btn").click(function(){
 		$.ajax({
 			contentType : "application/json;charset=utf-8",
 			url : 'http://101.37.39.51:8080/api/User/v1/login',
@@ -40,11 +50,24 @@ $(document).ready(function(e) {
 </head>
 
 <body>
-<form action="http://101.37.39.51:8080/User/v1/login" method="post">
-用户名：<input id="account" name="account"/>
-密码：<input id="password" name="password" type="password"/>
-<input type="submit" value="登录"/>
-</form>
-<input id="login" type="button" value="ajax登录"/>
+
+<div id="login_page" class="main_width">
+    	<div class="login_region">
+        	<div class="login_left">
+            	<!--<form action="http://101.37.39.51:8080/User/v1/login" method="post">-->
+            	<h2>后台登录</h2>
+                
+                <div class="username_frame">
+                	<input id="account" name="account" placeholder="用户名："/>
+                </div>
+                <div class="password_frame">
+                	<input id="password" name="password" type="password" placeholder="密码："/>
+                </div>
+                <a id="login_btn" class="login_btn" href="#">完成</a>
+                <!--</form>-->
+            </div>
+        
+        </div>
+    </div>
 </body>
 </html>
