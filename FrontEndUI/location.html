@@ -36,7 +36,11 @@ $(document).ready(function(e) {
 			data : JSON.stringify({
 				"X-Access-Token": $.cookie('Token')
 				}),
+			/*headers: {
+				"X-Access-Token": $.cookie('Token')
+			},*/
 			beforeSend: function(request) {
+				console.log(request);
                 request.setRequestHeader("X-Access-Token", $.cookie('Token'));
             },
 			success :　function(data){
