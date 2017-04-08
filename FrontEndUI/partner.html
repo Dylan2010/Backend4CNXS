@@ -42,6 +42,9 @@ $(document).ready(function(e) {
 			data : JSON.stringify({
 				"X-Access-Token": $.cookie('Token')
 				}),
+			beforeSend: function(request) {
+                request.setRequestHeader("X-Access-Token", $.cookie('Token'));
+            },
 			success :　function(data){
 				$.removeCookie('Token',{path:'/'});
 				$.removeCookie('Name',{path:'/'});
