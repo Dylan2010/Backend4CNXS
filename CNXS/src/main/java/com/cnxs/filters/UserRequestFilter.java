@@ -24,6 +24,22 @@ public class UserRequestFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
         //all the get method will be allowed
+    	String token = request.getHeader(HeaderConstant.X_ACCESS_TOKEN);
+        
+        JWTService jwtSrv = ApplicationContextHolder.getBean(JWTService.class);
+        
+        Boolean isKeyUser = false;
+        
+        if(!StringUtils.isEmpty(token) ) {
+            
+            Claims claims = jwtSrv.validateToken(token);
+            
+            isKeyUser = claims != null ? claims.get("isKeyUser", Boolean.class) : false;
+            
+            Integer userId = claims != null ? claims.get("userId", Integer.class) : -1;
+            
+            UserInfoContextHolder.setUserInfo(userId, isKeyUser, token);
+        }
         if(shouldSkipPermissionControl(request)) {
             try{
                 filterChain.doFilter(request, response);
@@ -31,24 +47,10 @@ public class UserRequestFilter extends OncePerRequestFilter {
                 e.printStackTrace();
             }
         } else{
-            String token = request.getHeader(HeaderConstant.X_ACCESS_TOKEN);
             
-            JWTService jwtSrv = ApplicationContextHolder.getBean(JWTService.class);
-            
-            if(!StringUtils.isEmpty(token) ) {
-                
-                Claims claims = jwtSrv.validateToken(token);
-                
-                Boolean isKeyUser = claims != null ? claims.get("isKeyUser", Boolean.class) : false;
-                
-                Integer userId = claims != null ? claims.get("userId", Integer.class) : -1;
-                
-                UserInfoContextHolder.setUserInfo(userId, isKeyUser, token);
-                
                 if(isKeyUser) {
                     filterChain.doFilter(request, response);
                 }
-            }
           
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
         } 
