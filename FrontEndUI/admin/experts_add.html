@@ -14,9 +14,37 @@ $(document).ready(function(e) {
     if($.cookie('Token')==null){
 		//window.location.href="./login.html";
 	}
+	
+	$("#logoutBtn").click(function(){
+		$.ajax({
+			contentType : "application/json;charset=utf-8",
+			url : 'http://101.37.39.51:8080/api/User/v1/logoff',
+			type : "POST",
+			dataType : "json",
+			data : JSON.stringify({
+				"X-Access-Token": $.cookie('Token')
+				}),
+			success :　function(data){
+				$.removeCookie('Token',{path:'/'});
+				$.removeCookie('Name',{path:'/'});
+				
+			}
+		});
+	});
 });
 </script>
 <!-- InstanceBeginEditable name="head" -->
+<style>
+.main_img_div{
+	width:300px;
+	height:225px;
+	border:2px solid #fff;
+	overflow:hidden;
+}
+.main_img_div img{
+	width:300px;
+}
+</style>
 <script src="../script/plugins/jquery.form.js"></script>
 <script src="../script/plugins/json2.js"></script>
 <script>
@@ -87,7 +115,7 @@ $(document).ready(function(e) {
 	});
 	
 	$("#cancle").click(function(){
-		window.location.href="./infos_list.html";
+		window.location.href="./experts_list.html";
 	});
 });
 </script>
@@ -130,19 +158,24 @@ $(document).ready(function(e) {
     </div>
 	<div id="maincontent">
 <!-- InstanceBeginEditable name="mainContent" -->
-标题：<input id="title" />
-摘要：<textarea id="summary" ></textarea>
-文章内容：<textarea id="content"></textarea>
-<form id="mainImg_form" method="post" action="http://101.37.39.51:8080/api/Image/v1/upload" enctype="multipart/form-data">
-主题照片：<input id="mainImg" type="file" name="file"/><input type="button" id="mainImgBtn" value="上传"/>
-</form>
-<input type="hidden" id="mainImgPath"/>
-<img id="mainImg_preview" src=""/>
-
-
-<div>
-	<input type="button" id="save" value="保存"/>
-    <input type="button" id="cancle" value="取消"/>
+<div class="main_width">
+    标题：<input id="title" class="title_input"/><br/><br/>
+    职务：<br/><textarea id="summary" class="summary_textarea" ></textarea><br/><br/>
+    文章：<br/><textarea id="content" class="content_textarea"></textarea><br/><br/>
+    <form id="mainImg_form" method="post" action="http://101.37.39.51:8080/api/Image/v1/upload" enctype="multipart/form-data">
+    主题照片：<input id="mainImg" type="file" name="file"/><input type="button" id="mainImgBtn" value="上传"/><br/>
+    <span class="suggest">建议尺寸：300*225</span>
+    </form>
+    <input type="hidden" id="mainImgPath"/>
+    <div class="main_img_div">
+    	<img id="mainImg_preview" src=""/>
+    </div>
+    
+    
+    <div>
+        <input type="button" id="save" value="保存"/>
+        <input type="button" id="cancle" value="取消"/>
+    </div>
 </div>
 <!-- InstanceEndEditable -->
 	</div>

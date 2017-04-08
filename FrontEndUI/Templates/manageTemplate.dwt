@@ -14,6 +14,23 @@ $(document).ready(function(e) {
     if($.cookie('Token')==null){
 		//window.location.href="./login.html";
 	}
+	
+	$("#logoutBtn").click(function(){
+		$.ajax({
+			contentType : "application/json;charset=utf-8",
+			url : 'http://101.37.39.51:8080/api/User/v1/logoff',
+			type : "POST",
+			dataType : "json",
+			data : JSON.stringify({
+				"X-Access-Token": $.cookie('Token')
+				}),
+			success :　function(data){
+				$.removeCookie('Token',{path:'/'});
+				$.removeCookie('Name',{path:'/'});
+				
+			}
+		});
+	});
 });
 </script>
 <!-- TemplateBeginEditable name="head" -->
