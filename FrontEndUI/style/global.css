@@ -46,9 +46,21 @@ ul,li{
 }
 
 #search{
-	height:50px;
+	height:30px;
 	position:relative;
-	display:none;
+}
+#search_key{
+	border:1px solid #ccc;
+	background:none;
+	color:#fff;
+	border-radius:3px;
+	-moz-border-radius:3px;
+	-o-border-radius:3px;
+	-webkit-border-radius:3px;
+	-ms-border-radius:3px;
+	position:absolute;
+	right:40px;
+	top:5px;
 }
 #search a{
 	position:absolute;
@@ -61,7 +73,7 @@ ul,li{
 #search a img{
 }
 #navigator{
-	height:80px;
+	height:110px;
 	background:#000;
 	position:fixed;
 	color:#fff;
