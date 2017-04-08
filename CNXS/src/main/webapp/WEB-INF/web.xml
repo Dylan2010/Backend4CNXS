@@ -60,6 +60,10 @@
             <param-name>cors.exposed.headers</param-name>
             <param-value>X-Access-Token</param-value>
         </init-param>
+        <init-param>
+            <param-name>cors.allowed.headers</param-name>
+            <param-value>X-Access-Token</param-value>
+        </init-param>
 	</filter>
 	<filter-mapping>
 		<filter-name>CorsFilter</filter-name>
