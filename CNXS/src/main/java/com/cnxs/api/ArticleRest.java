@@ -65,4 +65,9 @@ public class ArticleRest {
         return res == null ? new ResponseEntity<>(res, HttpStatus.NO_CONTENT) : new ResponseEntity<>(res, HttpStatus.OK);
     }
 	
+	@RequestMapping(value = "/search", method = RequestMethod.GET) 
+    public @ResponseBody List<Article> search(@RequestParam String keyword) {
+	    return articleSrv.search(keyword);
+    }
+	
 }

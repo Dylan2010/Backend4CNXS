@@ -50,6 +50,10 @@ public class ArticleService {
         return false;
     }
 	
+	public List<Article> search(String keyword) {
+		return articleDao.search(keyword);
+	}
+	
 	public List<Article> getArticleList(String type, Integer offset, Integer limit) {
 	    if(isInValidType(type)) {
 	        return new ArrayList<Article>();

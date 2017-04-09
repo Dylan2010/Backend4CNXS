@@ -22,4 +22,6 @@ public interface ArticleDao {
 	public List<Article> getArticleList(ArticleType type, int offset, int limit);
 	
 	public Article getLatestArticle(Date date, Boolean next, ArticleType type);
+	
+	public List<Article> search(String keyword);
 }

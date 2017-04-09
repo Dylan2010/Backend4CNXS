@@ -87,4 +87,16 @@ public class ArticleDaoImpl implements ArticleDao{
         return true;
     }
 
+	@Override
+	public List<Article> search(String keyword) {
+		String queryStr = "Select A FROM Article A where A.title like :keyword ORDER BY A.creationTime desc" ;
+		TypedQuery<Article> query = em.createQuery(queryStr, Article.class);
+		query.setParameter("keyword", "%" + keyword + "%");
+		try{
+            return query.getResultList();
+        } catch(NoResultException e) {
+            return null;
+        }
+	}
+
 }
