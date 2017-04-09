@@ -3,14 +3,58 @@
 <head>
 <meta charset="utf-8">
 <!-- InstanceBeginEditable name="doctitle" -->
-<title>联系方式</title>
+<title>无标题文档</title>
 <!-- InstanceEndEditable -->
 <link href="style/global.css" rel="stylesheet" type="text/css">
 <!-- InstanceBeginEditable name="css" -->
-<link href="style/contact.css" rel="stylesheet" type="text/css">
 <style>
-body{
-	background:url(images/contact/location_bg.jpg) top center no-repeat;
+#search_list{
+	color:#fff;
+}
+#search_list h1{
+	margin:8px 0;
+	font-size:14px;
+	font-weight:bold;
+	margin-left:170px;
+}
+#search_list .list{
+	height:450px;
+	margin-left:150px;
+}
+#search_list ul{
+	border-top:1px solid #ccc;
+	margin-right:20px;
+	position:static;
+}
+#search_list li{
+	padding:10px 20px;
+	border-bottom:1px solid #ccc;
+	height:56px;
+	line-height:56px;
+	font-size:12px;
+	position:relative;
+}
+#search_list li .arr{
+	position:absolute;
+	right:20px;
+	top:10px;
+}
+#search_list li .list_img{
+	width:120px;
+	height:56px;
+	overflow:hidden;
+	font-size:0;
+	float:left;
+}
+#search_list li .list_img img{
+	width:100%;
+}
+#search_list li a{
+	color:#fff;
+	display:block;
+}
+#search_list li a span{
+	margin-left:20px;
 }
 </style>
 <!-- InstanceEndEditable -->
@@ -57,14 +101,9 @@ $(document).ready(function(e) {
 });
 </script>
 <!-- InstanceBeginEditable name="js" -->
-<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=G65jc8AglBzotvmrKwyBXoqTpFiGo4Py"></script>
-<script>
-$(document).ready(function(e) {
-    $(".nav_contact").addClass("on");
-	$(".nav_location").addClass("on");
-});
-	
-</script>
+<script src="script/plugins/tinyscrollbar.js"></script>
+<script src="script/plugins/json2.js"></script>
+<script type="text/javascript" src="script/search.js"></script>
 <!-- InstanceEndEditable -->
 </head>
 
@@ -173,56 +212,22 @@ $(document).ready(function(e) {
     </div>
     <div id="maincontent">
 <!-- InstanceBeginEditable name="maincontent" -->
-	<div id="location" class="main_width">
-    	<div class="location_height">
-        	<div class="location_info">
-            	数舟（上海）数据信息服务有限公司<br/>
-                电话：021-62890199<br/>
-                传真：021-62890199-804<br/>
-                地址：上海市长宁区金钟路968号凌空SOHO<br/>2号楼1106室
+<div id="search_list" class="main_width">
+    <h1>搜索结果</h1>
+    <div class="list scroller">
+        <div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+        <div class="viewport">
+            <div class="overview">
+                <ul id="event_list_ul">
+                
+                
+                 </ul>
             </div>
-            <div id="map" class="map">
-            </div>
-            <script type="text/javascript"> 
-				var map = new BMap.Map("map");          // 创建地图实例  
-				var point = new BMap.Point(121.360014,31.22716);  // 创建点坐标  
-				map.centerAndZoom(point, 15);                 // 初始化地图，设置中心点坐标和地图级别  
-				map.addControl(new BMap.NavigationControl());    
-				map.addControl(new BMap.ScaleControl());
-				
-				/*function addMarker(point, index){  // 创建图标对象   
-					var myIcon = new BMap.Icon("markers.png", new BMap.Size(23, 25), {    
-					// 指定定位位置。   
-					// 当标注显示在地图上时，其所指向的地理位置距离图标左上    
-					// 角各偏移10像素和25像素。您可以看到在本例中该位置即是   
-					   // 图标中央下端的尖角位置。    
-					   offset: new BMap.Size(10, 25),    
-					   // 设置图片偏移。   
-					   // 当您需要从一幅较大的图片中截取某部分作为标注图标时，您   
-					   // 需要指定大图的偏移位置，此做法与css sprites技术类似。    
-					   imageOffset: new BMap.Size(0, 0 - index * 25)   // 设置图片偏移    
-					 });      
-					// 创建标注对象并添加到地图   
-					 var marker = new BMap.Marker(point, {icon: myIcon});    
-					 map.addOverlay(marker);    
-				}*/
-				var marker = new BMap.Marker(new BMap.Point(121.360014,31.22716));
-				map.addOverlay(marker);
-				map.enableScrollWheelZoom();   //启用滚轮放大缩小，默认禁用
-				map.enableContinuousZoom();
-				var opts = {
-				  width : 200,     // 信息窗口宽度
-				  height: 100,     // 信息窗口高度
-				  title : "<span style='font-size:13px;'>数舟（上海）数据信息服务有限公司</span>" , // 信息窗口标题
-				  enableMessage:false//设置允许信息窗发送短息"
-				}
-				var infoWindow = new BMap.InfoWindow("<span style='font-size:12px;'>地址：上海市长宁区金钟路968号凌空SOHO 2号楼1106室</span>", opts);  // 创建信息窗口对象 
-				marker.addEventListener("click", function(){          
-					map.openInfoWindow(infoWindow,point); //开启信息窗口
-				});
-			</script>
         </div>
     </div>
+    
+</div>
+
 <!-- InstanceEndEditable -->
 	</div>
     <div style="height:49px;">

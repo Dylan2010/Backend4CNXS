@@ -32,6 +32,9 @@ $(document).ready(function() {
 		calcPageHeight();
 	});
 	//$("#maincontent").css("min-height",$(window).height()-$("#navigator").outerHeight()-$("#footer").outerHeight()-89);
-	
+	$("#search_btn").click(function(){
+		var keyword = encodeURI(encodeURI($("#search_key").val()));
+		window.location.href="./search.html?keyword="+keyword;
+	});
 });
 
