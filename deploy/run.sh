@@ -17,7 +17,7 @@ while [ "$(echo $locktom)" != "ok" ]; do
   if [ $? -eq 0 ]
         then
             locktom="ok"
-            mysql -uroot -p$MYSQL_ROOT_PASSWORD < /opt/cnxs.sql
+#            mysql -uroot -p$MYSQL_ROOT_PASSWORD < /opt/cnxs.sql
   fi
 done
  /usr/local/tomcat/bin/catalina.sh run
