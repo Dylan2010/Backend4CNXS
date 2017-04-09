@@ -28,6 +28,7 @@ public class UserService {
 	    if(user == null || user.getId() != id || id < 0) {
 	        return false;
 	    } else {
+	    	user.setPassword( bCryptEncoder.encode(user.getPassword()));
 	        return userDao.updateUser(user);
 	    }
 	}
