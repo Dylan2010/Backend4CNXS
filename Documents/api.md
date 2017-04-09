@@ -17,6 +17,7 @@
 删除某篇文章 | api/Articles/v1/Type/{type}/id/{id} | Delete | api/Articles/v1/Type/Info/id/10
 获取最新动态 | /api/Articles/v1/News | Get  | 
 获取上一篇/下一篇 | api/Articles/v1/Type/Info/latest?next=&date= |GET|api/Articles/v1/Type/Info/latest?next=false&date=1490671739815 | 若无数据，则返回204，有数据则数据实体+200 next为true或者false，date为时间戳
+搜索 | api/Articles/v1/search | Get | /api/Articles/v1/search?keyword=著名 | 文章列表
 
 目前三种文章类型：Events,Experts,Info
 
