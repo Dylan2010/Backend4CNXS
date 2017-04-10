@@ -26,8 +26,10 @@ $(document).ready(function(e) {
 			type:"post",
 			data: JSON.stringify({"account":$("#account").val(),"password":$("#password").val()}),
 			dataType : 'json',
-			success : function(data){
-				//console.log(data);
+			success : function(data,status,xhr){
+				console.log(data);
+				console.log(status);
+				console.log(xhr);
 				if(data!=false && data!=null){
 					$.cookie("Name",data,{expires:1,path:'/'});
 				}
