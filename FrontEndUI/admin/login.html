@@ -27,9 +27,10 @@ $(document).ready(function(e) {
 			data: JSON.stringify({"account":$("#account").val(),"password":$("#password").val()}),
 			dataType : 'json',
 			success : function(data){
-				console.log(data);
-				
-				$.cookie("Name",data,{expires:1,path:'/'});
+				//console.log(data);
+				if(data!=false && data!=null){
+					$.cookie("Name",data,{expires:1,path:'/'});
+				}
 				//doSetData(data);
 			},
 			error: function(e){
@@ -40,10 +41,14 @@ $(document).ready(function(e) {
 				// 获取相关Http Response header
         		//console.log(xhr);
 				//console.log(xhr.getResponseHeader("X-Access-Token"));
-				var token = xhr.getResponseHeader("X-Access-Token");
-				//console.log(xhr.getAllResponseHeaders());
-				$.cookie('Token',token,{expires:1,path:'/'});
-				window.location.href="./events_list.html";
+				if(data==false && data==null){
+					alert("用户名或密码错!");
+				}else{
+					var token = xhr.getResponseHeader("X-Access-Token");
+					//console.log(xhr.getAllResponseHeaders());
+					$.cookie('Token',token,{expires:1,path:'/'});
+					window.location.href="./events_list.html";
+				}
 			}
 		});
 	});
