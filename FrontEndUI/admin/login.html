@@ -27,7 +27,8 @@ $(document).ready(function(e) {
 			data: JSON.stringify({"account":$("#account").val(),"password":$("#password").val()}),
 			dataType : 'json',
 			success : function(data){
-				//console.log(data);
+				console.log(data);
+				
 				$.cookie("Name",data,{expires:1,path:'/'});
 				//doSetData(data);
 			},
