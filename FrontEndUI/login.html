@@ -64,28 +64,20 @@ $(document).ready(function(e) {
 			type : "POST",
 			data : JSON.stringify({"account":$("#account").val(),"password":$("#password").val()}),//json
 			dataType : 'json',
-			success : function(data){
+			success : function(data,status,xhr){
 				//console.log(data);
-				if(data!=false && data!=null){
+				if(data==false || data==null){
+					alert("用户名或密码错!");
+				}else{
 					$.cookie("Name",data,{expires:1,path:'/'});
+					var token = xhr.getResponseHeader("X-Access-Token");
+					$.cookie('Token',token,{expires:1,path:'/'});
+					window.location.href="./home.html";
 				}
 			},
 			error: function(e){
 				var a=JSON.stringify(e);
 				//console.log(a);
-			},
-			complete: function(xhr,data){
-				// 获取相关Http Response header
-        		//console.log(xhr);
-				//console.log(xhr.getResponseHeader("X-Access-Token"));
-				if(data==false || data==null){
-					alert("用户名或密码错!");
-				}else{
-					var token = xhr.getResponseHeader("X-Access-Token");
-					//console.log(xhr.getAllResponseHeaders());
-					$.cookie('Token',token,{expires:1,path:'/'});
-					window.location.href="./home.html";
-				}
 			}
 		});
 	});
