@@ -11,7 +11,7 @@
 <script type="text/javascript" src="../script/plugins/jquery.cookie.js"></script>
 <script>
 $(document).ready(function(e) {
-    if($.cookie('Token')==null){
+    if($.cookie('Token')==null || $.cookie('Token')=='null'){
 		window.location.href="./login.html";
 	}
 	
