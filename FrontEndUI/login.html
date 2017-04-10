@@ -67,7 +67,7 @@ $(document).ready(function(e) {
 			success : function(data,status,xhr){
 				//console.log(data);
 				if(data==false || data==null){
-					alert("用户名或密码错!");
+					alert("登陆信息有误，请重新登陆");
 				}else{
 					$.cookie("Name",data,{expires:1,path:'/'});
 					var token = xhr.getResponseHeader("X-Access-Token");
@@ -76,7 +76,8 @@ $(document).ready(function(e) {
 				}
 			},
 			error: function(e){
-				var a=JSON.stringify(e);
+				//var a=JSON.stringify(e);
+				alert(e.responseText);
 				//console.log(a);
 			}
 		});

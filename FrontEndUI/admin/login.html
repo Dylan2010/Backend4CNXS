@@ -31,7 +31,7 @@ $(document).ready(function(e) {
 				//console.log(status);
 				//console.log(xhr);
 				if(data==false || data==null){
-					alert("用户名或密码错!");
+					alert("登陆信息有误，请重新登陆");
 				}else{
 					$.cookie("Name",data,{expires:1,path:'/'});
 					var token = xhr.getResponseHeader("X-Access-Token");
@@ -42,8 +42,7 @@ $(document).ready(function(e) {
 				//doSetData(data);
 			},
 			error: function(e){
-				var a=JSON.stringify(e);
-				//console.log(a);
+				alert(e.responseText);
 			}
 		});
 	});
