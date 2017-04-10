@@ -78,7 +78,7 @@ $(document).ready(function(e) {
 				// 获取相关Http Response header
         		//console.log(xhr);
 				//console.log(xhr.getResponseHeader("X-Access-Token"));
-				if(data==false && data==null){
+				if(data==false || data==null){
 					alert("用户名或密码错!");
 				}else{
 					var token = xhr.getResponseHeader("X-Access-Token");
