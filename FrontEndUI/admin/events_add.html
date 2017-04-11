@@ -99,7 +99,7 @@ $(document).ready(function(e) {
 				},
                 error: function(data,status,xhr) {
 					console.log(xhr);
-					if(xhr.status=="401"){
+					if(data.status=="401"){
 						alert("登录过期");
 						window.location.href="./login.html";
 					}else
@@ -127,7 +127,7 @@ $(document).ready(function(e) {
 					request.setRequestHeader("X-Access-Token", $.cookie('Token'));
 				},
                 error: function(data,status,xhr) {
-                    if(xhr.status=="401"){
+                    if(data.status=="401"){
 						alert("登录过期");
 						window.location.href="./login.html";
 					}else
@@ -153,7 +153,7 @@ $(document).ready(function(e) {
 					request.setRequestHeader("X-Access-Token", $.cookie('Token'));
 				},
                 error: function(data,status,xhr) {
-                    if(xhr.status=="401"){
+                    if(data.status=="401"){
 						alert("登录过期");
 						window.location.href="./login.html";
 					}else
@@ -178,7 +178,7 @@ $(document).ready(function(e) {
 					request.setRequestHeader("X-Access-Token", $.cookie('Token'));
 				},
                 error: function(data,status,xhr) {
-                    if(xhr.status=="401"){
+                    if(data.status=="401"){
 						alert("登录过期");
 						window.location.href="./login.html";
 					}else
@@ -220,7 +220,7 @@ $(document).ready(function(e) {
 				request.setRequestHeader("X-Access-Token", $.cookie('Token'));
 			},
 			error: function(data,status,xhr) {
-				if(xhr.status=="401"){
+				if(data.status=="401"){
 					alert("登录过期");
 					window.location.href="./login.html";
 				}else
