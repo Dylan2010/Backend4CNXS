@@ -123,7 +123,6 @@ $(document).ready(function(e) {
 	}
 	
 	$("#mainImgBtn").click(function(){
-		jQuery.support.cors = true;
 		var option = {
                 url : 'http://101.37.39.51:8080/api/Image/v1/upload',
                 type : 'POST',
@@ -138,6 +137,8 @@ $(document).ready(function(e) {
                 error: function(data,status,xhr) {
                     if(data.status=="401"){
 						alert("登录过期");
+						$.removeCookie('Token',{path:'/'});
+						$.removeCookie('Name',{path:'/'});
 						window.location.href="./login.html";
 					}else
 					{
@@ -149,7 +150,6 @@ $(document).ready(function(e) {
 	});
 	
 	$("#subImg1Btn").click(function(){
-		jQuery.support.cors = true;
 		var option = {
                 url : 'http://101.37.39.51:8080/api/Image/v1/upload',
                 type : 'POST',
@@ -164,6 +164,8 @@ $(document).ready(function(e) {
                 error: function(data,status,xhr) {
                     if(data.status=="401"){
 						alert("登录过期");
+						$.removeCookie('Token',{path:'/'});
+						$.removeCookie('Name',{path:'/'});
 						window.location.href="./login.html";
 					}else
 					{
@@ -175,7 +177,6 @@ $(document).ready(function(e) {
 	});
 	
 	$("#subImg2Btn").click(function(){
-		jQuery.support.cors = true;
 		var option = {
                 url : 'http://101.37.39.51:8080/api/Image/v1/upload',
                 type : 'POST',
@@ -190,6 +191,8 @@ $(document).ready(function(e) {
                 error: function(data,status,xhr) {
                     if(data.status=="401"){
 						alert("登录过期");
+						$.removeCookie('Token',{path:'/'});
+						$.removeCookie('Name',{path:'/'});
 						window.location.href="./login.html";
 					}else
 					{
@@ -201,7 +204,6 @@ $(document).ready(function(e) {
 	});
 	
 	$("#subImg3Btn").click(function(){
-		jQuery.support.cors = true;
 		var option = {
                 url : 'http://101.37.39.51:8080/api/Image/v1/upload',
                 type : 'POST',
@@ -216,6 +218,8 @@ $(document).ready(function(e) {
                 error: function(data,status,xhr) {
                     if(data.status=="401"){
 						alert("登录过期");
+						$.removeCookie('Token',{path:'/'});
+						$.removeCookie('Name',{path:'/'});
 						window.location.href="./login.html";
 					}else
 					{
@@ -259,6 +263,8 @@ $(document).ready(function(e) {
 			error: function(data,status,xhr) {
 				if(data.status=="401"){
 					alert("登录过期");
+					$.removeCookie('Token',{path:'/'});
+					$.removeCookie('Name',{path:'/'});
 					window.location.href="./login.html";
 				}else
 				{
