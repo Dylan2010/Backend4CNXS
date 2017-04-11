@@ -248,7 +248,7 @@ $(document).ready(function(e) {
 			url : "http://101.37.39.51:8080/api/Articles/v1/Type/Events/id/"+eventId,
 			type : "POST",
 			data : JSON.stringify(formData),
-			dataType : "jsonp",
+			dataType : "json",
 			success : function(data){
 				alert("保存成功!");
 				window.location.href="./events_list.html";
