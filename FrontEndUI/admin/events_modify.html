@@ -32,7 +32,6 @@ $(document).ready(function(e) {
 				"X-Access-Token": $.cookie('Token')
 				}),
 			beforeSend: function(request) {
-				console.log(request);
                 request.setRequestHeader("X-Access-Token", $.cookie('Token'));
             },
 			success :　function(data){
@@ -78,7 +77,7 @@ $(document).ready(function(e) {
 		if(eventId == null){
 			return false;
 		}else{
-			jQuery.support.cors = true;
+			//jQuery.support.cors = true;
 			$.ajax({
 				async: false,
 				url : 'http://101.37.39.51:8080/api/Articles/v1/Type/Events/id/'+eventId,
@@ -133,8 +132,17 @@ $(document).ready(function(e) {
 					$("#mainImgPath").val(data);
 					$("#mainImg_preview").attr("src",data);
                 },
-                error: function(data) {
-                    alert(JSON.stringify(data) + "--上传失败,请刷新后重试");
+                beforeSend: function(request) {
+					request.setRequestHeader("X-Access-Token", $.cookie('Token'));
+				},
+                error: function(data,status,xhr) {
+                    if(xhr.status=="403"){
+						alert("登录过期");
+						window.location.href="./login.html";
+					}else
+					{
+                    	alert(JSON.stringify(data) + "--上传失败,请刷新后重试");
+					}
                 }
              };
         $("#mainImg_form").ajaxSubmit(option);
@@ -150,8 +158,17 @@ $(document).ready(function(e) {
 					$("#subImg1Path").val(data);
 					$("#subImg1_preview").attr("src",data);
                 },
-                error: function(data) {
-                    alert(JSON.stringify(data) + "--上传失败,请刷新后重试");
+                beforeSend: function(request) {
+					request.setRequestHeader("X-Access-Token", $.cookie('Token'));
+				},
+                error: function(data,status,xhr) {
+                    if(xhr.status=="403"){
+						alert("登录过期");
+						window.location.href="./login.html";
+					}else
+					{
+                    	alert(JSON.stringify(data) + "--上传失败,请刷新后重试");
+					}
                 }
              };
         $("#subImg1_form").ajaxSubmit(option);
@@ -167,8 +184,17 @@ $(document).ready(function(e) {
 					$("#subImg2Path").val(data);
 					$("#subImg2_preview").attr("src",data);
                 },
-                error: function(data) {
-                    alert(JSON.stringify(data) + "--上传失败,请刷新后重试");
+                beforeSend: function(request) {
+					request.setRequestHeader("X-Access-Token", $.cookie('Token'));
+				},
+                error: function(data,status,xhr) {
+                    if(xhr.status=="403"){
+						alert("登录过期");
+						window.location.href="./login.html";
+					}else
+					{
+                    	alert(JSON.stringify(data) + "--上传失败,请刷新后重试");
+					}
                 }
              };
         $("#subImg2_form").ajaxSubmit(option);
@@ -184,8 +210,17 @@ $(document).ready(function(e) {
 					$("#subImg3Path").val(data);
 					$("#subImg3_preview").attr("src",data);
                 },
-                error: function(data) {
-                    alert(JSON.stringify(data) + "--上传失败,请刷新后重试");
+                beforeSend: function(request) {
+					request.setRequestHeader("X-Access-Token", $.cookie('Token'));
+				},
+                error: function(data,status,xhr) {
+                    if(xhr.status=="403"){
+						alert("登录过期");
+						window.location.href="./login.html";
+					}else
+					{
+                    	alert(JSON.stringify(data) + "--上传失败,请刷新后重试");
+					}
                 }
              };
         $("#subImg3_form").ajaxSubmit(option);
@@ -218,9 +253,17 @@ $(document).ready(function(e) {
 				alert("保存成功!");
 				window.location.href="./events_list.html";
 			},
-			error : function(e){
-				//console.log(e);
-				alert("保存失败！");
+			beforeSend: function(request) {
+				request.setRequestHeader("X-Access-Token", $.cookie('Token'));
+			},
+			error: function(data,status,xhr) {
+				if(xhr.status=="403"){
+					alert("登录过期");
+					window.location.href="./login.html";
+				}else
+				{
+					alert("保存失败！");
+				}
 			}
 		});
 	});
