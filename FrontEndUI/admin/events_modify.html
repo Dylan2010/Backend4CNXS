@@ -246,7 +246,7 @@ $(document).ready(function(e) {
 		jQuery.support.cors = true;
 		$.ajax({
 			contentType : "application/json;charset=utf-8",
-			url : "http://101.37.39.51:8080/api/Articles/v1/Type/Events/id/"+eventId,
+			url : "http://101.37.39.51/api/Articles/v1/Type/Events/id/"+eventId,
 			type : "POST",
 			data : JSON.stringify(formData),
 			dataType : "json",
