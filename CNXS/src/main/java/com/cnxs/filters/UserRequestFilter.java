@@ -27,7 +27,7 @@ public class UserRequestFilter extends OncePerRequestFilter {
     	response.addHeader("Access-Control-Allow-Origin", "*");
     	response.addHeader("Access-Control-Request-Method", "*");
     	response.addHeader("Access-Control-Expose-Headers", "X-Access-Token");
-    	response.addHeader("Access-Control-Allow-Headers", "X-Access-Token");
+    	response.addHeader("Access-Control-Allow-Headers", "Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers,X-Access-Token, ClientCallMode");
     	//workaround to fix cors issue
     	if("OPTIONS".equals(request.getMethod())){
         	return;

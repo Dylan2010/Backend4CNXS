@@ -44,5 +44,4 @@
 		<filter-name>userRequestFilter</filter-name>
 		<url-pattern>/api/*</url-pattern>
 	</filter-mapping>
-
 </web-app>
