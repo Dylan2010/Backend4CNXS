@@ -3,19 +3,16 @@
 $(document).ready(function(e) {
     var eventData=testData;
     function getData(doSetData){
-		jQuery.support.cors = true;//跨域
 		$.ajax({
 			async: false,
 			url : 'http://101.37.39.51:8080/api/Articles/v1/Type/Events/list',
 			type:"get",
 			dataType : 'json',
 			success : function(data){
-				//console.log(data);
 				doSetData(data,addScroller);
 			},
 			error: function(e){
 				var a=JSON.stringify(e);
-				////alert(a);
 			}
 		});
 		

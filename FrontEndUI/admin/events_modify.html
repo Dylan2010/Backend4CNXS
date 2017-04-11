@@ -22,7 +22,6 @@ $(document).ready(function(e) {
 	}
 	
 	$("#logoutBtn").click(function(){
-		jQuery.support.cors = true;
 		$.ajax({
 			contentType : "application/json;charset=utf-8",
 			url : 'http://101.37.39.51:8080/api/User/v1/logoff',
@@ -77,21 +76,16 @@ $(document).ready(function(e) {
 		if(eventId == null){
 			return false;
 		}else{
-			//jQuery.support.cors = true;
 			$.ajax({
 				async: false,
 				url : 'http://101.37.39.51:8080/api/Articles/v1/Type/Events/id/'+eventId,
 				type:"get",
 				dataType : 'json',
 				success : function(data){
-					//console.log(data);
-					//alert(data);
 					doSetData(data);
 				},
 				error: function(e){
 					var a=JSON.stringify(e);
-					//alert(a);
-					////alert(a);
 				}
 			});
 		}
@@ -246,7 +240,7 @@ $(document).ready(function(e) {
 				"type" : "Events",
 				"imageInfo" : JSON.stringify(imageInfo)
 			};
-		//console.log(JSON.stringify(formData));
+		
 		$.ajax({
 			contentType : "application/json;charset=utf-8",
 			url : "http://101.37.39.51:8080/api/Articles/v1/Type/Events/id/"+eventId,

@@ -22,7 +22,6 @@ $(document).ready(function(e) {
 	}
 	
 	$("#logoutBtn").click(function(){
-		jQuery.support.cors = true;
 		$.ajax({
 			contentType : "application/json;charset=utf-8",
 			url : 'http://101.37.39.51:8080/api/User/v1/logoff',
@@ -32,7 +31,6 @@ $(document).ready(function(e) {
 				"X-Access-Token": $.cookie('Token')
 				}),
 			beforeSend: function(request) {
-				console.log(request);
                 request.setRequestHeader("X-Access-Token", $.cookie('Token'));
             },
 			success :　function(data){

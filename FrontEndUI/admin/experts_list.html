@@ -22,7 +22,6 @@ $(document).ready(function(e) {
 	}
 	
 	$("#logoutBtn").click(function(){
-		jQuery.support.cors = true;
 		$.ajax({
 			contentType : "application/json;charset=utf-8",
 			url : 'http://101.37.39.51:8080/api/User/v1/logoff',
@@ -48,14 +47,12 @@ $(document).ready(function(e) {
 $(document).ready(function(e) {
 	var expertData;
     function getData(doSetData){
-		jQuery.support.cors = true;//跨域
 		$.ajax({
 			async: false,
 			url : 'http://101.37.39.51:8080/api/Articles/v1/Type/Experts/list?limit=50',
 			type: 'get',
 			dataType : 'json',
 			success : function(data){
-				console.log(data);
 				doSetData(data);
 			},
 			error: function(e){
@@ -106,7 +103,6 @@ $(document).ready(function(e) {
 	}
 	getData(setData);
 	function deleteData(id){
-		jQuery.support.cors = true;
 		$.ajax({
 			contentType : "application/json; charset=utf-8",
 			url : "http://101.37.39.51:8080/api/Articles/v1/Type/Experts/id/"+id,
@@ -116,8 +112,19 @@ $(document).ready(function(e) {
 				$("#list").empty();
 				getData(setData);
 			},
-			error : function(e){
-				console.log(e);
+			beforeSend: function(request) {
+				request.setRequestHeader("X-Access-Token", $.cookie('Token'));
+			},
+			error: function(data,status,xhr) {
+				if(data.status=="401"){
+					alert("登录过期");
+					$.removeCookie('Token',{path:'/'});
+					$.removeCookie('Name',{path:'/'});
+					window.location.href="./login.html";
+				}else
+				{
+					alert("删除失败！");
+				}
 			}
 		});
 	}

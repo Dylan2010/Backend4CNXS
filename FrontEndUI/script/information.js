@@ -3,47 +3,23 @@
 $(document).ready(function(e) {
     var infoData;
 	function getData(doSetData){
-		jQuery.support.cors = true;//跨域
 		$.ajax({
 			async: false,
 			url : 'http://101.37.39.51:8080/api/Articles/v1/Type/Info/list',
 			type:"get",
 			dataType : 'json',
 			success : function(data){
-				//console.log(data);
 				doSetData(data);
 			},
 			error: function(e){
 				var a=JSON.stringify(e);
-				//alert(a);
 			}
 		});
-		//infoData=testData;
-		//console.log(infoData);
 		
 	}
 	function setData(data){
 		infoData=data;
-		//alert(infoData);
-		//console.log(infoData);
 		$.each(infoData,function(n,v){
-			/*<li class="odd">
-					<div class="main_img">
-						<img src="images/news/information/img1.jpg"/>
-					</div>
-					<div class="article">
-						<h2></h2>
-						<p></p>
-					</div>
-				</li>*/
-				//alert(v);
-				//alert(v.imageInfo[1]);
-			//v.imageInfo = eval(v.imageInfo);
-			//v.imageInfo.replace(/[\\]/g,'');
-			//v.imageInfo=eval(v.imageInfo);
-			//alert(v.imageInfo);
-			//var Json =v.imageInfo;
-			console.log(v.imageInfo);
 			v.imageInfo=JSON.parse(v.imageInfo);
 			var li=$(document.createElement("li"));
 			if(n%2==0){

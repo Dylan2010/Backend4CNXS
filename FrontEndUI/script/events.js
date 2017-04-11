@@ -3,7 +3,6 @@
 $(document).ready(function(e) {
 	var eventData=testData;
 	function getData(getUrl,doSetData,doSetShare,setScroller){
-		jQuery.support.cors = true;//跨域
 		var nid = GetQueryString("id");
 		getUrl = 'http://101.37.39.51:8080/api/Articles/v1/Type/Events/id/'+nid;
 		$.ajax({
@@ -12,12 +11,10 @@ $(document).ready(function(e) {
 			type:"get",
 			dataType : 'json',
 			success : function(data){
-				//console.log(data);
 				doSetData(data,addScroller,doSetShare);
 			},
 			error: function(e){
 				var a=JSON.stringify(e);
-				////alert(a);
 			}
 		});
 	}

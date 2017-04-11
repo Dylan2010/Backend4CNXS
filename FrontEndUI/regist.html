@@ -31,11 +31,7 @@ $(document).ready(function(e) {
 			data : JSON.stringify({
 				"X-Access-Token": $.cookie('Token')
 				}),
-			/*headers: {
-				"X-Access-Token": $.cookie('Token')
-			},*/
 			beforeSend: function(request) {
-				console.log(request);
                 request.setRequestHeader("X-Access-Token", $.cookie('Token'));
             },
 			success :　function(data){
@@ -59,8 +55,11 @@ $(document).ready(function(e) {
 $(document).ready(function(e) {
 	$("input").placeholder();
     $("#regist_btn").click(function(){
-		
-		if($("#password").val()==$("#passwordCheck").val()){
+		if($("#password").val()!=$("#passwordCheck").val()){
+			alert("两次输入的密码不一致！");
+		}else if($("#pwd1").val()==""){
+			alert("请输入密码！");
+		}else{
 			$.ajax({
 				contentType : "application/json;charset=utf-8",
 				url : "http://101.37.39.51:8080/api/User/v1",
@@ -75,12 +74,9 @@ $(document).ready(function(e) {
 				},
 				error: function(e){
 					var a=JSON.stringify(e);
-					console.log(a);
 					alert("注册失败！");
 				}
 			});
-		}else{
-			alert("两次输入的密码不一致，请重新输入！");
 		}
 	});
 });

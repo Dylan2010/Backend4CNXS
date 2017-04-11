@@ -31,11 +31,7 @@ $(document).ready(function(e) {
 			data : JSON.stringify({
 				"X-Access-Token": $.cookie('Token')
 				}),
-			/*headers: {
-				"X-Access-Token": $.cookie('Token')
-			},*/
 			beforeSend: function(request) {
-				console.log(request);
                 request.setRequestHeader("X-Access-Token", $.cookie('Token'));
             },
 			success :　function(data){
@@ -65,7 +61,6 @@ $(document).ready(function(e) {
 			data : JSON.stringify({"account":$("#account").val(),"password":$("#password").val()}),//json
 			dataType : 'json',
 			success : function(data,status,xhr){
-				//console.log(data);
 				if(data==false || data==null){
 					alert("登陆信息有误，请重新登陆");
 				}else{
@@ -78,7 +73,6 @@ $(document).ready(function(e) {
 			error: function(e){
 				//var a=JSON.stringify(e);
 				alert(e.responseText);
-				//console.log(a);
 			}
 		});
 	});

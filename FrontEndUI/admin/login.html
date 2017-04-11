@@ -27,15 +27,11 @@ $(document).ready(function(e) {
 			data: JSON.stringify({"account":$("#account").val(),"password":$("#password").val()}),
 			dataType : 'json',
 			success : function(data,status,xhr){
-				console.log(data);
-				console.log(status);
-				console.log(xhr);
 				if(data==false || data==null){
 					alert("登陆信息有误，请重新登陆");
 				}else{
 					$.cookie("Name",data,{expires:1,path:'/'});
 					var token = xhr.getResponseHeader("X-Access-Token");
-					//console.log(xhr.getAllResponseHeaders());
 					$.cookie('Token',token,{expires:1,path:'/'});
 					window.location.href="./events_list.html";
 				}

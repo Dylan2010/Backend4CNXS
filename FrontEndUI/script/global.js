@@ -19,7 +19,6 @@ $(document).ready(function() {
 	});*/
 	function calcPageHeight(){
 		var minHeight = $(window).height()-$("#navigator").outerHeight()-$("#footer").outerHeight()-89;
-		//console.log(minHeight);
 		if($("#maincontent").outerHeight()>minHeight){
 			minHeight = $("#maincontent").outerHeight();
 		}

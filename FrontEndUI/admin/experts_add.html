@@ -22,7 +22,6 @@ $(document).ready(function(e) {
 	}
 	
 	$("#logoutBtn").click(function(){
-		jQuery.support.cors = true;
 		$.ajax({
 			contentType : "application/json;charset=utf-8",
 			url : 'http://101.37.39.51:8080/api/User/v1/logoff',
@@ -60,21 +59,6 @@ $(document).ready(function(e) {
 <script>
 $(document).ready(function(e) {
     $("#mainImgBtn").click(function(){
-		jQuery.support.cors = true;
-		/*$.ajax({
-			url : 'http://101.37.39.51:8080/api/Image/v1/upload',
-			type : "post",
-			data:{"file":$("#mainImg").val()},
-			dataType : 'json',
-			success : function(data){
-				console.log(data);
-				//doSetData(data,initAnimation);
-			},
-			error: function(e){
-				var a=JSON.stringify(e);
-				console.log(a);
-			}
-		});*/
 		
 		var option = {
                 url : 'http://101.37.39.51:8080/api/Image/v1/upload',
@@ -85,8 +69,19 @@ $(document).ready(function(e) {
 					$("#mainImgPath").val(data);
 					$("#mainImg_preview").attr("src",data);
                 },
-                error: function(data) {
-                    alert(JSON.stringify(data) + "--上传失败,请刷新后重试");
+                beforeSend: function(request) {
+					request.setRequestHeader("X-Access-Token", $.cookie('Token'));
+				},
+                error: function(data,status,xhr) {
+					if(data.status=="401"){
+						alert("登录过期");
+						$.removeCookie('Token',{path:'/'});
+						$.removeCookie('Name',{path:'/'});
+						window.location.href="./login.html";
+					}else
+					{
+                    	alert(JSON.stringify(data) + "--上传失败,请刷新后重试");
+					}
                 }
              };
         $("#mainImg_form").ajaxSubmit(option);
@@ -117,9 +112,19 @@ $(document).ready(function(e) {
 				alert("保存成功!");
 				window.location.href="./experts_list.html";
 			},
-			error : function(e){
-				//console.log(e);
-				alert("保存失败！");
+			beforeSend: function(request) {
+				request.setRequestHeader("X-Access-Token", $.cookie('Token'));
+			},
+			error: function(data,status,xhr) {
+				if(data.status=="401"){
+					alert("登录过期");
+					$.removeCookie('Token',{path:'/'});
+					$.removeCookie('Name',{path:'/'});
+					window.location.href="./login.html";
+				}else
+				{
+					alert("保存失败！");
+				}
 			}
 		});
 	});
