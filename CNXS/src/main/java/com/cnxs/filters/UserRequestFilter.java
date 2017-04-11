@@ -27,6 +27,7 @@ public class UserRequestFilter extends OncePerRequestFilter {
     	response.addHeader("Access-Control-Allow-Origin", "*");
     	response.addHeader("Access-Control-Request-Method", "*");
     	response.addHeader("Access-Control-Expose-Headers", "X-Access-Token");
+    	response.addHeader("Access-Control-Allow-Headers", "X-Access-Token");
         //all the get method will be allowed
     	String token = request.getHeader(HeaderConstant.X_ACCESS_TOKEN);
         
