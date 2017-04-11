@@ -1,4 +1,5 @@
 FROM reniowood/tomcat-jdk-mysql:latest
+ENV enable.permission.control true
 ENV MYSQL_ROOT_PASSWORD root
 ENV CNXS_FILE_UPLOAD_PATH /images/
 RUN rm -fr /usr/local/tomcat/webapps/ROOT
