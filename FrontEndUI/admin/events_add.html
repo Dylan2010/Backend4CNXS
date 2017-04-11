@@ -32,7 +32,6 @@ $(document).ready(function(e) {
 				"X-Access-Token": $.cookie('Token')
 				}),
 			beforeSend: function(request) {
-				console.log(request);
                 request.setRequestHeader("X-Access-Token", $.cookie('Token'));
             },
 			success :　function(data){
@@ -70,7 +69,7 @@ $(document).ready(function(e) {
 <script>
 $(document).ready(function(e) {
     $("#mainImgBtn").click(function(){
-		jQuery.support.cors = true;
+		//jQuery.support.cors = true;
 		/*$.ajax({
 			url : 'http://101.37.39.51:8080/api/Image/v1/upload',
 			type : "post",
@@ -95,8 +94,17 @@ $(document).ready(function(e) {
 					$("#mainImgPath").val(data);
 					$("#mainImg_preview").attr("src",data);
                 },
-                error: function(data) {
-                    alert(JSON.stringify(data) + "--上传失败,请刷新后重试");
+				beforeSend: function(request) {
+					request.setRequestHeader("X-Access-Token", $.cookie('Token'));
+				},
+                error: function(data,status,xhr) {
+					if(xhr.status=="403"){
+						alert("登录过期");
+						window.location.href="./login.html";
+					}else
+					{
+                    	alert(JSON.stringify(data) + "--上传失败,请刷新后重试");
+					}
                 }
              };
         $("#mainImg_form").ajaxSubmit(option);
@@ -105,7 +113,7 @@ $(document).ready(function(e) {
 	});
 	
 	$("#subImg1Btn").click(function(){
-		jQuery.support.cors = true;
+		//jQuery.support.cors = true;
 		var option = {
                 url : 'http://101.37.39.51:8080/api/Image/v1/upload',
                 type : 'POST',
@@ -114,8 +122,17 @@ $(document).ready(function(e) {
 					$("#subImg1Path").val(data);
 					$("#subImg1_preview").attr("src",data);
                 },
-                error: function(data) {
-                    alert(JSON.stringify(data) + "--上传失败,请刷新后重试");
+				beforeSend: function(request) {
+					request.setRequestHeader("X-Access-Token", $.cookie('Token'));
+				},
+                error: function(data,status,xhr) {
+                    if(xhr.status=="403"){
+						alert("登录过期");
+						window.location.href="./login.html";
+					}else
+					{
+                    	alert(JSON.stringify(data) + "--上传失败,请刷新后重试");
+					}
                 }
              };
         $("#subImg1_form").ajaxSubmit(option);
@@ -131,15 +148,23 @@ $(document).ready(function(e) {
 					$("#subImg2Path").val(data);
 					$("#subImg2_preview").attr("src",data);
                 },
-                error: function(data) {
-                    alert(JSON.stringify(data) + "--上传失败,请刷新后重试");
+				beforeSend: function(request) {
+					request.setRequestHeader("X-Access-Token", $.cookie('Token'));
+				},
+                error: function(data,status,xhr) {
+                    if(xhr.status=="403"){
+						alert("登录过期");
+						window.location.href="./login.html";
+					}else
+					{
+                    	alert(JSON.stringify(data) + "--上传失败,请刷新后重试");
+					}
                 }
              };
         $("#subImg2_form").ajaxSubmit(option);
 	});
 	
 	$("#subImg3Btn").click(function(){
-		jQuery.support.cors = true;
 		var option = {
                 url : 'http://101.37.39.51:8080/api/Image/v1/upload',
                 type : 'POST',
@@ -157,10 +182,10 @@ $(document).ready(function(e) {
 	
 	$("#save").click(function(){
 		var imageInfo = {
-				"1" : "http://101.37.39.51:8011/1491405067697.jpg",//$("#mainImgPath").val(),
-				"2" : "http://101.37.39.51:8011/1491405082189.jpg",//$("#subImg1Path").val(),
-				"3" : "http://101.37.39.51:8011/1491405086219.jpg",//$("#subImg2Path").val(),
-				"4" : "http://101.37.39.51:8011/1491405090197.jpg"//$("#subImg3Path").val()
+				"1" : $("#mainImgPath").val(),
+				"2" : $("#subImg1Path").val(),
+				"3" : $("#subImg2Path").val(),
+				"4" : $("#subImg3Path").val()
 			};
 		var formData = {
 				"title" : $("#title").val(),
@@ -181,9 +206,17 @@ $(document).ready(function(e) {
 				alert("保存成功!");
 				window.location.href="./events_list.html";
 			},
-			error : function(e){
-				//console.log(e);
-				alert("保存失败！");
+			beforeSend: function(request) {
+				request.setRequestHeader("X-Access-Token", $.cookie('Token'));
+			},
+			error: function(data,status,xhr) {
+				if(xhr.status=="403"){
+					alert("登录过期");
+					window.location.href="./login.html";
+				}else
+				{
+					alert("保存失败！");
+				}
 			}
 		});
 	});
