@@ -23,6 +23,10 @@ public class UserRequestFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
+    	//try fix cors issue
+    	response.addHeader("Access-Control-Allow-Origin", "*");
+    	response.addHeader("Access-Control-Request-Method", "*");
+    	response.addHeader("Access-Control-Expose-Headers", "X-Access-Token");
         //all the get method will be allowed
     	String token = request.getHeader(HeaderConstant.X_ACCESS_TOKEN);
         
