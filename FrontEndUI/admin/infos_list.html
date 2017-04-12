@@ -25,7 +25,7 @@ $(document).ready(function(e) {
 	$("#logoutBtn").click(function(){
 		$.ajax({
 			contentType : "application/json;charset=utf-8",
-			url : 'http://101.37.39.51:8080/api/User/v1/logoff',
+			url : '/api/User/v1/logoff',
 			type : "POST",
 			dataType : "json",
 			data : JSON.stringify({
@@ -35,6 +35,9 @@ $(document).ready(function(e) {
                 request.setRequestHeader("X-Access-Token", $.cookie('Token'));
             },
 			success :　function(data){
+				
+			},
+			complete : function(e){
 				$.removeCookie('Token',{path:'/'});
 				$.removeCookie('Name',{path:'/'});
 				window.location.href="./login.html";
@@ -50,7 +53,7 @@ $(document).ready(function(e) {
     function getData(doSetData){
 		$.ajax({
 			async: false,
-			url : 'http://101.37.39.51:8080/api/Articles/v1/Type/Info/list?limit=50',
+			url : '/api/Articles/v1/Type/Info/list?limit=50',
 			type: 'get',
 			dataType : 'json',
 			success : function(data){
@@ -107,7 +110,7 @@ $(document).ready(function(e) {
 	function deleteData(id){
 		$.ajax({
 			contentType : "application/json; charset=utf-8",
-			url : "http://101.37.39.51:8080/api/Articles/v1/Type/Info/id/"+id,
+			url : "/api/Articles/v1/Type/Info/id/"+id,
 			type : "DELETE",
 			success : function(){
 				alert("删除成功！");

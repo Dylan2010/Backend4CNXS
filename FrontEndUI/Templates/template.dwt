@@ -25,7 +25,7 @@ $(document).ready(function(e) {
 	$("#logoutBtn").click(function(){
 		$.ajax({
 			contentType : "application/json;charset=utf-8",
-			url : 'http://101.37.39.51:8080/api/User/v1/logoff',
+			url : '/api/User/v1/logoff',
 			type : "POST",
 			dataType : "json",
 			data : JSON.stringify({
@@ -35,6 +35,12 @@ $(document).ready(function(e) {
                 request.setRequestHeader("X-Access-Token", $.cookie('Token'));
             },
 			success :　function(data){
+				
+			},
+			error : function(e){
+				var a=e;
+			},
+			complete: function(e){
 				$.removeCookie('Token',{path:'/'});
 				$.removeCookie('Name',{path:'/'});
 				$("#loginbtn").show();
@@ -42,9 +48,6 @@ $(document).ready(function(e) {
 				$("#hi").hide();
 				$("#hi").text("");
 				$("#logoutBtn").hide();
-			},
-			error : function(e){
-				var a=e;
 			}
 		});
 	});

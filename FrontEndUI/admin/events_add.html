@@ -25,7 +25,7 @@ $(document).ready(function(e) {
 	$("#logoutBtn").click(function(){
 		$.ajax({
 			contentType : "application/json;charset=utf-8",
-			url : 'http://101.37.39.51:8080/api/User/v1/logoff',
+			url : '/api/User/v1/logoff',
 			type : "POST",
 			dataType : "json",
 			data : JSON.stringify({
@@ -35,6 +35,9 @@ $(document).ready(function(e) {
                 request.setRequestHeader("X-Access-Token", $.cookie('Token'));
             },
 			success :　function(data){
+				
+			},
+			complete : function(e){
 				$.removeCookie('Token',{path:'/'});
 				$.removeCookie('Name',{path:'/'});
 				window.location.href="./login.html";
@@ -71,7 +74,7 @@ $(document).ready(function(e) {
 		//jQuery.support.cors = true;
 		
 		var option = {
-                url : 'http://101.37.39.51:8080/api/Image/v1/upload',
+                url : '/api/Image/v1/upload',
                 type : 'POST',
                 dataType : 'json',
                 success : function(data) {
@@ -101,7 +104,7 @@ $(document).ready(function(e) {
 	
 	$("#subImg1Btn").click(function(){
 		var option = {
-                url : 'http://101.37.39.51:8080/api/Image/v1/upload',
+                url : '/api/Image/v1/upload',
                 type : 'POST',
                 dataType : 'json',
                 success : function(data) {
@@ -128,7 +131,7 @@ $(document).ready(function(e) {
 	
 	$("#subImg2Btn").click(function(){
 		var option = {
-                url : 'http://101.37.39.51:8080/api/Image/v1/upload',
+                url : '/api/Image/v1/upload',
                 type : 'POST',
                 dataType : 'json',
                 success : function(data) {
@@ -155,7 +158,7 @@ $(document).ready(function(e) {
 	
 	$("#subImg3Btn").click(function(){
 		var option = {
-                url : 'http://101.37.39.51:8080/api/Image/v1/upload',
+                url : '/api/Image/v1/upload',
                 type : 'POST',
                 dataType : 'json',
                 success : function(data) {
@@ -197,7 +200,7 @@ $(document).ready(function(e) {
 			};
 		$.ajax({
 			contentType : "application/json;charset=utf-8",
-			url : "http://101.37.39.51:8080/api/Articles/v1/Type/Events",
+			url : "/api/Articles/v1/Type/Events",
 			type : "POST",
 			data : JSON.stringify(formData),
 			dataType : "json",
@@ -271,7 +274,7 @@ $(document).ready(function(e) {
     日期：<input id="eventDate" class="eventDate_input"/><br/><br/>
     摘要：<br/><textarea id="summary" class="summary_textarea"></textarea><br/><br/>
     文章内容：<br/><textarea id="content" class="content_textarea"></textarea><br/><br/>
-    <form id="mainImg_form" method="post" action="http://101.37.39.51:8080/api/Image/v1/upload" enctype="multipart/form-data">
+    <form id="mainImg_form" method="post" action="/api/Image/v1/upload" enctype="multipart/form-data">
     主题照片：<input id="mainImg" type="file" name="file"/><input type="button" id="mainImgBtn" value="上传"/><br/>
     <span class="suggest">建议尺寸：450*270</span>
     </form>
@@ -280,7 +283,7 @@ $(document).ready(function(e) {
     	<img id="mainImg_preview" src=""/>
     </div>
     
-    <form id="subImg1_form" method="post" action="http://101.37.39.51:8080/api/Image/v1/upload" enctype="multipart/form-data">
+    <form id="subImg1_form" method="post" action="/api/Image/v1/upload" enctype="multipart/form-data">
     内容照片1：<input id="subImg1" type="file" name="file"/><input type="button" id="subImg1Btn" value="上传"/><br/>
     <span class="suggest">建议尺寸：322*156</span>
     </form>
@@ -289,7 +292,7 @@ $(document).ready(function(e) {
     	<img id="subImg1_preview" src=""/>
     </div>
     
-    <form id="subImg2_form" method="post" action="http://101.37.39.51:8080/api/Image/v1/upload" enctype="multipart/form-data">
+    <form id="subImg2_form" method="post" action="/api/Image/v1/upload" enctype="multipart/form-data">
     内容照片2：<input id="subImg2" type="file" name="file"/><input type="button" id="subImg2Btn" value="上传"/><br/>
     <span class="suggest">建议尺寸：322*156</span>
     </form>
@@ -298,7 +301,7 @@ $(document).ready(function(e) {
     	<img id="subImg2_preview" src=""/>
     </div>
     
-    <form id="subImg3_form" method="post" action="http://101.37.39.51:8080/api/Image/v1/upload" enctype="multipart/form-data">
+    <form id="subImg3_form" method="post" action="/api/Image/v1/upload" enctype="multipart/form-data">
     内容照片3：<input id="subImg3" type="file" name="file"/><input type="button" id="subImg3Btn" value="上传"/><br/>
     <span class="suggest">建议尺寸：322*156</span>
     </form>

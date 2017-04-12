@@ -4,7 +4,7 @@ $(document).ready(function(e) {
 	var eventData=testData;
 	function getData(getUrl,doSetData,doSetShare,setScroller){
 		var nid = GetQueryString("id");
-		getUrl = 'http://101.37.39.51:8080/api/Articles/v1/Type/Events/id/'+nid;
+		getUrl = '/api/Articles/v1/Type/Events/id/'+nid;
 		$.ajax({
 			async: false,
 			url : getUrl,
@@ -30,7 +30,7 @@ $(document).ready(function(e) {
 		
 		var next_id;
 		$.ajax({
-			url : "http://101.37.39.51:8080/api/Articles/v1/Type/Events/latest?next=false&date="+eventData.creationTime,
+			url : "/api/Articles/v1/Type/Events/latest?next=false&date="+eventData.creationTime,
 			type:"get",
 			dataType : 'json',
 			success : function(data){

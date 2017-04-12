@@ -25,7 +25,7 @@ $(document).ready(function(e) {
 	$("#logoutBtn").click(function(){
 		$.ajax({
 			contentType : "application/json;charset=utf-8",
-			url : 'http://101.37.39.51:8080/api/User/v1/logoff',
+			url : '/api/User/v1/logoff',
 			type : "POST",
 			dataType : "json",
 			data : JSON.stringify({
@@ -35,6 +35,9 @@ $(document).ready(function(e) {
                 request.setRequestHeader("X-Access-Token", $.cookie('Token'));
             },
 			success :　function(data){
+				
+			},
+			complete : function(e){
 				$.removeCookie('Token',{path:'/'});
 				$.removeCookie('Name',{path:'/'});
 				window.location.href="./login.html";
@@ -69,7 +72,7 @@ $(document).ready(function(e) {
 		}else{
 			$.ajax({
 				async: false,
-				url : 'http://101.37.39.51:8080/api/Articles/v1/Type/Info/id/'+infoId,
+				url : '/api/Articles/v1/Type/Info/id/'+infoId,
 				type:"get",
 				dataType : 'json',
 				success : function(data){
@@ -102,7 +105,7 @@ $(document).ready(function(e) {
 	
 	$("#mainImgBtn").click(function(){
 		var option = {
-                url : 'http://101.37.39.51:8080/api/Image/v1/upload',
+                url : '/api/Image/v1/upload',
                 type : 'POST',
                 dataType : 'json',
                 success : function(data) {
@@ -143,7 +146,7 @@ $(document).ready(function(e) {
 		//console.log(JSON.stringify(formData));
 		$.ajax({
 			contentType : "application/json;charset=utf-8",
-			url : "http://101.37.39.51:8080/api/Articles/v1/Type/Info/id/"+infoId,
+			url : "/api/Articles/v1/Type/Info/id/"+infoId,
 			type : "POST",
 			data : JSON.stringify(formData),
 			dataType : "json",
@@ -216,7 +219,7 @@ $(document).ready(function(e) {
     标题：<input id="title" class="title_input"/><br/><br/>
     <textarea id="summary" style="display:none;"></textarea>
     文章内容：<textarea id="content" class="content_textarea"></textarea><br/><br/>
-    <form id="mainImg_form" method="post" action="http://101.37.39.51:8080/api/Image/v1/upload" enctype="multipart/form-data">
+    <form id="mainImg_form" method="post" action="/api/Image/v1/upload" enctype="multipart/form-data">
     主题照片：<input id="mainImg" type="file" name="file"/><input type="button" id="mainImgBtn" value="上传"/><br/>
     <span class="suggest">建议尺寸：440*241</span>
     </form>

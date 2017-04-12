@@ -6,7 +6,7 @@ $(document).ready(function(e) {
 	function getData(doSetData){
 		$.ajax({
 			async: false,
-			url : 'http://101.37.39.51:8080/api/Articles/v1/Type/Experts/list',
+			url : '/api/Articles/v1/Type/Experts/list',
 			type:"get",
 			dataType : 'json',
 			success : function(data){

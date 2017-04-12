@@ -22,7 +22,7 @@ $(document).ready(function(e) {
     $("#login_btn").click(function(){
 		$.ajax({
 			contentType : "application/json;charset=utf-8",
-			url : 'http://101.37.39.51:8080/api/User/v1/login',
+			url : '/api/User/v1/login',
 			type:"post",
 			data: JSON.stringify({"account":$("#account").val(),"password":$("#password").val()}),
 			dataType : 'json',

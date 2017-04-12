@@ -16,7 +16,7 @@ $(document).ready(function(e) {
 	
 	function getData(doSetData){
 		$.ajax({
-			url : 'http://101.37.39.51:8080/api/Articles/v1/News',
+			url : '/api/Articles/v1/News',
 			type:"get",
 			dataType : 'json',
 			success : function(data){
