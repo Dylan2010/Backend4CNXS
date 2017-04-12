@@ -1,6 +1,7 @@
 
 package com.cnxs.bo;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -9,6 +10,7 @@ import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "user")
+@Cacheable(false)
 public class User extends BusinessObjectBase{
     
     @Id

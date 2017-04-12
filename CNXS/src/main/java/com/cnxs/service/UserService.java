@@ -37,7 +37,7 @@ public class UserService {
 		User targetUser = userDao.findUserByAccount(user);
 		if(targetUser != null && bCryptEncoder.matches(user.getPassword(), targetUser.getPassword())) {
 		    String accessToken = jwtSrv.registerToken(targetUser.getId(), targetUser.isKeyUser());
-		    UserInfoContextHolder.setUserInfo(user.getId(),user.isKeyUser(),accessToken);
+		    UserInfoContextHolder.setUserInfo(targetUser.getId(),targetUser.isKeyUser(),accessToken);
 			return targetUser;
 		}
 		return null;
