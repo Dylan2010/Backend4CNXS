@@ -19,6 +19,9 @@ $(document).ready(function(e) {
 			url : '/api/Articles/v1/News',
 			type:"get",
 			dataType : 'json',
+			beforeSend: function(request) {
+				request.setRequestHeader("If-Modified-Since","0");
+			},
 			success : function(data){
 				doSetData(data);
 			},

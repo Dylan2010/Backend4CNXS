@@ -10,6 +10,9 @@ $(document).ready(function(e) {
 			url : getUrl,
 			type:"get",
 			dataType : 'json',
+			beforeSend: function(request) {
+				request.setRequestHeader("If-Modified-Since","0");
+			},
 			success : function(data){
 				doSetData(data,addScroller,doSetShare);
 			},
