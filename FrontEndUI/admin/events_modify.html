@@ -252,7 +252,8 @@ $(document).ready(function(e) {
 			dataType : "json",
 			success : function(data){
 				alert("保存成功!");
-				window.location.href="./events_list.html";
+				//window.location.href="./events_list.html";
+				location.replace("./events_list.html");
 			},
 			beforeSend: function(request) {
 				request.setRequestHeader("X-Access-Token", $.cookie('Token'));
