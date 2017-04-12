@@ -20,56 +20,44 @@ import io.jsonwebtoken.Claims;
 
 public class UserRequestFilter extends OncePerRequestFilter {
 
-    @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
-            throws ServletException, IOException {
-    	//try fix cors issue
-    	response.addHeader("Access-Control-Allow-Origin", "*");
-    	response.addHeader("Access-Control-Request-Method", "*");
-    	response.addHeader("Access-Control-Expose-Headers", "X-Access-Token");
-    	response.addHeader("Access-Control-Allow-Headers", "Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers,X-Access-Token, ClientCallMode");
-    	//workaround to fix cors issue
-    	if("OPTIONS".equals(request.getMethod())){
-        	return;
-    	}
-    	
-        //all the get method will be allowed
-    	String token = request.getHeader(HeaderConstant.X_ACCESS_TOKEN);
-        
-        JWTService jwtSrv = ApplicationContextHolder.getBean(JWTService.class);
-        
-        Boolean isKeyUser = false;
-        
-        if(!StringUtils.isEmpty(token) ) {
-            
-            Claims claims = jwtSrv.validateToken(token);
-            
-            isKeyUser = claims != null ? claims.get("isKeyUser", Boolean.class) : false;
-            
-            Integer userId = claims != null ? claims.get("userId", Integer.class) : -1;
-            
-            UserInfoContextHolder.setUserInfo(userId, isKeyUser, token);
-        }
-        if(shouldSkipPermissionControl(request)) {
-            try{
-                filterChain.doFilter(request, response);
-            } catch(Exception e) {
-                e.printStackTrace();
-            }
-        } else{
-            
-                if(isKeyUser) {
-                    filterChain.doFilter(request, response);
-                }
-          
-            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-        } 
-        
-    }
-    
-    private boolean shouldSkipPermissionControl(HttpServletRequest request) {
-        return ("GET".equals(request.getMethod()) || !"true".equals(System.getenv("enable.permission.control"))) || 
-                (request.getPathInfo().contains("User/v1") && !request.getPathInfo().contains("logoff") && !request.getPathInfo().contains("id") );
-    }
+	@Override
+	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+			throws ServletException, IOException {
+
+		// all the get method will be allowed
+		String token = request.getHeader(HeaderConstant.X_ACCESS_TOKEN);
+
+		JWTService jwtSrv = ApplicationContextHolder.getBean(JWTService.class);
+
+		Boolean isKeyUser = false;
+
+		if (!StringUtils.isEmpty(token)) {
+
+			Claims claims = jwtSrv.validateToken(token);
+
+			isKeyUser = claims != null ? claims.get("isKeyUser", Boolean.class) : false;
+
+			Integer userId = claims != null ? claims.get("userId", Integer.class) : -1;
+
+			UserInfoContextHolder.setUserInfo(userId, isKeyUser, token);
+		}
+		if (shouldSkipPermissionControl(request)) {
+			filterChain.doFilter(request, response);
+
+		} else {
+			if (isKeyUser) {
+				filterChain.doFilter(request, response);
+			} else {
+				response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+			}
+		}
+
+	}
+
+	private boolean shouldSkipPermissionControl(HttpServletRequest request) {
+		return ("GET".equals(request.getMethod()) || !"true".equals(System.getenv("enable.permission.control")))
+				|| (request.getPathInfo().contains("User/v1") && !request.getPathInfo().contains("logoff")
+						&& !request.getPathInfo().contains("id"));
+	}
 
 }
