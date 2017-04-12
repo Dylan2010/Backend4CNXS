@@ -7,6 +7,7 @@ var multer = require('multer');
 var fileUploadPath = process.env.FILE_UPLOAD_PATH || path.join(__dirname,'../' ,'FrontEndUI/uploads/');
 var backendServiceAddr = process.env.BKD_SERVER_ADDR || '127.0.0.1:8081';
 var imageServerAddr = process.env.IMG_SERVER_ADDR || '/uploads/';
+var expressServerPort = process.env.EXPRESS_SERVER_PORT || 80;
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -23,7 +24,7 @@ var upload = multer({ storage :storage});
 
 var app = express();
 
-app.set('port', 80);
+app.set('port', expressServerPort);
 
 app.use('/', express.static(path.join(__dirname,'../' ,'FrontEndUI')));
 
