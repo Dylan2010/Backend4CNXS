@@ -1,0 +1,16 @@
+{
+  "name": "cnxsbff",
+  "version": "1.0.0",
+  "description": "forward request from front end to backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "light.pang@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "express": "~4.13.4",
+    "express-http-proxy" : "0.11.0",
+    "multer":"1.3.0"
+  }
+}
