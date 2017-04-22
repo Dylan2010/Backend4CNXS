@@ -68,10 +68,23 @@ $(document).ready(function(e) {
 		});
 		
 	}
+	
+	function formatdate(t){
+		var date = new Date(parseInt(t));
+		var Y = date.getFullYear() + '-';
+		var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+		var D = date.getDate() + ' ';
+		var h = date.getHours() + ':';
+		var m = date.getMinutes() + ':';
+		var s = date.getSeconds(); 
+		return Y+M+D+h+m+s;
+	}
 	function setData(data){
 		eventData = data;
 		$.each(eventData,function(n,v){
 			var li = $(document.createElement("li"));
+			var createTime = $(document.createElement("p"));
+			createTime.text('('+formatdate(v.creationTime)+')');
 			var title = $(document.createElement("h3"));
 			title.text(v.title);
 			var summary = $(document.createElement("p"));
@@ -99,6 +112,7 @@ $(document).ready(function(e) {
 			
 			btns.append(editBtn);
 			btns.append(deleteBtn);
+			li.append(createTime);
 			li.append(title);
 			li.append(summary);
 			li.append(content);
