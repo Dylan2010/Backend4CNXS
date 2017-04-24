@@ -124,16 +124,6 @@ jQuery.fn.pagination = function(maxentries, opts){
 				appendItem(current_page+1,{text:opts.next_text, classes:"next"});
 			}
 			
-			var jumpTo = jQuery(document.createElement("input"));
-			jumpTo.val(current_page);
-			jumpTo.css('width','30px');
-			jumpTo.appendTo(panel);
-			
-			var lnk = jQuery("<a>go</a>")
-						.bind("click", getClickHandler(jumpTo.val()))
-						.attr('href', opts.link_to.replace(/__id__/,jumpTo.val()));
-			panel.append(lnk);
-			
 		}
 		
 		//从选项中提取current_page
