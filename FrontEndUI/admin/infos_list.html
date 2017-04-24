@@ -93,7 +93,7 @@ $(document).ready(function(e) {
 	}
 	function setData(data){
 		infoData = data;
-		totalCount = eventData.totalCount;
+		totalCount = infoData.totalCount;
 		$("#list").empty();
 		$.each(infoData,function(n,v){
 			var li = $(document.createElement("li"));
