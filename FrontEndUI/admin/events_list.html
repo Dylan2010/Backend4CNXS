@@ -51,7 +51,7 @@ $(document).ready(function(e) {
 <link href="../style/pagination.css" rel="stylesheet" type="text/css">
 <script>
 var totalCount=0;
-var isFirstLoad=true;
+var currentPage=1;
 $(document).ready(function(e) {
 	var eventData;
     function getData(page,doSetData){
@@ -76,10 +76,6 @@ $(document).ready(function(e) {
 					getData(page-1,setData);
 				}else{
 					doSetData(data);
-					if(isFirstLoad){
-						setPagination(page);
-						isFirstLoad = false;
-					}
 				}
 			},
 			error: function(e){
@@ -150,9 +146,6 @@ $(document).ready(function(e) {
 			num_edge_entries: 2, //边缘页数
 			num_display_entries: 5, //主体页数
 			callback: function(page,jq){
-				if(isFirstLoad){
-					return false;
-				}
 				getData(page+1,setData);
 				//alert(page);
 			},
@@ -160,6 +153,7 @@ $(document).ready(function(e) {
 			current_page: toPage-1
 		});
 	}
+	setPagination(1);
 	
 	function deleteData(id){
 		$.ajax({
