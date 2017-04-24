@@ -7,6 +7,12 @@ $(document).ready(function() {
 		$(this).find(".nav_child").stop(true,true).slideUp();
 	});
 	
+	$(".nav_child_li").hover(function(){
+		$(this).find(".nav_child_1").stop(true,true).show();
+	},function(){
+		$(this).find(".nav_child_1").stop(true,true).hide();
+	});
+	
 	/*$("#login a").hover(function(){
 		$(this).stop().animate({width:"71px"},200);
 	},function(){

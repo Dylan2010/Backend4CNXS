@@ -193,6 +193,14 @@ ul,li{
 	*margin-top:0;
 }
 
+#navigator .nav_child_1{
+	display:none;
+	position:absolute;
+	top:0px;
+	left:-100px;
+	zoom:1;
+}
+
 #maincontent{
 	min-height:500px;
 	margin-top:89px;
