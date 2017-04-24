@@ -129,7 +129,10 @@ jQuery.fn.pagination = function(maxentries, opts){
 			jumpTo.css('width','30px');
 			jumpTo.appendTo(panel);
 			
-			appendItem(jumpTo.val()+1,{text:'go'});
+			var lnk = jQuery("<a>go</a>")
+						.bind("click", getClickHandler(jumpTo.val()))
+						.attr('href', opts.link_to.replace(/__id__/,jumpTo.val()));
+			panel.append(lnk);
 			
 		}
 		
