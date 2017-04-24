@@ -144,11 +144,11 @@ $(document).ready(function(e) {
 			num_edge_entries: 2, //边缘页数
 			num_display_entries: 5, //主体页数
 			callback: function(page,jq){
-				//getData(page,setData);
-				alert(page);
+				getData(page+1,setData);
+				//alert(page);
 			},
-			items_per_page: 1, //每页显示1项
-			current_page: toPage
+			items_per_page: 10, //每页显示1项
+			current_page: toPage-1
 		});
 	}
 	
