@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cnxs.bo.Article;
+import com.cnxs.dto.ArticleListDTO;
 import com.cnxs.dto.ArticleNewsListDTO;
 import com.cnxs.service.ArticleService;
 
@@ -50,8 +51,16 @@ public class ArticleRest {
 	}
 	
 	@RequestMapping(value = "/Type/{type}/list", method = RequestMethod.GET) 
-    public @ResponseBody List<Article> listTypeArticle(@PathVariable String type, @RequestParam(required=false) Integer limit, @RequestParam(required=false) Integer offset) {
-        return articleSrv.getArticleList(type, offset, limit);
+    public @ResponseBody Object listTypeArticle(@PathVariable String type, @RequestParam(required=false) Integer limit, @RequestParam(required=false) Integer offset, @RequestParam(required=false, defaultValue="false") Boolean totalCountRequired) {
+		List<Article> articleList = articleSrv.getArticleList(type, offset, limit);
+		if(!totalCountRequired){
+			return articleList;
+		} else {
+			ArticleListDTO dto = new ArticleListDTO();
+			dto.setArticles(articleList);
+			dto.setTotalCount(articleSrv.getArticleTotalCountByType(type));
+			return dto;
+		} 
     }
 	
 	@RequestMapping(value = "/News", method = RequestMethod.GET)

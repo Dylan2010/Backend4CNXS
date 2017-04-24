@@ -11,7 +11,7 @@
 
 名称 | 路径 | 方法 | 实例 | 返回数据 | 备注 
 -- | -- | -- | -- | -- | -- |
-获取某种类别文章 | api/Articles/v1/Type/{type}/list?offset=&limit= | Get | api/Articles/v1/Type/Info/list | max limit=50 默认limit=10
+获取某种类别文章 | api/Articles/v1/Type/{type}/list?offset=&limit=&totalCountRequired | Get | api/Articles/v1/Type/Info/list | max limit=50 默认limit=10,totalCountRequired默认为false，是否需要返回总数
 创建某种类别文章 | api/Articles/v1/Type/{type} | Post | api/Articles/v1/Type/Info |
 更新某篇文章 | api/Articles/v1/Type/{type}/id/{id} | Post | api/Articles/v1/Type/Info/id/10
 删除某篇文章 | api/Articles/v1/Type/{type}/id/{id} | Delete | api/Articles/v1/Type/Info/id/10

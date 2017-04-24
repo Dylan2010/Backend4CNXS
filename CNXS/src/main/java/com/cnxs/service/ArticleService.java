@@ -54,6 +54,14 @@ public class ArticleService {
 		return articleDao.search(keyword);
 	}
 	
+	public long getArticleTotalCountByType(String type) {
+		if(isInValidType(type)) {
+			return 0;
+		} else {
+			return articleDao.getArticleTotalCountByType(ArticleType.valueOf(type));
+		}
+	}
+	
 	public List<Article> getArticleList(String type, Integer offset, Integer limit) {
 	    if(isInValidType(type)) {
 	        return new ArrayList<Article>();

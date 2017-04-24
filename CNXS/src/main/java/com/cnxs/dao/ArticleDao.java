@@ -24,4 +24,6 @@ public interface ArticleDao {
 	public Article getLatestArticle(Date date, Boolean next, ArticleType type);
 	
 	public List<Article> search(String keyword);
+	
+	public long getArticleTotalCountByType(ArticleType type);
 }

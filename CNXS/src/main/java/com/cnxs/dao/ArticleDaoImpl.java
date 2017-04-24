@@ -99,4 +99,12 @@ public class ArticleDaoImpl implements ArticleDao{
         }
 	}
 
+	@Override
+	public long getArticleTotalCountByType(ArticleType type) {
+		String queryStr = "Select count(A) FROM Article A where  A.type = :type" ;
+		TypedQuery<Long> query = em.createQuery(queryStr, Long.class);
+		query.setParameter("type", type);
+		return query.getSingleResult();
+	}
+
 }
