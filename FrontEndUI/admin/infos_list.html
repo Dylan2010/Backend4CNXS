@@ -71,7 +71,11 @@ $(document).ready(function(e) {
 				request.setRequestHeader("If-Modified-Since","0");
 			},
 			success : function(data){
-				doSetData(data);
+				if(data.articles.length==0){
+					getData(page-1,setData);
+				}else{
+					doSetData(data);
+				}
 			},
 			error: function(e){
 				var a=JSON.stringify(e);
@@ -168,6 +172,7 @@ $(document).ready(function(e) {
 				alert("删除成功！");
 				$("#list").empty();
 				getData(1,setTotalCount);
+				setPagination(currentPage);
 			},
 			beforeSend: function(request) {
 				request.setRequestHeader("X-Access-Token", $.cookie('Token'));

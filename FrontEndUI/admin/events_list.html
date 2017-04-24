@@ -72,7 +72,6 @@ $(document).ready(function(e) {
 			},
 			success : function(data){
 				if(data.articles.length==0){
-					isFirstLoad = true;
 					getData(page-1,setData);
 				}else{
 					doSetData(data);
