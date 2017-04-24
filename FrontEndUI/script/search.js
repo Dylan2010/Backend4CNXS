@@ -33,7 +33,7 @@ $(document).ready(function(e) {
 			switch(v.type){
 				case "Events" : v.detailLink = './events.html?id='+v.id;break;
 				case "Experts" : v.detailLink = './experts.html';break;
-				case "Info" : v.detailLink = './infos.html';break;
+				case "Info" : v.detailLink = './infomation.html';break;
 				default : break;
 			}
 			//console.log(v.imageInfo);
