@@ -139,13 +139,17 @@ $(document).ready(function(e) {
 			
 		});
 	}
-	getData(1,setData);
+	getData(1,setTotalCount);
 	
+	function setTotalCount(count){
+		totalCount = count.totalCount;
+	}
 	function setPagination(toPage){
 		$(".pagination").pagination(totalCount,{
 			num_edge_entries: 2, //边缘页数
 			num_display_entries: 5, //主体页数
 			callback: function(page,jq){
+				currentPage = page+1;
 				getData(page+1,setData);
 				//alert(page);
 			},
@@ -163,7 +167,8 @@ $(document).ready(function(e) {
 			success : function(){
 				alert("删除成功！");
 				$("#list").empty();
-				getData(setData);
+				getData(1,setTotalCount);
+				setPagination(currentPage);
 			},
 			beforeSend: function(request) {
 				request.setRequestHeader("X-Access-Token", $.cookie('Token'));
