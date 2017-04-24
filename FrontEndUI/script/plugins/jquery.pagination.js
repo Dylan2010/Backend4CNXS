@@ -123,6 +123,13 @@ jQuery.fn.pagination = function(maxentries, opts){
 			if(opts.next_text && (current_page < np-1 || opts.next_show_always)){
 				appendItem(current_page+1,{text:opts.next_text, classes:"next"});
 			}
+			
+			var jumpTo = jQuery(document.createElement("input"));
+			jumpTo.val(current_page);
+			jumpTo.appendTo(panel);
+			
+			appendItem(jumpTo.val(),{text:'go'});
+			
 		}
 		
 		//从选项中提取current_page
