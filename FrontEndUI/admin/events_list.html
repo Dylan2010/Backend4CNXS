@@ -102,6 +102,7 @@ $(document).ready(function(e) {
 	function setData(data){
 		eventData = data;
 		totalCount = eventData.totalCount;
+		$("#list").empty();
 		$.each(eventData.articles,function(n,v){
 			var li = $(document.createElement("li"));
 			var createTime = $(document.createElement("p"));
