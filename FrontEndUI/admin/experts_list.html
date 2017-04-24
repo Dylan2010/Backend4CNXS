@@ -99,7 +99,7 @@ $(document).ready(function(e) {
 		expertData = data;
 		totalCount = expertData.totalCount;
 		$("#list").empty();
-		$.each(expertData,function(n,v){
+		$.each(expertData.articles,function(n,v){
 			var li = $(document.createElement("li"));
 			var createTime = $(document.createElement("p"));
 			createTime.text('('+formatdate(v.creationTime)+')');
