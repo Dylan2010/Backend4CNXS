@@ -59,7 +59,7 @@ $(document).ready(function(e) {
 		offset = 10*(page-1);
 		$.ajax({
 			async: false,
-			url : '/api/Articles/v1/Type/Events/list',
+			url : 'http://101.37.39.51/api/Articles/v1/Type/Events/list',
 			type:"get",
 			data : {
 				limit:10,
@@ -149,6 +149,9 @@ $(document).ready(function(e) {
 			num_edge_entries: 2, //边缘页数
 			num_display_entries: 5, //主体页数
 			callback: function(page,jq){
+				if(isFirstLoad){
+					return false;
+				}
 				getData(page+1,setData);
 				//alert(page);
 			},
