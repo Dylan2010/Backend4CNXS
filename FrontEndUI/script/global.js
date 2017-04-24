@@ -12,11 +12,11 @@ $(document).ready(function() {
 	},function(){
 		$(this).stop().animate({width:"15px"},200);
 	});*/
-	/*$("#login").hover(function(){
+	$("#login").hover(function(){
 		$(this).find(".loginbtns").stop().animate({width:"71px"},200);
 	},function(){
 		$(this).find(".loginbtns").stop().animate({width:"0px"},200);
-	});*/
+	});
 	function calcPageHeight(){
 		var minHeight = $(window).height()-$("#navigator").outerHeight()-$("#footer").outerHeight()-89;
 		if($("#maincontent").outerHeight()>minHeight){

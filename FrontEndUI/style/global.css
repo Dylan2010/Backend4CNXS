@@ -99,16 +99,17 @@ ul,li{
 	cursor:pointer;
 }
 #login img{
-	width:100px;
+	--width:100px;
+	height:66px;
 }
 #login .loginbtns{
 	--height:56px;
-	--width:0px;
+	width:0px;
 	position:absolute;
 	top:14px;
-	left:70px;
+	left:46px;
 	--font-size:0;
-	--overflow:hidden;
+	overflow:hidden;
 }
 #login .loginbtns a{
 	color:#fff;
@@ -116,6 +117,7 @@ ul,li{
 	color:#2495c0;
 	line-height:20px;
 	font-size:14px;
+	padding-left:23px;
 }
 /*#login a{
 	position:absolute;
@@ -124,18 +126,21 @@ ul,li{
 	height:28px;
 	background:none;
 }*/
-#loginbtn{
+#loginbtn,#hi{
 	--top:20px;
 	--left:63px;
-	--background:url(../images/global/login_btn.png) top left no-repeat;
+	width:100px;/*57*/
+	height:22px;
+	background:url(../images/global/login_btn.png) top left no-repeat;
 }
 #loginbtn:hover{
-	
 }
-#registbtn{
+#registbtn,#logoutBtn{
 	--top:49px;
 	--left:63px;
-	--background:url(../images/global/regist_btn.png) top left no-repeat;
+	height:22px;
+	width:100px;
+	background:url(../images/global/regist_btn.png) top left no-repeat;
 }
 #registbtn:hover{
 	
