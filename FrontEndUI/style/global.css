@@ -129,7 +129,7 @@ ul,li{
 #loginbtn,#hi{
 	--top:20px;
 	--left:63px;
-	width:100px;/*57*/
+	width:400px;/*57*/
 	height:22px;
 	background:url(../images/global/login_btn.png) top left no-repeat;
 }
@@ -139,7 +139,7 @@ ul,li{
 	--top:49px;
 	--left:63px;
 	height:22px;
-	width:100px;
+	width:400px;
 	background:url(../images/global/regist_btn.png) top left no-repeat;
 }
 #registbtn:hover{
