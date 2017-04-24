@@ -51,6 +51,7 @@ $(document).ready(function(e) {
 <link href="../style/pagination.css" rel="stylesheet" type="text/css">
 <script>
 var totalCount=0;
+var isFirstLoad=true;
 $(document).ready(function(e) {
 	var eventData;
     function getData(page,doSetData){
@@ -71,10 +72,14 @@ $(document).ready(function(e) {
 			},
 			success : function(data){
 				if(data.articles.length==0){
+					isFirstLoad = true;
 					getData(page-1,setData);
 				}else{
 					doSetData(data);
-					setPagination(page);
+					if(isFirstLoad){
+						setPagination(page);
+						isFirstLoad = false;
+					}
 				}
 			},
 			error: function(e){
