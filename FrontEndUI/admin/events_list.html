@@ -56,13 +56,13 @@ $(document).ready(function(e) {
 	var eventData;
     function getData(page,doSetData){
 		var offset=0;
-		offset = 2*(page-1);
+		offset = 10*(page-1);
 		$.ajax({
 			async: false,
 			url : 'http://101.37.39.51/api/Articles/v1/Type/Events/list',
 			type:"get",
 			data : {
-				limit:2,
+				limit:10,
 				offset : offset,
 				totalCountRequired : true
 				},
@@ -153,7 +153,7 @@ $(document).ready(function(e) {
 				getData(page+1,setData);
 				//alert(page);
 			},
-			items_per_page: 2, //每页显示1项
+			items_per_page: 10, //每页显示1项
 			current_page: toPage-1,
 			link_to: 'javascript:void(0);',
 			prev_text: '上一页',
