@@ -154,7 +154,10 @@ $(document).ready(function(e) {
 				//alert(page);
 			},
 			items_per_page: 2, //每页显示1项
-			current_page: toPage-1
+			current_page: toPage-1,
+			prev_show_always: false,
+			next_show_always: false,
+			link_to: 'javascript:void(0);'
 		});
 	}
 	setPagination(1);
