@@ -126,9 +126,10 @@ jQuery.fn.pagination = function(maxentries, opts){
 			
 			var jumpTo = jQuery(document.createElement("input"));
 			jumpTo.val(current_page);
+			jumpTo.css('width','30px');
 			jumpTo.appendTo(panel);
 			
-			appendItem(jumpTo.val(),{text:'go'});
+			appendItem(jumpTo.val()+1,{text:'go'});
 			
 		}
 		
