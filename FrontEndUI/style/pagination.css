@@ -19,8 +19,8 @@
 }
 
 .pagination .current.prev, .pagination .current.next{
-	color:#999;
+	color:#fff;
 	border-color:#999;
-	background:#fff;
+	background:#999;
 }
 

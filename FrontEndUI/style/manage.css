@@ -1,6 +1,9 @@
 @charset "utf-8";
 /* CSS Document */
 
+.loginbtns{
+	width:300px;
+}
 .suggest{
 	font-size:12px;
 }

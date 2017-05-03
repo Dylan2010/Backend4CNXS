@@ -20,6 +20,8 @@
 $(document).ready(function(e) {
     if($.cookie('Token')==null || $.cookie('Token')=='null'){
 		window.location.href="./login.html";
+	}else{
+		$("#hi").text($.cookie('Name'));
 	}
 	
 	$("#logoutBtn").click(function(){
@@ -290,7 +292,7 @@ $(document).ready(function(e) {
                 <img src="../images/global/logo.png"/>
             </div>
             <div id="login">
-            	<img src="../images/global/login_sprite_all.png"/>
+            	<img src="../images/global/login_sprite.png"/>
                 <div class="loginbtns">
                 	<a id="hi" href="javascript:void(0);">
                     </a>
