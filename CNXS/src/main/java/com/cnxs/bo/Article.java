@@ -2,6 +2,7 @@ package com.cnxs.bo;
 
 import java.util.Date;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -17,6 +18,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 @Entity
 @Table(name = "article")
+@Cacheable(false)
 public class Article extends BusinessObjectBase{
 	
 	@Id
