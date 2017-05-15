@@ -18,7 +18,7 @@
 <script type="text/javascript" src="../script/plugins/json2.js"></script>
 <script>
 $(document).ready(function(e) {
-    if($.cookie('Token')==null || $.cookie('Token')=='null' || $.cookie('isKeyUser')=='false'){
+    if($.cookie('Token')==null || $.cookie('Token')=='null' || $.cookie('isKeyUser')=='false' || $.cookie('isKeyUser')==null){
 		window.location.href="./login.html";
 	}else{
 		$("#hi").text($.cookie('Name'));
