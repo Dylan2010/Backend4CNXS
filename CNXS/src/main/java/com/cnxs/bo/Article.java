@@ -24,18 +24,24 @@ public class Article extends BusinessObjectBase{
 	@Id
 	private int id;
 	
+	//标题
 	private String title;
 	
+	//摘要
 	private String summary;
 	
+	//内容
 	private String content;
 	
+	//类型
 	@Enumerated(EnumType.STRING)
 	private ArticleType type;
 	
+	//图片路径
 	@Column(name="imageinfo")
 	private String imageInfo;
 	
+	//文章日期
 	@Column(name="eventdate")
 	@JsonSerialize(using = DateToStringSerializer.class)
     private Date eventDate;

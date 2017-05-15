@@ -7,10 +7,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ArticleNewsListDTO {
 	
+	//动态列表
 	private List<Article> events;
 	
+	//专家列表
 	private List<Article> experts;
 	
+	//资讯列表
 	@JsonProperty("informations")
 	private List<Article> info;
 

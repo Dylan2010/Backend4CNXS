@@ -24,18 +24,21 @@ public class UserRest {
 	@Autowired
 	private UserService userSrv;
 	
+	//注册用户
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Boolean> createUser(@RequestBody User user) {
 		int res = userSrv.createUser(user);
 		return res < 0 ?  new ResponseEntity<Boolean>(false, HttpStatus.BAD_REQUEST) : new ResponseEntity<Boolean>(true, HttpStatus.OK);
 	}
 	
+	//修改用户
 	@RequestMapping(value="/id/{id}",method = RequestMethod.POST)
     public ResponseEntity<Boolean> updateUser(@PathVariable int id, @RequestBody User user) {
         boolean res = userSrv.updateUser(user,id);
         return res == false ?  new ResponseEntity<Boolean>(false, HttpStatus.BAD_REQUEST) : new ResponseEntity<Boolean>(true, HttpStatus.OK);
     }
 	
+	//登录
 	@RequestMapping(value = "/login",method = RequestMethod.POST)
 	public ResponseEntity<String> login(HttpServletRequest request, HttpServletResponse response, @RequestBody User user) {
 		User targetUser = userSrv.logIn(user);
@@ -44,6 +47,7 @@ public class UserRest {
 		return targetUser == null ?  new ResponseEntity<String>("登陆信息有误，请重新登陆", HttpStatus.BAD_REQUEST) : new ResponseEntity<String>("您好， " + targetUser.getAccount(), HttpStatus.OK);
 	}
 	
+	//登出
 	@RequestMapping(value = "/logoff" , method = RequestMethod.POST)
 	public ResponseEntity<Boolean> logooff(HttpServletRequest request, HttpServletResponse response) {
 	    Boolean res = userSrv.logOff();

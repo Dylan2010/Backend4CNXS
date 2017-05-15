@@ -6,8 +6,10 @@ import com.cnxs.bo.Article;
 
 public class ArticleListDTO {
 	
+	//总数
 	private long totalCount;
 	
+	//文章列表
 	private List<Article> articles;
 
 	public long getTotalCount() {

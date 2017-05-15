@@ -17,13 +17,16 @@ public class UserService {
 	@Autowired
 	private JWTService jwtSrv;
 	
+	//加密
 	private BCryptPasswordEncoder bCryptEncoder = new BCryptPasswordEncoder();
 	
+	//创建用户
 	public int createUser(User user) {
 		user.setPassword( bCryptEncoder.encode(user.getPassword()));
 		return userDao.createUser(user);
 	}
 	
+	//更新用户
 	public boolean updateUser(User user, Integer id) {
 	    if(user == null || user.getId() != id || id < 0) {
 	        return false;
@@ -33,6 +36,7 @@ public class UserService {
 	    }
 	}
 	
+	//登录
 	public User logIn(User user) {
 		User targetUser = userDao.findUserByAccount(user);
 		if(targetUser != null && bCryptEncoder.matches(user.getPassword(), targetUser.getPassword())) {
@@ -43,6 +47,7 @@ public class UserService {
 		return null;
 	}
 	
+	//登出
 	public Boolean logOff() {
 	    if(UserInfoContextHolder.getUserinfolocal().get().getJwt() == null) {
 	        return false;

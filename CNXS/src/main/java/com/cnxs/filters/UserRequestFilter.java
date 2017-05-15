@@ -31,6 +31,7 @@ public class UserRequestFilter extends OncePerRequestFilter {
 
 		Boolean isKeyUser = false;
 
+		//判断是否有权限操作
 		if (!StringUtils.isEmpty(token)) {
 
 			Claims claims = jwtSrv.validateToken(token);
@@ -41,6 +42,8 @@ public class UserRequestFilter extends OncePerRequestFilter {
 
 			UserInfoContextHolder.setUserInfo(userId, isKeyUser, token);
 		}
+		
+		//是否跳过验证
 		if (shouldSkipPermissionControl(request)) {
 			filterChain.doFilter(request, response);
 

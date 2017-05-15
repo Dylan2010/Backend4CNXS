@@ -13,6 +13,7 @@ public class DateToStringSerializer extends JsonSerializer<Date>{
     
     private static final String DATE_FORMAT = "yyyy-MM-dd";
 
+	//格式化日期
     @Override
     public void serialize(Date value, JsonGenerator gen, SerializerProvider serializers)
             throws IOException, JsonProcessingException {

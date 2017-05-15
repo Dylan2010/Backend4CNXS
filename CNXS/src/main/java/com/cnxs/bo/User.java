@@ -16,17 +16,21 @@ public class User extends BusinessObjectBase{
     @Id
     private int id;
     
+	//用户名
     @Column(unique=true)
     private String account;
     
+	//邮箱
     @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\."
             +"[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@"
             +"(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?",
                  message="{invalid.email}")
     private String email;
     
+	//密码
     private String password;
     
+	//是否管理员
     @Column(name="keyuser", updatable=false)
     private boolean keyUser;
 

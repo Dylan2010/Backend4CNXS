@@ -28,6 +28,7 @@ public class SimpleRest {
 	@Autowired
 	private JWTService jwtSrv;
 
+	//用户信息
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<String> getSample(@RequestParam(required = false) String token) {
 		Claims claims = jwtSrv.validateToken(token);
@@ -38,6 +39,7 @@ public class SimpleRest {
 				HttpStatus.OK);
 	}
 
+	//头像（预留）
 	@RequestMapping(value = "/photo", method = RequestMethod.GET, produces = MediaType.IMAGE_JPEG_VALUE)
 	public ResponseEntity<byte[]> testphoto() throws IOException {
 		ClassPathResource resource = new ClassPathResource("2.jpeg");

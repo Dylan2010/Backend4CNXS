@@ -27,12 +27,14 @@ public class ImageRest {
     
     private static String FILE_URL_PREFIX = "http://101.37.39.51:8011/";
     
+	//图片格式
     static{
         VALID_FILE_TYPES.add("JPEG");
         VALID_FILE_TYPES.add("JPG");
         VALID_FILE_TYPES.add("PNG");
     }
     
+	//图片上传
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
         if(file.isEmpty()) {

@@ -13,9 +13,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @AdditionalCriteria("this.deleted=0")
 public abstract class BusinessObjectBase {
     
+	//创建时间
     @Column(name="creationtime", updatable=false)
     private Date creationTime;
     
+	//是否删除
     @JsonIgnore
     private boolean deleted;
     

@@ -15,12 +15,17 @@ import com.cnxs.enums.ArticleType;
 @Service
 public class ArticleService {
     
+	//最大每页显示限制
     private static final int MAX_PAGE_LIMIT = 50;
     
+	//默认每页条数
     private static final int DEFAULT_PAGE_LIMIT = 10;
     
+	//默认偏移量
     private static final int DEFAULT_PAGE_OFFSET = 0;
 	
+	
+	//获取文章
 	@Autowired
 	private ArticleDao articleDao;
 	
@@ -36,6 +41,7 @@ public class ArticleService {
 		}
 	}
 	
+	//创建
 	public boolean create(Article article, String type) {
 		if(!isInValidType(type) && type.equals(article.getType().toString())) {
 			return articleDao.create(article);
@@ -43,6 +49,7 @@ public class ArticleService {
 		return false;
 	}
 	
+	//更新
 	public boolean update(Article article, String type, Integer id) {
         if(!isInValidType(type) && id != null && id == article.getId() && type.equals(article.getType().toString())) {
             return articleDao.update(article);
@@ -50,10 +57,12 @@ public class ArticleService {
         return false;
     }
 	
+	//搜索
 	public List<Article> search(String keyword) {
 		return articleDao.search(keyword);
 	}
 	
+	//获取总数
 	public long getArticleTotalCountByType(String type) {
 		if(isInValidType(type)) {
 			return 0;
@@ -62,6 +71,7 @@ public class ArticleService {
 		}
 	}
 	
+	//获取列表
 	public List<Article> getArticleList(String type, Integer offset, Integer limit) {
 	    if(isInValidType(type)) {
 	        return new ArrayList<Article>();
@@ -72,6 +82,7 @@ public class ArticleService {
 	    return articleDao.getArticleList( ArticleType.valueOf(type), offset, limit);
 	}
 	
+	//新闻动态
 	public ArticleNewsListDTO getNewsList(Integer limit) {
 		int pageLimit;
 		pageLimit = limit == null ? DEFAULT_PAGE_LIMIT : limit;
@@ -84,6 +95,7 @@ public class ArticleService {
 	    return res;
 	}
 	
+	//判断非法类型
 	private boolean isInValidType(String type) {
 	    try{
 	        ArticleType.valueOf(type);
@@ -93,6 +105,7 @@ public class ArticleService {
 	    return  false;
 	}
 	
+	//获取最新
 	public Article getLatestArticle(String type, Boolean next, Date date) {
 	    if(isInValidType(type)) {
             return null;
@@ -100,6 +113,7 @@ public class ArticleService {
 	    return articleDao.getLatestArticle(date, next, ArticleType.valueOf(type));
 	}
 	
+	//删除
 	public Boolean deleteArticleByTypeAndId(String type, int id) {
 	    return articleDao.deleteArticleByTypeAndId(ArticleType.valueOf(type), id);
 	}
